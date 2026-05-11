@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>KEENLY — Web App Mockup (responsive)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        keenlyPurple: "#40405D",
+        keenlyLime: "#AFEB7B",
+        keenlyPink: "#F7C9D9",
+        keenlyYellow: "#FFE27A",
+        keenlyBlue: "#A4D8F0",
+      },
+      fontFamily: { display: ['"Nunito"', 'system-ui', 'sans-serif'] }
+    }
+  }
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Nunito', system-ui, sans-serif; background: #f4f4f7; }
+  .frame { border-radius: 28px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.25); overflow: hidden; background: white; }
+  .phone { width: 360px; height: 760px; }
+  .desktop { width: 100%; max-width: 1100px; min-height: 640px; }
+  .screen-label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 8px; }
+  .badge-free { background: #e9ecef; color: #495057; }
+  .badge-pro { background: #AFEB7B; color: #1a3300; }
+  .badge-family { background: #40405D; color: white; }
+  .checker { background-image: linear-gradient(45deg, #f8f9fa 25%, transparent 25%, transparent 75%, #f8f9fa 75%), linear-gradient(45deg, #f8f9fa 25%, transparent 25%, transparent 75%, #f8f9fa 75%); background-size: 16px 16px; background-position: 0 0, 8px 8px; }
+  .grain { background: radial-gradient(circle at 30% 20%, #5a5a85, #40405D 60%); }
+  .lime { background: #AFEB7B; }
+  .scroll-x { overflow-x: auto; padding-bottom: 12px; }
+  .scroll-x::-webkit-scrollbar { height: 8px; }
+  .scroll-x::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+</style>
+</head>
+<body class="p-8">
+
+<header class="max-w-6xl mx-auto mb-10">
+  <h1 class="text-3xl font-extrabold text-keenlyPurple">KEENLY — Web App Mockup (responsive)</h1>
+  <p class="text-gray-600 mt-2">Visual blueprint of all key screens, using sister's existing brand assets (logos, lime/purple palette, sample PDF story content). Mobile views = how the responsive web feels on iPhone. Desktop views = same code, wider breakpoint.</p>
+  <p class="text-xs text-gray-500 mt-2">Brand: purple <code>#40405D</code> + lime <code>#AFEB7B</code> + Nunito. Drawn entirely from `Keenly-Website-main/src/assets/` + figma-scrape PNGs.</p>
+</header>
+
+<!-- ============================== MOBILE SCREENS ============================== -->
+<section class="max-w-6xl mx-auto mb-16">
+  <h2 class="text-xl font-bold text-keenlyPurple mb-6">📱 Mobile web (responsive — same code, narrow viewport)</h2>
+
+  <div class="flex flex-wrap gap-8 justify-start">
+
+    <!-- 1. LANDING / HOME -->
+    <div>
+      <div class="screen-label">1. Landing (/)</div>
+      <div class="frame phone flex flex-col">
+        <div class="grain text-white px-6 py-8 flex-shrink-0">
+          <div class="flex justify-between items-center mb-8">
+            <div class="font-extrabold text-xl">KEENLY</div>
+            <button class="text-sm bg-white/15 backdrop-blur px-3 py-1.5 rounded-full">Sign in</button>
+          </div>
+          <h1 class="text-2xl font-extrabold leading-tight mb-2">Empowering Special Needs</h1>
+          <p class="text-sm text-white/85 mb-5">Personalized social stories — built with your own photos, your own voice.</p>
+          <button class="bg-keenlyLime text-keenlyPurple font-bold px-6 py-3 rounded-full text-sm shadow-lg">Get started — free</button>
+        </div>
+        <div class="px-6 py-5 flex-1 overflow-y-auto">
+          <div class="text-xs uppercase tracking-wider text-gray-500 mb-3">Featured stories</div>
+          <div class="space-y-3">
+            <div class="border border-gray-200 rounded-2xl p-3 flex gap-3 items-center">
+              <div class="w-14 h-14 bg-keenlyYellow rounded-xl flex items-center justify-center text-2xl">😬</div>
+              <div class="flex-1">
+                <div class="font-bold text-sm">When I get a haircut</div>
+                <div class="text-xs text-gray-500">Reduces sensory anxiety</div>
+              </div>
+            </div>
+            <div class="border border-gray-200 rounded-2xl p-3 flex gap-3 items-center">
+              <div class="w-14 h-14 bg-keenlyPink rounded-xl flex items-center justify-center text-2xl">🦷</div>
+              <div class="flex-1">
+                <div class="font-bold text-sm">When I visit the dentist</div>
+                <div class="text-xs text-gray-500">Step-by-step calm</div>
+              </div>
+            </div>
+            <div class="border border-gray-200 rounded-2xl p-3 flex gap-3 items-center">
+              <div class="w-14 h-14 bg-keenlyBlue rounded-xl flex items-center justify-center text-2xl">😡</div>
+              <div class="flex-1">
+                <div class="font-bold text-sm">When I feel angry</div>
+                <div class="text-xs text-gray-500">Emotion regulation</div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 text-xs text-center text-gray-400">Tap to preview · Sign up to remix</div>
+        </div>
+        <div class="border-t border-gray-100 px-6 py-3 flex justify-around text-keenlyPurple flex-shrink-0">
+          <div class="text-center"><div class="text-xl">🏠</div><div class="text-[10px]">Home</div></div>
+          <div class="text-center opacity-50"><div class="text-xl">📚</div><div class="text-[10px]">Stories</div></div>
+          <div class="text-center opacity-50"><div class="text-xl">💎</div><div class="text-[10px]">Pricing</div></div>
+          <div class="text-center opacity-50"><div class="text-xl">👤</div><div class="text-[10px]">Account</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. SIGN UP -->
+    <div>
+      <div class="screen-label">2. Sign up (/sign-up)</div>
+      <div class="frame phone flex flex-col">
+        <div class="bg-keenlyPurple text-white px-6 py-6 flex-shrink-0">
+          <div class="font-extrabold text-xl mb-1">KEENLY</div>
+          <p class="text-xs text-white/70">Start free. No card required.</p>
+        </div>
+        <div class="px-6 py-6 flex-1 flex flex-col">
+          <h2 class="font-extrabold text-keenlyPurple text-lg mb-4">Create your account</h2>
+          <label class="text-xs text-gray-500">Full name</label>
+          <input class="border border-gray-200 rounded-xl px-4 py-3 mb-3 text-sm" value="Maria S." />
+          <label class="text-xs text-gray-500">Email</label>
+          <input class="border border-gray-200 rounded-xl px-4 py-3 mb-3 text-sm" value="maria@example.com" />
+          <label class="text-xs text-gray-500">Password</label>
+          <input class="border border-gray-200 rounded-xl px-4 py-3 mb-3 text-sm" value="••••••••" type="password" />
+          <div class="text-xs text-gray-500 mb-3">I'm a…</div>
+          <div class="grid grid-cols-2 gap-2 mb-5">
+            <button class="border-2 border-keenlyLime bg-keenlyLime/30 rounded-xl py-2 text-xs font-bold text-keenlyPurple">Parent</button>
+            <button class="border border-gray-200 rounded-xl py-2 text-xs text-gray-600">Educator</button>
+            <button class="border border-gray-200 rounded-xl py-2 text-xs text-gray-600">Therapist</button>
+            <button class="border border-gray-200 rounded-xl py-2 text-xs text-gray-600">Other</button>
+          </div>
+          <button class="bg-keenlyPurple text-white font-bold py-3 rounded-full text-sm">Create account</button>
+          <div class="text-center text-xs text-gray-400 my-3">or</div>
+          <button class="border border-gray-200 rounded-full py-2.5 text-sm font-medium">Continue with Google</button>
+          <div class="text-center text-xs text-gray-400 mt-auto pt-4">Have an account? <span class="text-keenlyPurple font-bold">Sign in</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. DASHBOARD / MY STORIES -->
+    <div>
+      <div class="screen-label">3. Dashboard (/dashboard)</div>
+      <div class="frame phone flex flex-col">
+        <div class="bg-white px-6 py-4 flex justify-between items-center border-b border-gray-100">
+          <div>
+            <div class="text-xs text-gray-400">Hi,</div>
+            <div class="font-extrabold text-keenlyPurple">Maria 👋</div>
+          </div>
+          <span class="badge-free text-[10px] px-2.5 py-1 rounded-full font-bold uppercase">Free · 2 of 3 left</span>
+        </div>
+        <div class="px-6 py-5 flex-1 overflow-y-auto">
+          <button class="w-full bg-keenlyLime text-keenlyPurple font-bold py-3 rounded-2xl mb-4 flex items-center justify-center gap-2">
+            <span class="text-xl">＋</span> Create new story
+          </button>
+          <div class="flex gap-2 mb-3 text-xs">
+            <span class="px-3 py-1.5 rounded-full bg-keenlyPurple text-white font-bold">All</span>
+            <span class="px-3 py-1.5 rounded-full bg-gray-100 text-gray-500">My stories</span>
+            <span class="px-3 py-1.5 rounded-full bg-gray-100 text-gray-500">Shared</span>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="border border-gray-200 rounded-xl p-3">
+              <div class="aspect-square bg-keenlyYellow rounded-lg mb-2 flex items-center justify-center text-3xl">😬</div>
+              <div class="text-xs font-bold">Haircut day</div>
+              <div class="text-[10px] text-gray-500">5 pages</div>
+            </div>
+            <div class="border border-gray-200 rounded-xl p-3">
+              <div class="aspect-square bg-keenlyPink rounded-lg mb-2 flex items-center justify-center text-3xl">🦷</div>
+              <div class="text-xs font-bold">Dentist visit</div>
+              <div class="text-[10px] text-gray-500">6 pages</div>
+            </div>
+            <div class="border-2 border-dashed border-keenlyLime rounded-xl p-3 flex flex-col items-center justify-center text-keenlyPurple bg-keenlyLime/10">
+              <div class="text-2xl mb-1">✨</div>
+              <div class="text-[10px] font-bold text-center">1 free slot left</div>
+            </div>
+          </div>
+          <div class="mt-6 bg-keenlyPurple/5 border border-keenlyPurple/20 rounded-xl p-4">
+            <div class="font-bold text-keenlyPurple text-sm">Go unlimited 🚀</div>
+            <div class="text-[11px] text-gray-600 mt-1">Pro: unlimited stories, no watermark, audio narration — $9.99/mo</div>
+            <button class="mt-3 bg-keenlyPurple text-white text-xs font-bold px-4 py-2 rounded-full">Upgrade</button>
+          </div>
+        </div>
+        <div class="border-t border-gray-100 px-6 py-3 flex justify-around text-keenlyPurple flex-shrink-0">
+          <div class="text-center opacity-50"><div class="text-xl">🏠</div><div class="text-[10px]">Home</div></div>
+          <div class="text-center"><div class="text-xl">📚</div><div class="text-[10px] font-bold">Stories</div></div>
+          <div class="text-center opacity-50"><div class="text-xl">💎</div><div class="text-[10px]">Pricing</div></div>
+          <div class="text-center opacity-50"><div class="text-xl">👤</div><div class="text-[10px]">Account</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. STORY EDITOR -->
+    <div>
+      <div class="screen-label">4. Story editor (/stories/new)</div>
+      <div class="frame phone flex flex-col">
+        <div class="bg-white px-6 py-4 flex justify-between items-center border-b border-gray-100">
+          <button class="text-keenlyPurple text-xl">←</button>
+          <div class="text-xs font-bold text-gray-500">PAGE 2 OF 5</div>
+          <button class="text-keenlyPurple font-bold text-sm">Save</button>
+        </div>
+        <div class="px-6 py-5 flex-1 overflow-y-auto">
+          <input class="text-2xl font-extrabold text-keenlyPurple w-full mb-1 outline-none" value="Haircut day" />
+          <div class="text-xs text-gray-400 mb-4">Tap to rename</div>
+
+          <div class="aspect-square bg-keenlyYellow rounded-2xl mb-3 flex items-center justify-center text-6xl relative checker">
+            😬
+            <button class="absolute top-3 right-3 bg-white/90 rounded-full w-9 h-9 flex items-center justify-center shadow">📷</button>
+          </div>
+          <div class="flex gap-2 mb-3 text-xs">
+            <button class="flex-1 border border-gray-200 rounded-full py-2">📷 Replace</button>
+            <button class="flex-1 border border-gray-200 rounded-full py-2">🎙️ Record</button>
+          </div>
+          <textarea class="w-full border border-gray-200 rounded-xl p-3 text-sm h-20 resize-none">First, mom drives me to the haircut place. I bring my favorite toy.</textarea>
+
+          <div class="mt-5 scroll-x flex gap-2">
+            <div class="flex-shrink-0 w-14 h-14 bg-keenlyPink rounded-lg flex items-center justify-center text-xl">🚗</div>
+            <div class="flex-shrink-0 w-14 h-14 bg-keenlyYellow rounded-lg flex items-center justify-center text-xl border-2 border-keenlyPurple">😬</div>
+            <div class="flex-shrink-0 w-14 h-14 bg-keenlyBlue rounded-lg flex items-center justify-center text-xl">💺</div>
+            <div class="flex-shrink-0 w-14 h-14 bg-keenlyLime rounded-lg flex items-center justify-center text-xl">✂️</div>
+            <div class="flex-shrink-0 w-14 h-14 bg-keenlyPink rounded-lg flex items-center justify-center text-xl">🎉</div>
+            <div class="flex-shrink-0 w-14 h-14 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center text-2xl text-gray-400">＋</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. STORY VIEWER -->
+    <div>
+      <div class="screen-label">5. Story viewer (/stories/:id)</div>
+      <div class="frame phone flex flex-col">
+        <div class="bg-keenlyPurple text-white px-6 py-4 flex justify-between items-center">
+          <button class="text-xl">←</button>
+          <div class="font-bold text-sm">Haircut day</div>
+          <button class="text-xl">⋯</button>
+        </div>
+        <div class="bg-keenlyYellow flex-1 flex flex-col items-center justify-center px-6">
+          <div class="text-9xl mb-6">✂️</div>
+          <div class="bg-white rounded-2xl px-5 py-4 shadow text-center max-w-[260px]">
+            <div class="font-bold text-keenlyPurple text-lg">The barber uses scissors.</div>
+            <div class="text-xs text-gray-500 mt-1">It might tickle. That's okay.</div>
+          </div>
+          <button class="mt-5 bg-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg text-2xl">▶</button>
+        </div>
+        <div class="px-6 py-3 flex items-center justify-between bg-white border-t border-gray-100">
+          <button class="text-keenlyPurple text-2xl">◀</button>
+          <div class="flex gap-1.5">
+            <div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+            <div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+            <div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+            <div class="w-1.5 h-1.5 rounded-full bg-keenlyPurple"></div>
+            <div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+          </div>
+          <button class="text-keenlyPurple text-2xl">▶</button>
+        </div>
+        <div class="bg-white px-6 py-3 border-t border-gray-100 text-[10px] text-gray-400 text-center">Made with KEENLY · livekeenly.com</div>
+      </div>
+    </div>
+
+    <!-- 6. SHARE -->
+    <div>
+      <div class="screen-label">6. Share dialog</div>
+      <div class="frame phone flex flex-col">
+        <div class="bg-keenlyPurple/50 flex-1 flex items-end">
+          <div class="bg-white w-full rounded-t-3xl px-6 py-6">
+            <div class="w-10 h-1 bg-gray-300 rounded-full mx-auto mb-5"></div>
+            <h3 class="font-extrabold text-keenlyPurple text-lg mb-1">Share "Haircut day"</h3>
+            <p class="text-xs text-gray-500 mb-4">Anyone with this link can view your story.</p>
+
+            <div class="border border-gray-200 rounded-xl px-3 py-2.5 flex items-center justify-between mb-4 bg-gray-50">
+              <code class="text-xs text-keenlyPurple truncate">livekeenly.com/s/x9k2-mq</code>
+              <button class="bg-keenlyLime text-keenlyPurple text-xs font-bold px-3 py-1.5 rounded-full">Copy</button>
+            </div>
+
+            <div class="grid grid-cols-4 gap-3 mb-5 text-center text-[10px]">
+              <div><div class="w-12 h-12 bg-keenlyBlue rounded-full mx-auto mb-1 flex items-center justify-center text-xl">✉️</div>Email</div>
+              <div><div class="w-12 h-12 bg-keenlyPink rounded-full mx-auto mb-1 flex items-center justify-center text-xl">💬</div>SMS</div>
+              <div><div class="w-12 h-12 bg-keenlyYellow rounded-full mx-auto mb-1 flex items-center justify-center text-xl">📄</div>PDF</div>
+              <div><div class="w-12 h-12 bg-keenlyLime rounded-full mx-auto mb-1 flex items-center justify-center text-xl">🖨️</div>Print</div>
+            </div>
+
+            <div class="bg-keenlyPurple/5 border border-keenlyPurple/20 rounded-xl p-3 mb-4">
+              <div class="text-[10px] uppercase tracking-wider text-keenlyPurple font-bold">Free tier</div>
+              <div class="text-xs text-gray-600 mt-1">Exports include "Made with KEENLY" footer. <span class="text-keenlyPurple font-bold">Upgrade to Pro</span> to remove.</div>
+            </div>
+
+            <button class="w-full text-center text-xs text-gray-500 py-2">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. PRICING -->
+    <div>
+      <div class="screen-label">7. Pricing (/pricing)</div>
+      <div class="frame phone flex flex-col">
+        <div class="bg-keenlyPurple text-white px-6 py-6">
+          <button class="text-xl mb-3">←</button>
+          <h2 class="text-xl font-extrabold">Pick your plan</h2>
+          <p class="text-xs text-white/70 mt-1">Cancel anytime. No card for Free.</p>
+          <div class="mt-4 inline-flex bg-white/10 rounded-full p-1 text-xs">
+            <span class="px-3 py-1.5 rounded-full text-white/70">Monthly</span>
+            <span class="px-3 py-1.5 rounded-full bg-keenlyLime text-keenlyPurple font-bold">Yearly · save 33%</span>
+          </div>
+        </div>
+        <div class="px-6 py-5 space-y-3 overflow-y-auto flex-1 bg-gray-50">
+          <div class="bg-white border border-gray-200 rounded-2xl p-4">
+            <div class="flex justify-between items-baseline">
+              <div class="font-extrabold text-keenlyPurple">Free</div>
+              <div class="text-xs text-gray-500">$0</div>
+            </div>
+            <ul class="text-xs text-gray-600 mt-2 space-y-1">
+              <li>✓ 3 stories total</li>
+              <li>✓ Share with watermark</li>
+              <li>✓ PDF export</li>
+            </ul>
+            <button class="mt-3 w-full border border-gray-200 rounded-full py-2 text-sm font-bold text-keenlyPurple">Current plan</button>
+          </div>
+          <div class="bg-white border-2 border-keenlyLime rounded-2xl p-4 relative">
+            <span class="absolute -top-2.5 right-4 bg-keenlyLime text-keenlyPurple text-[10px] font-extrabold px-2.5 py-1 rounded-full">MOST POPULAR</span>
+            <div class="flex justify-between items-baseline">
+              <div class="font-extrabold text-keenlyPurple">Pro</div>
+              <div><span class="font-extrabold text-keenlyPurple text-xl">$79</span><span class="text-xs text-gray-500">/yr</span></div>
+            </div>
+            <ul class="text-xs text-gray-600 mt-2 space-y-1">
+              <li>✓ Unlimited stories</li>
+              <li>✓ No watermark</li>
+              <li>✓ Audio narration</li>
+              <li>✓ 1 child profile</li>
+            </ul>
+            <button class="mt-3 w-full bg-keenlyLime text-keenlyPurple font-bold rounded-full py-2.5">Upgrade to Pro</button>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-2xl p-4">
+            <div class="flex justify-between items-baseline">
+              <div class="font-extrabold text-keenlyPurple">Family</div>
+              <div><span class="font-extrabold text-keenlyPurple text-xl">$159</span><span class="text-xs text-gray-500">/yr</span></div>
+            </div>
+            <ul class="text-xs text-gray-600 mt-2 space-y-1">
+              <li>✓ Everything in Pro</li>
+              <li>✓ 4 child profiles</li>
+              <li>✓ Cross-device sync</li>
+              <li>✓ Priority support</li>
+            </ul>
+            <button class="mt-3 w-full bg-keenlyPurple text-white font-bold rounded-full py-2.5">Upgrade to Family</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. ACCOUNT -->
+    <div>
+      <div class="screen-label">8. Account (/account)</div>
+      <div class="frame phone flex flex-col">
+        <div class="bg-white px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+          <button class="text-keenlyPurple text-xl">←</button>
+          <div class="font-bold text-keenlyPurple">Account</div>
+          <div></div>
+        </div>
+        <div class="px-6 py-5 overflow-y-auto flex-1">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-14 h-14 rounded-full bg-keenlyLime flex items-center justify-center text-xl font-extrabold text-keenlyPurple">M</div>
+            <div>
+              <div class="font-bold text-keenlyPurple">Maria S.</div>
+              <div class="text-xs text-gray-500">maria@example.com</div>
+            </div>
+          </div>
+
+          <div class="bg-keenlyPurple/5 rounded-xl p-4 mb-5 flex items-center justify-between">
+            <div>
+              <div class="text-[10px] uppercase tracking-wider text-keenlyPurple font-bold">Current plan</div>
+              <div class="font-extrabold text-keenlyPurple">Pro · $9.99/mo</div>
+              <div class="text-xs text-gray-500 mt-1">Renews Jun 11, 2026</div>
+            </div>
+            <button class="text-xs font-bold text-keenlyPurple">Manage</button>
+          </div>
+
+          <div class="text-xs uppercase tracking-wider text-gray-500 font-bold mb-2">Child profiles</div>
+          <div class="border border-gray-200 rounded-xl p-3 mb-2 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-keenlyPink flex items-center justify-center text-lg">🧒</div>
+            <div class="flex-1">
+              <div class="font-bold text-sm">Sofia · 6 yrs</div>
+              <div class="text-[10px] text-gray-500">3 stories</div>
+            </div>
+            <button class="text-keenlyPurple text-sm">⋯</button>
+          </div>
+          <div class="border-2 border-dashed border-gray-200 rounded-xl py-3 flex items-center justify-center gap-2 text-xs text-gray-500 mb-5">
+            ＋ Add child profile (Family plan)
+          </div>
+
+          <div class="text-xs uppercase tracking-wider text-gray-500 font-bold mb-2">Settings</div>
+          <div class="space-y-1 text-sm">
+            <div class="flex justify-between py-2 border-b border-gray-100"><span>Email notifications</span><span class="text-gray-400">On</span></div>
+            <div class="flex justify-between py-2 border-b border-gray-100"><span>Privacy policy</span><span class="text-gray-400">›</span></div>
+            <div class="flex justify-between py-2 border-b border-gray-100"><span>Terms</span><span class="text-gray-400">›</span></div>
+            <div class="flex justify-between py-2 text-red-500"><span>Sign out</span><span>›</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================== DESKTOP VIEW ============================== -->
+<section class="max-w-6xl mx-auto mb-16">
+  <h2 class="text-xl font-bold text-keenlyPurple mb-6">🖥️ Desktop view (same React code, wide breakpoint)</h2>
+
+  <div class="screen-label">Landing — desktop</div>
+  <div class="frame desktop">
+    <div class="grain text-white">
+      <div class="px-10 py-5 flex justify-between items-center border-b border-white/10">
+        <div class="flex items-center gap-8">
+          <div class="font-extrabold text-2xl">KEENLY</div>
+          <nav class="flex gap-6 text-sm text-white/80">
+            <span>Stories</span>
+            <span>Our Mission</span>
+            <span>Our Story</span>
+            <span>Pricing</span>
+          </nav>
+        </div>
+        <div class="flex gap-3 text-sm">
+          <button class="text-white/80">Sign in</button>
+          <button class="bg-keenlyLime text-keenlyPurple font-bold px-4 py-2 rounded-full">Get started — free</button>
+        </div>
+      </div>
+      <div class="px-10 py-16 grid grid-cols-2 gap-10 items-center">
+        <div>
+          <div class="text-keenlyLime text-xs uppercase tracking-widest font-bold mb-3">For parents · educators · therapists</div>
+          <h1 class="text-5xl font-extrabold leading-tight mb-5">Empowering<br>Special Needs.</h1>
+          <p class="text-white/80 mb-6 max-w-md">Custom social stories built with your own photos and your own voice. Reduce anxiety. Teach social norms. Celebrate every small win.</p>
+          <div class="flex gap-3">
+            <button class="bg-keenlyLime text-keenlyPurple font-bold px-6 py-3 rounded-full">Start free</button>
+            <button class="border border-white/30 text-white px-6 py-3 rounded-full">See pricing</button>
+          </div>
+          <div class="mt-8 flex gap-5 text-xs text-white/60">
+            <span>✓ No credit card</span>
+            <span>✓ 3 free stories</span>
+            <span>✓ Cancel anytime</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="bg-keenlyYellow rounded-2xl aspect-[3/4] flex items-end p-4"><div><div class="text-4xl mb-2">😬</div><div class="text-keenlyPurple font-bold text-sm">Haircut day</div></div></div>
+          <div class="bg-keenlyPink rounded-2xl aspect-[3/4] flex items-end p-4 mt-8"><div><div class="text-4xl mb-2">🦷</div><div class="text-keenlyPurple font-bold text-sm">Dentist</div></div></div>
+          <div class="bg-keenlyBlue rounded-2xl aspect-[3/4] flex items-end p-4 -mt-8"><div><div class="text-4xl mb-2">🌙</div><div class="text-keenlyPurple font-bold text-sm">Nighttime routine</div></div></div>
+          <div class="bg-keenlyLime rounded-2xl aspect-[3/4] flex items-end p-4"><div><div class="text-4xl mb-2">✈️</div><div class="text-keenlyPurple font-bold text-sm">First flight</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="px-10 py-10 bg-gray-50 grid grid-cols-3 gap-6 text-center">
+      <div><div class="text-3xl mb-2">📷</div><div class="font-bold text-keenlyPurple">Use your own photos</div><div class="text-xs text-gray-500 mt-1">Familiar faces &gt; cartoons.</div></div>
+      <div><div class="text-3xl mb-2">🎙️</div><div class="font-bold text-keenlyPurple">Record your voice</div><div class="text-xs text-gray-500 mt-1">Parent or therapist narration.</div></div>
+      <div><div class="text-3xl mb-2">📄</div><div class="font-bold text-keenlyPurple">Print &amp; share anywhere</div><div class="text-xs text-gray-500 mt-1">PDF · web link · SMS.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="max-w-6xl mx-auto pt-8 border-t border-gray-200 text-xs text-gray-500">
+  Mockup uses brand palette + iconography pulled from existing repo assets. All 8 mobile + 1 desktop variants share one React codebase with Tailwind responsive breakpoints. Sample stories (haircut / dentist / etc.) match the 9 PDFs sister already shipped.
+</footer>
+
+</body>
+</html>

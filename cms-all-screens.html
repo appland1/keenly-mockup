@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>KEENLY CMS — Admin Mockup (Refine.dev)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        keenlyPurple: "#40405D",
+        keenlyLime: "#AFEB7B",
+        keenlyPink: "#F7C9D9",
+        keenlyYellow: "#FFE27A",
+        keenlyBlue: "#A4D8F0",
+      }
+    }
+  }
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Nunito', system-ui, sans-serif; background: #f4f4f7; }
+  .frame { border-radius: 14px; box-shadow: 0 10px 40px -10px rgba(0,0,0,.18); overflow: hidden; background: white; }
+  .badge { font-size: 10px; font-weight: 800; padding: 3px 8px; border-radius: 999px; letter-spacing: .05em; text-transform: uppercase; }
+  .badge-free { background: #e9ecef; color: #495057; }
+  .badge-pro { background: #AFEB7B; color: #1a3300; }
+  .badge-family { background: #40405D; color: white; }
+  .badge-flagged { background: #fee2e2; color: #b91c1c; }
+  .badge-approved { background: #dcfce7; color: #166534; }
+  .badge-removed { background: #f3f4f6; color: #6b7280; }
+  .stat { background: white; border-radius: 12px; padding: 18px; border: 1px solid #eee; }
+  .label { font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: #888; }
+  table { width: 100%; font-size: 13px; }
+  th { text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: #888; padding: 10px 14px; border-bottom: 1px solid #eee; }
+  td { padding: 12px 14px; border-bottom: 1px solid #f3f3f3; }
+  tr:hover td { background: #fafbfd; }
+  .pill { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; }
+  .screen-label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 8px; }
+</style>
+</head>
+<body class="p-8">
+
+<header class="max-w-7xl mx-auto mb-10">
+  <h1 class="text-3xl font-extrabold text-keenlyPurple">KEENLY CMS — admin.livekeenly.com</h1>
+  <p class="text-gray-600 mt-2">Refine.dev React SPA. Reads/writes the same Firestore as the live web app. Auth-gated by Firebase Auth + <code>admin: true</code> custom claim. Sister + Al only.</p>
+  <p class="text-xs text-gray-500 mt-2">Lean scope — 4 screens only at launch: Dashboard · Users · Stories · Featured & Settings. Everything else (blog, A/B, analytics) lives in 3rd-party tools (GA4, ConvertKit, etc.).</p>
+</header>
+
+<!-- ============================== SHELL + DASHBOARD ============================== -->
+<section class="max-w-7xl mx-auto mb-14">
+  <div class="screen-label">1. Dashboard (admin home)</div>
+  <div class="frame flex" style="min-height: 720px;">
+
+    <!-- SIDEBAR -->
+    <aside class="bg-keenlyPurple text-white w-60 flex-shrink-0 flex flex-col">
+      <div class="px-5 py-5 border-b border-white/10">
+        <div class="font-extrabold text-xl">KEENLY</div>
+        <div class="text-xs text-keenlyLime mt-0.5">admin</div>
+      </div>
+      <nav class="flex-1 px-3 py-4 space-y-1 text-sm">
+        <div class="bg-white/10 rounded-lg px-3 py-2.5 flex items-center gap-2 font-bold">
+          <span>📊</span> Dashboard
+        </div>
+        <div class="px-3 py-2.5 flex items-center gap-2 text-white/70 hover:bg-white/5 rounded-lg">
+          <span>👥</span> Users <span class="ml-auto text-[10px] bg-keenlyLime text-keenlyPurple rounded-full px-2 py-0.5 font-bold">312</span>
+        </div>
+        <div class="px-3 py-2.5 flex items-center gap-2 text-white/70 hover:bg-white/5 rounded-lg">
+          <span>📚</span> Stories <span class="ml-auto text-[10px] bg-red-500 text-white rounded-full px-2 py-0.5 font-bold">3</span>
+        </div>
+        <div class="px-3 py-2.5 flex items-center gap-2 text-white/70 hover:bg-white/5 rounded-lg">
+          <span>⭐</span> Featured
+        </div>
+        <div class="px-3 py-2.5 flex items-center gap-2 text-white/70 hover:bg-white/5 rounded-lg">
+          <span>⚙️</span> Settings
+        </div>
+      </nav>
+      <div class="px-5 py-4 border-t border-white/10 text-xs">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-full bg-keenlyLime flex items-center justify-center text-keenlyPurple font-extrabold">A</div>
+          <div>
+            <div class="font-bold">Al X</div>
+            <div class="text-white/60 text-[10px]">admin</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="flex-1 bg-gray-50 overflow-y-auto">
+      <div class="px-8 py-5 bg-white border-b border-gray-100 flex justify-between items-center">
+        <div>
+          <h2 class="font-extrabold text-keenlyPurple text-lg">Dashboard</h2>
+          <div class="text-xs text-gray-500">Last 30 days · live data from Firestore</div>
+        </div>
+        <div class="flex gap-2">
+          <button class="text-xs px-3 py-2 border border-gray-200 rounded-lg">📥 Export CSV</button>
+          <button class="text-xs px-3 py-2 bg-keenlyPurple text-white rounded-lg font-bold">+ New story (manual)</button>
+        </div>
+      </div>
+
+      <div class="px-8 py-6">
+        <div class="grid grid-cols-4 gap-4 mb-6">
+          <div class="stat">
+            <div class="label">Total users</div>
+            <div class="text-3xl font-extrabold text-keenlyPurple mt-1">312</div>
+            <div class="text-xs text-green-600 mt-1">↑ 28 this week</div>
+          </div>
+          <div class="stat">
+            <div class="label">Paying (Pro + Family)</div>
+            <div class="text-3xl font-extrabold text-keenlyPurple mt-1">14</div>
+            <div class="text-xs text-gray-500 mt-1">4.5% conversion</div>
+          </div>
+          <div class="stat">
+            <div class="label">MRR</div>
+            <div class="text-3xl font-extrabold text-keenlyPurple mt-1">$169</div>
+            <div class="text-xs text-green-600 mt-1">↑ $40 vs last mo</div>
+          </div>
+          <div class="stat">
+            <div class="label">Stories created</div>
+            <div class="text-3xl font-extrabold text-keenlyPurple mt-1">847</div>
+            <div class="text-xs text-gray-500 mt-1">avg 2.7 / user</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="stat">
+            <div class="flex justify-between items-baseline mb-3">
+              <div class="label">Action queue</div>
+              <a class="text-xs text-keenlyPurple font-bold">View all</a>
+            </div>
+            <ul class="text-sm space-y-2">
+              <li class="flex justify-between items-center py-1.5 border-b border-gray-100">
+                <span>🚩 3 stories flagged for review</span>
+                <button class="text-xs px-2.5 py-1 bg-red-50 text-red-700 rounded-full font-bold">Review</button>
+              </li>
+              <li class="flex justify-between items-center py-1.5 border-b border-gray-100">
+                <span>📨 2 contact-form messages</span>
+                <button class="text-xs px-2.5 py-1 bg-keenlyYellow text-keenlyPurple rounded-full font-bold">Open</button>
+              </li>
+              <li class="flex justify-between items-center py-1.5 border-b border-gray-100">
+                <span>💳 1 failed Stripe payment retry</span>
+                <button class="text-xs px-2.5 py-1 bg-gray-100 rounded-full font-bold">View</button>
+              </li>
+              <li class="flex justify-between items-center py-1.5">
+                <span>🎁 0 comp-tier requests</span>
+                <span class="text-xs text-gray-400">All clear</span>
+              </li>
+            </ul>
+          </div>
+          <div class="stat">
+            <div class="label mb-3">Recent signups</div>
+            <ul class="text-sm space-y-2">
+              <li class="flex items-center justify-between py-1.5 border-b border-gray-100"><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-keenlyPink flex items-center justify-center text-xs font-bold">L</div><span>Linda P. · parent</span></div><span class="badge badge-free">Free</span></li>
+              <li class="flex items-center justify-between py-1.5 border-b border-gray-100"><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-keenlyBlue flex items-center justify-center text-xs font-bold">R</div><span>Dr. Reyes · therapist</span></div><span class="badge badge-pro">Pro</span></li>
+              <li class="flex items-center justify-between py-1.5 border-b border-gray-100"><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-keenlyYellow flex items-center justify-center text-xs font-bold">M</div><span>Maria S. · parent</span></div><span class="badge badge-pro">Pro</span></li>
+              <li class="flex items-center justify-between py-1.5 border-b border-gray-100"><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-keenlyLime flex items-center justify-center text-xs font-bold">T</div><span>Tom K. · educator</span></div><span class="badge badge-free">Free</span></li>
+              <li class="flex items-center justify-between py-1.5"><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-keenlyPink flex items-center justify-center text-xs font-bold">J</div><span>Jen B. · parent</span></div><span class="badge badge-family">Family</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div class="flex justify-between items-baseline mb-3">
+            <div class="label">Tier distribution</div>
+            <div class="text-xs text-gray-500">312 total users</div>
+          </div>
+          <div class="h-3 rounded-full bg-gray-100 overflow-hidden flex">
+            <div class="bg-gray-300" style="width: 95.5%"></div>
+            <div class="bg-keenlyLime" style="width: 3%"></div>
+            <div class="bg-keenlyPurple" style="width: 1.5%"></div>
+          </div>
+          <div class="flex justify-between text-xs mt-2">
+            <span class="text-gray-500">Free · 298 (95.5%)</span>
+            <span class="text-green-700 font-bold">Pro · 9 (3%)</span>
+            <span class="text-keenlyPurple font-bold">Family · 5 (1.5%)</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- ============================== USERS LIST ============================== -->
+<section class="max-w-7xl mx-auto mb-14">
+  <div class="screen-label">2. Users — list + comp tier override</div>
+  <div class="frame flex" style="min-height: 640px;">
+    <aside class="bg-keenlyPurple text-white w-60 flex-shrink-0">
+      <div class="px-5 py-5 border-b border-white/10">
+        <div class="font-extrabold text-xl">KEENLY</div>
+        <div class="text-xs text-keenlyLime mt-0.5">admin</div>
+      </div>
+      <nav class="px-3 py-4 space-y-1 text-sm">
+        <div class="px-3 py-2.5 flex items-center gap-2 text-white/70">📊 Dashboard</div>
+        <div class="bg-white/10 rounded-lg px-3 py-2.5 flex items-center gap-2 font-bold">👥 Users <span class="ml-auto text-[10px] bg-keenlyLime text-keenlyPurple rounded-full px-2 py-0.5 font-bold">312</span></div>
+        <div class="px-3 py-2.5 flex items-center gap-2 text-white/70">📚 Stories <span class="ml-auto text-[10px] bg-red-500 text-white rounded-full px-2 py-0.5 font-bold">3</span></div>
+        <div class="px-3 py-2.5 flex items-center gap-2 text-white/70">⭐ Featured</div>
+        <div class="px-3 py-2.5 flex items-center gap-2 text-white/70">⚙️ Settings</div>
+      </nav>
+    </aside>
+    <main class="flex-1 bg-gray-50">
+      <div class="px-8 py-5 bg-white border-b border-gray-100 flex justify-between items-center">
+        <div>
+          <h2 class="font-extrabold text-keenlyPurple text-lg">Users</h2>
+          <div class="text-xs text-gray-500">312 total</div>
+        </div>
+        <div class="flex gap-2">
+          <input class="text-sm border border-gray-200 rounded-lg px-3 py-2 w-72" placeholder="🔍 Search by email or name…" />
+          <select class="text-sm border border-gray-200 rounded-lg px-3 py-2"><option>All tiers</option><option>Free</option><option>Pro</option><option>Family</option></select>
+          <button class="text-xs px-3 py-2 border border-gray-200 rounded-lg">📥 Export</button>
+        </div>
+      </div>
+      <div class="bg-white">
+        <table>
+          <thead>
+            <tr>
+              <th><input type="checkbox" /></th>
+              <th>Name / email</th>
+              <th>Role</th>
+              <th>Tier</th>
+              <th>Stories</th>
+              <th>Joined</th>
+              <th>Stripe</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td>
+                <div class="font-bold text-keenlyPurple">Maria S.</div>
+                <div class="text-xs text-gray-500">maria@example.com</div>
+              </td>
+              <td>parent</td>
+              <td><span class="badge badge-pro">Pro</span></td>
+              <td>8</td>
+              <td class="text-gray-500 text-xs">May 8, 2026</td>
+              <td><span class="pill" style="background: #f0f9ff; color: #0369a1;">✓ active</span></td>
+              <td><button class="text-xs text-keenlyPurple font-bold">Edit ›</button></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td>
+                <div class="font-bold text-keenlyPurple">Dr. Reyes</div>
+                <div class="text-xs text-gray-500">e.reyes@clinic.pe</div>
+              </td>
+              <td>therapist</td>
+              <td><span class="badge badge-pro">Pro</span></td>
+              <td>23</td>
+              <td class="text-gray-500 text-xs">May 5, 2026</td>
+              <td><span class="pill" style="background: #f0f9ff; color: #0369a1;">✓ active</span></td>
+              <td><button class="text-xs text-keenlyPurple font-bold">Edit ›</button></td>
+            </tr>
+            <tr style="background: #fffbeb">
+              <td><input type="checkbox" /></td>
+              <td>
+                <div class="font-bold text-keenlyPurple">Jen B.</div>
+                <div class="text-xs text-gray-500">jen.b@example.com</div>
+              </td>
+              <td>parent</td>
+              <td><span class="badge badge-family">Family</span></td>
+              <td>14</td>
+              <td class="text-gray-500 text-xs">May 11, 2026</td>
+              <td><span class="pill" style="background: #fef2f2; color: #b91c1c;">⚠ payment failed</span></td>
+              <td><button class="text-xs text-red-600 font-bold">Retry ›</button></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td>
+                <div class="font-bold text-keenlyPurple">Linda P.</div>
+                <div class="text-xs text-gray-500">linda.p@example.com</div>
+              </td>
+              <td>parent</td>
+              <td><span class="badge badge-free">Free</span></td>
+              <td>2</td>
+              <td class="text-gray-500 text-xs">May 11, 2026</td>
+              <td class="text-gray-400 text-xs">—</td>
+              <td><button class="text-xs text-keenlyPurple font-bold">Edit ›</button></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td>
+                <div class="font-bold text-keenlyPurple">Tom K.</div>
+                <div class="text-xs text-gray-500">tom@school.edu</div>
+              </td>
+              <td>educator</td>
+              <td><span class="badge badge-free">Free</span></td>
+              <td>1</td>
+              <td class="text-gray-500 text-xs">May 10, 2026</td>
+              <td class="text-gray-400 text-xs">—</td>
+              <td><button class="text-xs text-keenlyPurple font-bold">Edit ›</button></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td>
+                <div class="font-bold text-keenlyPurple">Sister K. <span class="text-[10px] ml-1 bg-keenlyLime text-keenlyPurple px-1.5 py-0.5 rounded font-bold">COMP</span></div>
+                <div class="text-xs text-gray-500">sister@livekeenly.com</div>
+              </td>
+              <td>founder</td>
+              <td><span class="badge badge-family">Family</span></td>
+              <td>47</td>
+              <td class="text-gray-500 text-xs">Apr 20, 2026</td>
+              <td class="text-gray-400 text-xs">— (comp)</td>
+              <td><button class="text-xs text-keenlyPurple font-bold">Edit ›</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="px-4 py-3 flex justify-between items-center text-xs text-gray-500 border-t border-gray-100">
+          <div>Showing 1–6 of 312 · 1 selected</div>
+          <div class="flex gap-2 items-center">
+            <button class="px-2 py-1 border rounded">‹</button>
+            <span>Page 1 of 52</span>
+            <button class="px-2 py-1 border rounded">›</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- ============================== USER DETAIL ============================== -->
+<section class="max-w-7xl mx-auto mb-14">
+  <div class="screen-label">2b. User detail — comp tier override</div>
+  <div class="frame flex" style="min-height: 560px;">
+    <aside class="bg-keenlyPurple text-white w-60 flex-shrink-0">
+      <div class="px-5 py-5 border-b border-white/10"><div class="font-extrabold text-xl">KEENLY</div><div class="text-xs text-keenlyLime mt-0.5">admin</div></div>
+      <nav class="px-3 py-4 space-y-1 text-sm">
+        <div class="px-3 py-2.5 text-white/70">📊 Dashboard</div>
+        <div class="bg-white/10 rounded-lg px-3 py-2.5 font-bold">👥 Users</div>
+        <div class="px-3 py-2.5 text-white/70">📚 Stories</div>
+        <div class="px-3 py-2.5 text-white/70">⭐ Featured</div>
+        <div class="px-3 py-2.5 text-white/70">⚙️ Settings</div>
+      </nav>
+    </aside>
+    <main class="flex-1 bg-gray-50 p-8">
+      <div class="text-xs text-gray-500 mb-2">Users › <span class="text-keenlyPurple font-bold">Linda P.</span></div>
+      <div class="bg-white rounded-xl p-6 mb-4 flex justify-between items-center">
+        <div class="flex items-center gap-4">
+          <div class="w-16 h-16 rounded-full bg-keenlyPink flex items-center justify-center text-2xl font-extrabold text-keenlyPurple">L</div>
+          <div>
+            <div class="font-extrabold text-keenlyPurple text-xl">Linda P.</div>
+            <div class="text-sm text-gray-500">linda.p@example.com · parent · uid: a8f9c2…</div>
+            <div class="text-xs text-gray-400 mt-1">Joined May 11, 2026 · 2 stories created · last active 2h ago</div>
+          </div>
+        </div>
+        <div class="flex gap-2">
+          <button class="text-xs px-3 py-2 border border-gray-200 rounded-lg">📧 Email user</button>
+          <button class="text-xs px-3 py-2 border border-red-200 text-red-600 rounded-lg">🚫 Ban</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4">
+        <div class="bg-white rounded-xl p-5 col-span-2">
+          <div class="label mb-3">Tier override</div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="badge badge-free">Currently: Free</span>
+            <span class="text-gray-400">→</span>
+            <select class="border border-gray-200 rounded-lg px-3 py-2 text-sm">
+              <option>Free</option>
+              <option selected>Pro (comp)</option>
+              <option>Family (comp)</option>
+            </select>
+            <span class="text-xs text-gray-500">for</span>
+            <select class="border border-gray-200 rounded-lg px-3 py-2 text-sm">
+              <option>1 month</option>
+              <option>3 months</option>
+              <option>6 months</option>
+              <option>Forever</option>
+            </select>
+          </div>
+          <textarea class="w-full border border-gray-200 rounded-lg p-3 text-sm h-20 resize-none" placeholder="Reason (logged to audit trail)…">Press contact — Autism Parenting Magazine feature, May 2026.</textarea>
+          <div class="flex gap-2 mt-3">
+            <button class="bg-keenlyPurple text-white text-sm font-bold px-5 py-2 rounded-lg">Apply override</button>
+            <button class="text-sm text-gray-500">Cancel</button>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-5">
+          <div class="label mb-3">Activity</div>
+          <ul class="text-xs space-y-2">
+            <li><span class="text-gray-400">2h ago</span> · Created "Morning routine"</li>
+            <li><span class="text-gray-400">2h ago</span> · Created "Bath time"</li>
+            <li><span class="text-gray-400">3h ago</span> · Signed up</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl p-5 mt-4">
+        <div class="label mb-3">Stories created by this user (2)</div>
+        <div class="grid grid-cols-4 gap-3">
+          <div class="border border-gray-200 rounded-lg p-3">
+            <div class="aspect-square bg-keenlyYellow rounded mb-2 flex items-center justify-center text-3xl">🌅</div>
+            <div class="text-xs font-bold">Morning routine</div>
+            <div class="text-[10px] text-gray-500">4 pages · public</div>
+          </div>
+          <div class="border border-gray-200 rounded-lg p-3">
+            <div class="aspect-square bg-keenlyBlue rounded mb-2 flex items-center justify-center text-3xl">🛁</div>
+            <div class="text-xs font-bold">Bath time</div>
+            <div class="text-[10px] text-gray-500">3 pages · private</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- ============================== STORIES + MODERATION ============================== -->
+<section class="max-w-7xl mx-auto mb-14">
+  <div class="screen-label">3. Stories — moderation queue</div>
+  <div class="frame flex" style="min-height: 640px;">
+    <aside class="bg-keenlyPurple text-white w-60 flex-shrink-0">
+      <div class="px-5 py-5 border-b border-white/10"><div class="font-extrabold text-xl">KEENLY</div><div class="text-xs text-keenlyLime mt-0.5">admin</div></div>
+      <nav class="px-3 py-4 space-y-1 text-sm">
+        <div class="px-3 py-2.5 text-white/70">📊 Dashboard</div>
+        <div class="px-3 py-2.5 text-white/70">👥 Users</div>
+        <div class="bg-white/10 rounded-lg px-3 py-2.5 font-bold flex items-center gap-2">📚 Stories <span class="ml-auto text-[10px] bg-red-500 text-white rounded-full px-2 py-0.5 font-bold">3</span></div>
+        <div class="px-3 py-2.5 text-white/70">⭐ Featured</div>
+        <div class="px-3 py-2.5 text-white/70">⚙️ Settings</div>
+      </nav>
+    </aside>
+    <main class="flex-1 bg-gray-50">
+      <div class="px-8 py-5 bg-white border-b border-gray-100">
+        <h2 class="font-extrabold text-keenlyPurple text-lg">Stories</h2>
+        <div class="text-xs text-gray-500">847 total · 3 flagged for review</div>
+        <div class="mt-3 flex gap-1.5 text-xs">
+          <button class="px-3 py-1.5 rounded-full bg-keenlyPurple text-white font-bold">🚩 Flagged · 3</button>
+          <button class="px-3 py-1.5 rounded-full bg-gray-100 text-gray-600">Approved · 821</button>
+          <button class="px-3 py-1.5 rounded-full bg-gray-100 text-gray-600">Removed · 23</button>
+          <button class="px-3 py-1.5 rounded-full bg-gray-100 text-gray-600">All · 847</button>
+        </div>
+      </div>
+      <div class="px-8 py-6 space-y-4">
+
+        <div class="bg-white rounded-xl border border-red-200 p-5 flex gap-5">
+          <div class="aspect-square w-32 bg-keenlyPink rounded-lg flex items-center justify-center text-5xl flex-shrink-0">😡</div>
+          <div class="flex-1">
+            <div class="flex items-center justify-between mb-2">
+              <div>
+                <div class="font-extrabold text-keenlyPurple text-lg">When teacher yells</div>
+                <div class="text-xs text-gray-500">by Anon parent · created 1h ago · public · reported by 2 users</div>
+              </div>
+              <span class="badge badge-flagged">🚩 Flagged</span>
+            </div>
+            <div class="bg-red-50 border border-red-200 rounded-lg p-3 text-xs text-red-700 mb-3">
+              <strong>Reports:</strong> "Negative framing of teachers" (×2). Content may need rephrasing.
+            </div>
+            <div class="text-sm text-gray-700 mb-3">Page 1: "Sometimes my teacher yells. It feels scary."</div>
+            <div class="flex gap-2">
+              <button class="text-xs bg-green-100 text-green-800 font-bold px-3 py-1.5 rounded-full">✓ Approve</button>
+              <button class="text-xs bg-keenlyYellow text-keenlyPurple font-bold px-3 py-1.5 rounded-full">✏️ Edit + approve</button>
+              <button class="text-xs bg-red-100 text-red-700 font-bold px-3 py-1.5 rounded-full">🗑 Remove</button>
+              <button class="text-xs border border-gray-200 px-3 py-1.5 rounded-full">📧 Message author</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl border border-red-200 p-5 flex gap-5">
+          <div class="aspect-square w-32 bg-keenlyBlue rounded-lg flex items-center justify-center text-5xl flex-shrink-0">💊</div>
+          <div class="flex-1">
+            <div class="flex items-center justify-between mb-2">
+              <div>
+                <div class="font-extrabold text-keenlyPurple text-lg">Taking my medicine</div>
+                <div class="text-xs text-gray-500">by Dr. Reyes · created 5h ago · public · auto-flagged: medical content</div>
+              </div>
+              <span class="badge badge-flagged">🚩 Flagged</span>
+            </div>
+            <div class="bg-keenlyYellow/30 border border-keenlyYellow rounded-lg p-3 text-xs text-gray-700 mb-3">
+              <strong>Auto-flag:</strong> Story contains medical references. Verify therapist credentials before publishing.
+            </div>
+            <div class="flex gap-2">
+              <button class="text-xs bg-green-100 text-green-800 font-bold px-3 py-1.5 rounded-full">✓ Approve</button>
+              <button class="text-xs bg-red-100 text-red-700 font-bold px-3 py-1.5 rounded-full">🗑 Remove</button>
+              <button class="text-xs border border-gray-200 px-3 py-1.5 rounded-full">📧 Message author</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl border border-red-200 p-5 flex gap-5">
+          <div class="aspect-square w-32 bg-keenlyYellow rounded-lg flex items-center justify-center text-5xl flex-shrink-0">🧒</div>
+          <div class="flex-1">
+            <div class="flex items-center justify-between mb-2">
+              <div>
+                <div class="font-extrabold text-keenlyPurple text-lg">My birthday party</div>
+                <div class="text-xs text-gray-500">by Maria S. · created 2d ago · public · reported by 1 user</div>
+              </div>
+              <span class="badge badge-flagged">🚩 Flagged</span>
+            </div>
+            <div class="bg-red-50 border border-red-200 rounded-lg p-3 text-xs text-red-700 mb-3">
+              <strong>Report:</strong> "Real child's face visible in shared link." → Privacy concern. Verify consent + COPPA compliance.
+            </div>
+            <div class="flex gap-2">
+              <button class="text-xs bg-green-100 text-green-800 font-bold px-3 py-1.5 rounded-full">✓ Approve</button>
+              <button class="text-xs bg-keenlyYellow text-keenlyPurple font-bold px-3 py-1.5 rounded-full">🔒 Make private</button>
+              <button class="text-xs bg-red-100 text-red-700 font-bold px-3 py-1.5 rounded-full">🗑 Remove</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- ============================== FEATURED + SETTINGS ============================== -->
+<section class="max-w-7xl mx-auto mb-14">
+  <div class="screen-label">4. Featured stories + homepage settings</div>
+  <div class="frame flex" style="min-height: 640px;">
+    <aside class="bg-keenlyPurple text-white w-60 flex-shrink-0">
+      <div class="px-5 py-5 border-b border-white/10"><div class="font-extrabold text-xl">KEENLY</div><div class="text-xs text-keenlyLime mt-0.5">admin</div></div>
+      <nav class="px-3 py-4 space-y-1 text-sm">
+        <div class="px-3 py-2.5 text-white/70">📊 Dashboard</div>
+        <div class="px-3 py-2.5 text-white/70">👥 Users</div>
+        <div class="px-3 py-2.5 text-white/70">📚 Stories</div>
+        <div class="bg-white/10 rounded-lg px-3 py-2.5 font-bold">⭐ Featured</div>
+        <div class="px-3 py-2.5 text-white/70">⚙️ Settings</div>
+      </nav>
+    </aside>
+    <main class="flex-1 bg-gray-50 p-8">
+      <h2 class="font-extrabold text-keenlyPurple text-lg mb-1">Featured stories &amp; homepage</h2>
+      <div class="text-xs text-gray-500 mb-6">What new visitors see on livekeenly.com — drag to reorder.</div>
+
+      <div class="bg-white rounded-xl p-5 mb-5">
+        <div class="label mb-3">Hero copy (live on homepage)</div>
+        <input class="w-full text-2xl font-extrabold text-keenlyPurple border-b border-gray-200 py-2 mb-2 outline-none" value="Empowering Special Needs" />
+        <input class="w-full text-sm text-gray-600 border-b border-gray-200 py-2 mb-3 outline-none" value="Personalized social stories — built with your own photos, your own voice." />
+        <div class="flex gap-2 items-center">
+          <input class="border border-gray-200 rounded-lg px-3 py-2 text-sm flex-1" value="Get started — free" />
+          <span class="text-xs text-gray-400">primary CTA text</span>
+        </div>
+        <div class="flex justify-end mt-3">
+          <button class="bg-keenlyLime text-keenlyPurple font-bold text-xs px-4 py-2 rounded-full">Publish to homepage</button>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl p-5 mb-5">
+        <div class="flex justify-between items-baseline mb-3">
+          <div class="label">Featured carousel (up to 6)</div>
+          <button class="text-xs text-keenlyPurple font-bold">+ Add from library</button>
+        </div>
+        <div class="grid grid-cols-4 gap-3">
+          <div class="border border-gray-200 rounded-lg p-3 relative">
+            <div class="absolute top-2 left-2 bg-keenlyPurple text-white text-[9px] font-bold w-5 h-5 rounded-full flex items-center justify-center">1</div>
+            <div class="absolute top-2 right-2 text-gray-300 cursor-grab">≡</div>
+            <div class="aspect-square bg-keenlyYellow rounded mb-2 flex items-center justify-center text-3xl">😬</div>
+            <div class="text-xs font-bold">Haircut day</div>
+            <div class="text-[10px] text-gray-500">by Maria · 2.4K views</div>
+          </div>
+          <div class="border border-gray-200 rounded-lg p-3 relative">
+            <div class="absolute top-2 left-2 bg-keenlyPurple text-white text-[9px] font-bold w-5 h-5 rounded-full flex items-center justify-center">2</div>
+            <div class="absolute top-2 right-2 text-gray-300 cursor-grab">≡</div>
+            <div class="aspect-square bg-keenlyPink rounded mb-2 flex items-center justify-center text-3xl">🦷</div>
+            <div class="text-xs font-bold">Dentist visit</div>
+            <div class="text-[10px] text-gray-500">official · 1.8K views</div>
+          </div>
+          <div class="border border-gray-200 rounded-lg p-3 relative">
+            <div class="absolute top-2 left-2 bg-keenlyPurple text-white text-[9px] font-bold w-5 h-5 rounded-full flex items-center justify-center">3</div>
+            <div class="absolute top-2 right-2 text-gray-300 cursor-grab">≡</div>
+            <div class="aspect-square bg-keenlyBlue rounded mb-2 flex items-center justify-center text-3xl">🌙</div>
+            <div class="text-xs font-bold">Nighttime routine</div>
+            <div class="text-[10px] text-gray-500">official · 1.2K views</div>
+          </div>
+          <div class="border-2 border-dashed border-keenlyLime rounded-lg p-3 flex flex-col items-center justify-center text-keenlyPurple bg-keenlyLime/10 min-h-[120px]">
+            <div class="text-2xl mb-1">＋</div>
+            <div class="text-[10px] font-bold text-center">Add story</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-white rounded-xl p-5">
+          <div class="label mb-3">Pricing (live on /pricing)</div>
+          <div class="space-y-3 text-sm">
+            <div class="flex justify-between items-center"><span>Pro monthly</span><div class="flex items-center"><span class="text-gray-400 mr-1">$</span><input class="border border-gray-200 rounded px-2 py-1 w-20 text-right" value="9.99" /></div></div>
+            <div class="flex justify-between items-center"><span>Pro yearly</span><div class="flex items-center"><span class="text-gray-400 mr-1">$</span><input class="border border-gray-200 rounded px-2 py-1 w-20 text-right" value="79" /></div></div>
+            <div class="flex justify-between items-center"><span>Family monthly</span><div class="flex items-center"><span class="text-gray-400 mr-1">$</span><input class="border border-gray-200 rounded px-2 py-1 w-20 text-right" value="19.99" /></div></div>
+            <div class="flex justify-between items-center"><span>Family yearly</span><div class="flex items-center"><span class="text-gray-400 mr-1">$</span><input class="border border-gray-200 rounded px-2 py-1 w-20 text-right" value="159" /></div></div>
+          </div>
+          <div class="text-[10px] text-gray-400 mt-3">⚠️ Stripe Price IDs must be updated separately. Changing here updates the displayed price only.</div>
+        </div>
+        <div class="bg-white rounded-xl p-5">
+          <div class="label mb-3">Feature toggles</div>
+          <div class="space-y-3 text-sm">
+            <label class="flex items-center justify-between"><span>Public signup open</span><input type="checkbox" checked class="w-10 h-5" /></label>
+            <label class="flex items-center justify-between"><span>Google sign-in</span><input type="checkbox" checked class="w-10 h-5" /></label>
+            <label class="flex items-center justify-between"><span>Show pricing page</span><input type="checkbox" checked class="w-10 h-5" /></label>
+            <label class="flex items-center justify-between"><span>Public story sharing</span><input type="checkbox" checked class="w-10 h-5" /></label>
+            <label class="flex items-center justify-between"><span>Audio narration (beta)</span><input type="checkbox" class="w-10 h-5" /></label>
+            <label class="flex items-center justify-between"><span>Maintenance mode</span><input type="checkbox" class="w-10 h-5" /></label>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</section>
+
+<footer class="max-w-7xl mx-auto pt-8 border-t border-gray-200 text-xs text-gray-500">
+  CMS stack: Refine.dev + Firebase data provider + Tailwind. Hosted at admin.livekeenly.com, gated by Firebase Auth + admin custom claim. All actions audit-logged to Firestore for accountability.
+</footer>
+
+</body>
+</html>
