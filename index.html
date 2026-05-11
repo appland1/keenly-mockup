@@ -3,348 +3,51 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>KEENLY admin</title>
+<title>KEENLY — Mockups</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        keenlyPurple: "#40405D",
-        keenlyPurpleDark: "#2d2d44",
-        keenlyLime: "#AFEB7B",
-        keenlyPink: "#F7C9D9",
-        keenlyYellow: "#FFE27A",
-        keenlyBlue: "#A4D8F0",
-      }
-    }
-  }
-}
+tailwind.config = { theme: { extend: { colors: { keenlyPurple: "#40405D", keenlyLime: "#AFEB7B" } } } }
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-  html, body { font-family: 'Nunito', system-ui, sans-serif; background: #f4f5f9; margin: 0; height: 100%; }
-  .stat { background: white; border-radius: 14px; padding: 22px; border: 1px solid #ececf2; }
-  .label { font-size: 10px; text-transform: uppercase; letter-spacing: .14em; color: #8a8aa3; font-weight: 800; }
-  .badge { font-size: 10px; font-weight: 800; padding: 3px 9px; border-radius: 999px; letter-spacing: .04em; text-transform: uppercase; }
-  .badge-free { background: #e9ecef; color: #495057; }
-  .badge-pro { background: #AFEB7B; color: #1a3300; }
-  .badge-family { background: #40405D; color: white; }
-  table { width: 100%; font-size: 13px; }
-  th { text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: #8a8aa3; padding: 12px 14px; border-bottom: 1px solid #ececf2; font-weight: 800; }
-  td { padding: 14px; border-bottom: 1px solid #f4f4f8; }
-  tr:hover td { background: #fafbff; }
-  .nav-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 10px; font-size: 14px; color: rgba(255,255,255,.65); cursor: pointer; }
-  .nav-item:hover { background: rgba(255,255,255,.06); }
-  .nav-item.active { background: rgba(255,255,255,.12); color: white; font-weight: 800; }
-  .pulse { animation: pulse 2s infinite; }
-  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
-</style>
+<style>body { font-family: 'Nunito', system-ui, sans-serif; }</style>
 </head>
-<body>
+<body class="bg-gradient-to-br from-keenlyPurple to-[#2d2d44] min-h-screen text-white">
 
-<div class="flex h-screen">
+<div class="max-w-4xl mx-auto px-6 py-16">
+  <div class="mb-12 text-center">
+    <div class="font-black text-5xl tracking-tight mb-2">KEENLY</div>
+    <div class="text-keenlyLime font-bold tracking-widest text-sm">M O C K U P S</div>
+    <p class="text-white/70 mt-4 max-w-xl mx-auto">Visual blueprints for the lean monetized SaaS launch. Built from sister's existing brand assets (purple #40405D + lime #AFEB7B + sample story content). Not the final product — sketches for review.</p>
+  </div>
 
-  <!-- SIDEBAR -->
-  <aside class="bg-keenlyPurple text-white w-64 flex-shrink-0 flex flex-col">
-    <div class="px-6 py-6 border-b border-white/10">
-      <div class="font-black text-2xl tracking-tight">KEENLY</div>
-      <div class="text-xs text-keenlyLime mt-0.5 font-bold tracking-widest">A D M I N</div>
-    </div>
-    <nav class="flex-1 px-3 py-5 space-y-1">
-      <div class="nav-item active">
-        <span class="text-lg">📊</span> Dashboard
-      </div>
-      <div class="nav-item">
-        <span class="text-lg">👥</span> Users
-        <span class="ml-auto text-[10px] bg-keenlyLime text-keenlyPurple rounded-full px-2 py-0.5 font-black">312</span>
-      </div>
-      <div class="nav-item">
-        <span class="text-lg">📚</span> Stories
-        <span class="ml-auto text-[10px] bg-red-500 text-white rounded-full px-2 py-0.5 font-black pulse">3</span>
-      </div>
-      <div class="nav-item">
-        <span class="text-lg">⭐</span> Featured
-      </div>
-      <div class="nav-item">
-        <span class="text-lg">💳</span> Billing
-      </div>
-      <div class="nav-item">
-        <span class="text-lg">⚙️</span> Settings
-      </div>
-    </nav>
-    <div class="px-5 py-4 border-t border-white/10 flex items-center gap-3">
-      <div class="w-9 h-9 rounded-full bg-keenlyLime flex items-center justify-center text-keenlyPurple font-black">A</div>
-      <div class="text-xs">
-        <div class="font-bold">Al X</div>
-        <div class="text-white/50">admin</div>
-      </div>
-      <button class="ml-auto text-white/40 hover:text-white text-lg">⎋</button>
-    </div>
-  </aside>
+  <div class="grid md:grid-cols-3 gap-5">
 
-  <!-- MAIN -->
-  <main class="flex-1 overflow-y-auto">
+    <a href="cms-dashboard.html" class="block bg-white text-keenlyPurple rounded-2xl p-6 hover:scale-[1.02] transition shadow-xl">
+      <div class="text-4xl mb-3">📊</div>
+      <div class="font-black text-xl mb-1">CMS Dashboard</div>
+      <div class="text-sm text-gray-600 mb-4">Sister's admin home. Live stats, action queue, recent signups, MRR, tier mix, top stories.</div>
+      <div class="text-xs text-keenlyPurple font-black">Open →</div>
+    </a>
 
-    <!-- Topbar -->
-    <div class="px-10 py-5 bg-white border-b border-gray-100 flex justify-between items-center sticky top-0 z-10">
-      <div>
-        <h2 class="font-black text-keenlyPurple text-xl">Dashboard</h2>
-        <div class="text-xs text-gray-500 mt-0.5">Last 30 days · live data from Firestore · updated 12s ago</div>
-      </div>
-      <div class="flex gap-2 items-center">
-        <input class="text-sm border border-gray-200 rounded-lg px-3 py-2 w-72" placeholder="🔍 Search users, stories, emails…" />
-        <button class="text-xs px-3 py-2 border border-gray-200 rounded-lg hover:bg-gray-50">📥 Export</button>
-        <button class="text-xs px-4 py-2 bg-keenlyPurple text-white rounded-lg font-black hover:bg-keenlyPurpleDark">+ New featured story</button>
-      </div>
-    </div>
+    <a href="cms-all-screens.html" class="block bg-white text-keenlyPurple rounded-2xl p-6 hover:scale-[1.02] transition shadow-xl">
+      <div class="text-4xl mb-3">⚙️</div>
+      <div class="font-black text-xl mb-1">CMS — all screens</div>
+      <div class="text-sm text-gray-600 mb-4">Full admin flow: dashboard, user list, user detail with comp-tier override, moderation queue, featured + settings.</div>
+      <div class="text-xs text-keenlyPurple font-black">Open →</div>
+    </a>
 
-    <div class="px-10 py-7">
+    <a href="web-app.html" class="block bg-keenlyLime text-keenlyPurple rounded-2xl p-6 hover:scale-[1.02] transition shadow-xl">
+      <div class="text-4xl mb-3">📱</div>
+      <div class="font-black text-xl mb-1">Web app (responsive)</div>
+      <div class="text-sm text-keenlyPurple/80 mb-4">8 mobile screens + desktop landing. Sign-up, dashboard, story editor, viewer, share, pricing, account.</div>
+      <div class="text-xs font-black">Open →</div>
+    </a>
 
-      <!-- TOP STATS -->
-      <div class="grid grid-cols-4 gap-4 mb-6">
-        <div class="stat">
-          <div class="label">Total users</div>
-          <div class="text-4xl font-black text-keenlyPurple mt-2">312</div>
-          <div class="text-xs text-green-600 mt-1 font-bold">↑ 28 this week</div>
-        </div>
-        <div class="stat">
-          <div class="label">Paying users</div>
-          <div class="text-4xl font-black text-keenlyPurple mt-2">14</div>
-          <div class="text-xs text-gray-500 mt-1">4.5% conversion · ↑ 0.8pp</div>
-        </div>
-        <div class="stat" style="background: linear-gradient(135deg, #AFEB7B 0%, #d4f5b3 100%); border: none;">
-          <div class="label" style="color: #2d4d00;">MRR</div>
-          <div class="text-4xl font-black mt-2" style="color: #1a3300;">$169</div>
-          <div class="text-xs mt-1 font-bold" style="color: #1a3300;">↑ $40 vs last mo</div>
-        </div>
-        <div class="stat">
-          <div class="label">Stories created</div>
-          <div class="text-4xl font-black text-keenlyPurple mt-2">847</div>
-          <div class="text-xs text-gray-500 mt-1">avg 2.7 / user</div>
-        </div>
-      </div>
+  </div>
 
-      <!-- TWO COLS -->
-      <div class="grid grid-cols-3 gap-4 mb-6">
-
-        <!-- Action queue (col-span-2) -->
-        <div class="stat col-span-2">
-          <div class="flex justify-between items-baseline mb-4">
-            <div class="label">🔔 Action queue</div>
-            <a class="text-xs text-keenlyPurple font-black cursor-pointer">View all ›</a>
-          </div>
-          <ul class="space-y-1 text-sm">
-            <li class="flex justify-between items-center py-3 border-b border-gray-100">
-              <div class="flex items-center gap-3">
-                <span class="w-9 h-9 bg-red-100 rounded-full flex items-center justify-center text-lg">🚩</span>
-                <div>
-                  <div class="font-bold text-keenlyPurple">3 stories flagged for review</div>
-                  <div class="text-xs text-gray-500">Oldest: 4h ago · "When teacher yells"</div>
-                </div>
-              </div>
-              <button class="text-xs px-3 py-1.5 bg-red-500 text-white rounded-full font-black hover:bg-red-600">Review</button>
-            </li>
-            <li class="flex justify-between items-center py-3 border-b border-gray-100">
-              <div class="flex items-center gap-3">
-                <span class="w-9 h-9 bg-keenlyYellow rounded-full flex items-center justify-center text-lg">📨</span>
-                <div>
-                  <div class="font-bold text-keenlyPurple">2 contact-form messages</div>
-                  <div class="text-xs text-gray-500">From: tom@school.edu · linda.p@example.com</div>
-                </div>
-              </div>
-              <button class="text-xs px-3 py-1.5 bg-keenlyYellow text-keenlyPurple rounded-full font-black">Open</button>
-            </li>
-            <li class="flex justify-between items-center py-3 border-b border-gray-100">
-              <div class="flex items-center gap-3">
-                <span class="w-9 h-9 bg-red-100 rounded-full flex items-center justify-center text-lg">💳</span>
-                <div>
-                  <div class="font-bold text-keenlyPurple">1 failed Stripe payment</div>
-                  <div class="text-xs text-gray-500">Jen B. · Family · retry scheduled 6h</div>
-                </div>
-              </div>
-              <button class="text-xs px-3 py-1.5 border border-gray-200 rounded-full font-bold hover:bg-gray-50">View</button>
-            </li>
-            <li class="flex justify-between items-center py-3">
-              <div class="flex items-center gap-3">
-                <span class="w-9 h-9 bg-green-100 rounded-full flex items-center justify-center text-lg">✅</span>
-                <div>
-                  <div class="font-bold text-keenlyPurple">All systems healthy</div>
-                  <div class="text-xs text-gray-500">API · Firebase · Stripe — uptime 99.97%</div>
-                </div>
-              </div>
-              <span class="text-xs text-green-600 font-bold">OK</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Recent signups -->
-        <div class="stat">
-          <div class="flex justify-between items-baseline mb-4">
-            <div class="label">Recent signups</div>
-            <a class="text-xs text-keenlyPurple font-black cursor-pointer">All ›</a>
-          </div>
-          <ul class="space-y-3 text-sm">
-            <li class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-full bg-keenlyPink flex items-center justify-center text-sm font-black text-keenlyPurple">L</div>
-              <div class="flex-1 min-w-0">
-                <div class="font-bold text-keenlyPurple truncate">Linda P.</div>
-                <div class="text-[11px] text-gray-500">parent · 2h ago</div>
-              </div>
-              <span class="badge badge-free">Free</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-full bg-keenlyBlue flex items-center justify-center text-sm font-black text-keenlyPurple">R</div>
-              <div class="flex-1 min-w-0">
-                <div class="font-bold text-keenlyPurple truncate">Dr. Reyes</div>
-                <div class="text-[11px] text-gray-500">therapist · 5h ago</div>
-              </div>
-              <span class="badge badge-pro">Pro</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-full bg-keenlyYellow flex items-center justify-center text-sm font-black text-keenlyPurple">M</div>
-              <div class="flex-1 min-w-0">
-                <div class="font-bold text-keenlyPurple truncate">Maria S.</div>
-                <div class="text-[11px] text-gray-500">parent · 8h ago</div>
-              </div>
-              <span class="badge badge-pro">Pro</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-full bg-keenlyLime flex items-center justify-center text-sm font-black text-keenlyPurple">T</div>
-              <div class="flex-1 min-w-0">
-                <div class="font-bold text-keenlyPurple truncate">Tom K.</div>
-                <div class="text-[11px] text-gray-500">educator · 1d ago</div>
-              </div>
-              <span class="badge badge-free">Free</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-full bg-keenlyPink flex items-center justify-center text-sm font-black text-keenlyPurple">J</div>
-              <div class="flex-1 min-w-0">
-                <div class="font-bold text-keenlyPurple truncate">Jen B.</div>
-                <div class="text-[11px] text-gray-500">parent · 1d ago</div>
-              </div>
-              <span class="badge badge-family">Family</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- TIER DIST + GROWTH -->
-      <div class="grid grid-cols-3 gap-4 mb-6">
-        <div class="stat col-span-2">
-          <div class="flex justify-between items-baseline mb-4">
-            <div class="label">📈 Signups · last 14 days</div>
-            <div class="text-xs text-gray-500">+312 total · trending ↑</div>
-          </div>
-          <!-- Simple bar chart -->
-          <div class="flex items-end gap-1.5 h-32">
-            <div class="flex-1 bg-keenlyPurple/20 rounded-t" style="height: 30%;"></div>
-            <div class="flex-1 bg-keenlyPurple/30 rounded-t" style="height: 45%;"></div>
-            <div class="flex-1 bg-keenlyPurple/25 rounded-t" style="height: 35%;"></div>
-            <div class="flex-1 bg-keenlyPurple/40 rounded-t" style="height: 55%;"></div>
-            <div class="flex-1 bg-keenlyPurple/35 rounded-t" style="height: 50%;"></div>
-            <div class="flex-1 bg-keenlyPurple/50 rounded-t" style="height: 65%;"></div>
-            <div class="flex-1 bg-keenlyPurple/45 rounded-t" style="height: 60%;"></div>
-            <div class="flex-1 bg-keenlyPurple/55 rounded-t" style="height: 72%;"></div>
-            <div class="flex-1 bg-keenlyPurple/60 rounded-t" style="height: 78%;"></div>
-            <div class="flex-1 bg-keenlyPurple/70 rounded-t" style="height: 85%;"></div>
-            <div class="flex-1 bg-keenlyPurple/65 rounded-t" style="height: 80%;"></div>
-            <div class="flex-1 bg-keenlyPurple/80 rounded-t" style="height: 92%;"></div>
-            <div class="flex-1 bg-keenlyLime rounded-t" style="height: 96%;"></div>
-            <div class="flex-1 bg-keenlyLime rounded-t" style="height: 100%;"></div>
-          </div>
-          <div class="flex justify-between text-[10px] text-gray-400 mt-2">
-            <span>Apr 28</span><span>May 4</span><span>May 11</span>
-          </div>
-        </div>
-
-        <div class="stat">
-          <div class="label mb-4">Tier distribution</div>
-          <div class="space-y-3">
-            <div>
-              <div class="flex justify-between text-xs mb-1"><span class="font-bold">Free</span><span class="text-gray-500">298 · 95.5%</span></div>
-              <div class="h-2 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-gray-400" style="width: 95.5%"></div></div>
-            </div>
-            <div>
-              <div class="flex justify-between text-xs mb-1"><span class="font-bold">Pro</span><span class="text-gray-500">9 · 2.9%</span></div>
-              <div class="h-2 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-keenlyLime" style="width: 2.9%"></div></div>
-            </div>
-            <div>
-              <div class="flex justify-between text-xs mb-1"><span class="font-bold">Family</span><span class="text-gray-500">5 · 1.6%</span></div>
-              <div class="h-2 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-keenlyPurple" style="width: 1.6%"></div></div>
-            </div>
-          </div>
-          <div class="mt-5 pt-4 border-t border-gray-100 text-xs text-center">
-            <div class="text-gray-500">Avg revenue per paying user</div>
-            <div class="text-2xl font-black text-keenlyPurple mt-1">$12.07/mo</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- BOTTOM TABLE -->
-      <div class="stat">
-        <div class="flex justify-between items-baseline mb-4">
-          <div class="label">⚡ Top stories · last 7 days</div>
-          <a class="text-xs text-keenlyPurple font-black cursor-pointer">All stories ›</a>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th>Story</th>
-              <th>Author</th>
-              <th>Views</th>
-              <th>Shares</th>
-              <th>Status</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><div class="flex items-center gap-3"><div class="w-10 h-10 bg-keenlyYellow rounded-lg flex items-center justify-center text-xl">😬</div><span class="font-bold text-keenlyPurple">When I get a haircut</span></div></td>
-              <td class="text-gray-600">Maria S.</td>
-              <td class="font-bold">2,418</td>
-              <td>184</td>
-              <td><span class="badge" style="background: #dcfce7; color: #166534;">⭐ Featured</span></td>
-              <td><button class="text-xs text-keenlyPurple font-black">View ›</button></td>
-            </tr>
-            <tr>
-              <td><div class="flex items-center gap-3"><div class="w-10 h-10 bg-keenlyPink rounded-lg flex items-center justify-center text-xl">🦷</div><span class="font-bold text-keenlyPurple">When I visit the dentist</span></div></td>
-              <td class="text-gray-600">KEENLY official</td>
-              <td class="font-bold">1,802</td>
-              <td>211</td>
-              <td><span class="badge" style="background: #dcfce7; color: #166534;">⭐ Featured</span></td>
-              <td><button class="text-xs text-keenlyPurple font-black">View ›</button></td>
-            </tr>
-            <tr>
-              <td><div class="flex items-center gap-3"><div class="w-10 h-10 bg-keenlyBlue rounded-lg flex items-center justify-center text-xl">🌙</div><span class="font-bold text-keenlyPurple">My nighttime routine</span></div></td>
-              <td class="text-gray-600">KEENLY official</td>
-              <td class="font-bold">1,243</td>
-              <td>96</td>
-              <td><span class="badge" style="background: #dcfce7; color: #166534;">⭐ Featured</span></td>
-              <td><button class="text-xs text-keenlyPurple font-black">View ›</button></td>
-            </tr>
-            <tr style="background: #fffbeb;">
-              <td><div class="flex items-center gap-3"><div class="w-10 h-10 bg-keenlyPink rounded-lg flex items-center justify-center text-xl">😡</div><span class="font-bold text-keenlyPurple">When teacher yells</span></div></td>
-              <td class="text-gray-600">Anon parent</td>
-              <td class="font-bold">512</td>
-              <td>8</td>
-              <td><span class="badge" style="background: #fee2e2; color: #b91c1c;">🚩 Flagged</span></td>
-              <td><button class="text-xs text-red-600 font-black">Review ›</button></td>
-            </tr>
-            <tr>
-              <td><div class="flex items-center gap-3"><div class="w-10 h-10 bg-keenlyLime rounded-lg flex items-center justify-center text-xl">✈️</div><span class="font-bold text-keenlyPurple">My first flight</span></div></td>
-              <td class="text-gray-600">Dr. Reyes</td>
-              <td class="font-bold">478</td>
-              <td>34</td>
-              <td><span class="badge badge-pro">approved</span></td>
-              <td><button class="text-xs text-keenlyPurple font-black">View ›</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-    </div>
-  </main>
+  <div class="mt-12 text-center text-white/50 text-xs">
+    livekeenly.com · admin.livekeenly.com · Updated 2026-05-11
+  </div>
 </div>
 
 </body>
