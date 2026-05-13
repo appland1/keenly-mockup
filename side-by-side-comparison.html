@@ -79,41 +79,15 @@ tailwind.config = {
   <p class="text-gray-600 max-w-3xl">A complete inventory of every screen, feature, and system. <strong>Before</strong> = the state of the project when we picked it up. <strong>Now</strong> = what's live on livekeenly.com today. <strong>What's missing</strong> = the punch list to finish KEENLY as a real SaaS product.</p>
 </header>
 
-<!-- ====================== WHAT THE APP DOES ====================== -->
+<!-- ====================== USER FLOW + DESKTOP GAP ====================== -->
 <section class="max-w-7xl mx-auto mb-14 bg-white rounded-2xl shadow overflow-hidden">
   <div class="px-6 py-4 bg-kp-pink600 text-white">
-    <h2 class="text-lg font-black">🎯 What KEENLY actually does — the app workflow</h2>
+    <h2 class="text-lg font-black">🧭 User flow + the desktop gap to close</h2>
   </div>
   <div class="p-6">
-    <p class="text-gray-700 mb-5">In plain English, before we get into hours and screens: <strong>here's the product Hennie is building</strong> and what users do with it. Sourced from her Figma "User Flow" diagram + the sample story PDFs already in production.</p>
-
-    <!-- THE PRODUCT IN ONE PARAGRAPH -->
-    <div class="bg-kp-purple500/5 border-l-4 border-kp-purple500 p-5 mb-6 rounded-r-xl">
-      <div class="text-xs uppercase tracking-widest font-black text-kp-purple500 mb-1">The product</div>
-      <p class="text-base text-gray-800 leading-relaxed">
-        KEENLY is an app for parents, educators, and therapists of <strong>special-needs children</strong>.
-        It lets them build <strong>personalized social stories</strong> — short photo + text + audio sequences that walk a child through an upcoming situation (a haircut, dentist visit, first flight, going to bed) before it happens. Used right, social stories reduce anxiety and teach behavior. The "personalized" part is the differentiator: KEENLY uses the child's own photos and the parent's own voice instead of generic cartoon images.
-      </p>
-    </div>
-
-    <!-- USER JOURNEY -->
-    <h3 class="text-base font-black text-kp-purple500 mb-3">📖 Real-world user journey</h3>
-    <ol class="space-y-3 text-sm mb-6 list-decimal list-inside">
-      <li><strong>Parent has a special-needs child</strong> who's anxious about an upcoming event (haircut, dentist, traveling, sleeping over).</li>
-      <li><strong>Parent finds KEENLY</strong> — via Google search, recommendation from a therapist, or social media.</li>
-      <li><strong>Signs up free</strong> (current: ✅ working on livekeenly.com today).</li>
-      <li><strong>Browses pre-made sample stories</strong> ("When I get a haircut", "When I visit the dentist", etc.) — picks one as a template or starts from scratch.</li>
-      <li><strong>Creates / customizes a story</strong>: uploads photos of their actual child + their actual dentist's office + the actual barber, writes simple sentences, records their own voice as narration.</li>
-      <li><strong>Saves</strong> the story. KEENLY stores it on their account.</li>
-      <li><strong>Shares</strong> the story with the child a few days before the event: reads on phone, prints as PDF, plays audio. Family/co-parent gets a shareable link.</li>
-      <li><strong>Event happens.</strong> Child has seen the situation many times in advance, knows what's coming, manages anxiety better.</li>
-      <li><strong>Comes back</strong> for the next situation — repeat cycle.</li>
-      <li><strong>Upgrades to Pro</strong> when they hit the 3-free-stories limit, want audio narration, or want to remove the watermark.</li>
-    </ol>
 
     <!-- FIGMA USER FLOW -->
-    <h3 class="text-base font-black text-kp-purple500 mb-3">🧭 Hennie's documented user flow (from Figma)</h3>
-    <p class="text-sm text-gray-700 mb-4">Three workflow pillars exist in her file:</p>
+    <p class="text-sm text-gray-700 mb-4">Three workflow pillars exist in the Figma file:</p>
 
     <div class="grid md:grid-cols-3 gap-4 mb-6">
       <div class="bg-kp-surface rounded-xl p-4 border border-kp-border">
@@ -143,36 +117,14 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- DESKTOP LOGIN PURPOSE -->
-    <h3 class="text-base font-black text-kp-purple500 mb-3">🤔 So when you log in on desktop today, what does it do?</h3>
-    <div class="grid md:grid-cols-2 gap-4 mb-4">
-      <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
-        <div class="text-xs uppercase tracking-widest font-black text-amber-800 mb-2">Today (Phase A only)</div>
-        <p class="text-sm text-gray-800 mb-2"><strong>Logging in is mostly a tech-validation milestone, not a useful user action yet.</strong></p>
-        <ul class="text-xs text-gray-700 space-y-1 list-disc list-inside">
-          <li>Auth works end-to-end (Firebase verified)</li>
-          <li>"Hi, [Name]" appears in nav</li>
-          <li>You can sign out</li>
-          <li>You can request a password reset</li>
-          <li>That's it — no dashboard, no stories, nothing to do</li>
-        </ul>
-        <p class="text-xs text-amber-800 mt-3"><strong>Why this matters:</strong> someone who signs up today on livekeenly.com gets a working account but no product experience. They'd close the tab confused. <strong>This is why we don't promote the site publicly yet.</strong></p>
-      </div>
-      <div class="bg-kp-lime400/20 border border-kp-lime400 rounded-xl p-4">
-        <div class="text-xs uppercase tracking-widest font-black text-kp-purple500 mb-2">After Tier 1 PWA (~22 hrs away)</div>
-        <p class="text-sm text-gray-800 mb-2"><strong>Logging in delivers the actual product.</strong></p>
-        <ul class="text-xs text-gray-700 space-y-1 list-disc list-inside">
-          <li>Lands on <strong>Dashboard</strong>: greeting + My Stories grid + tier badge</li>
-          <li><strong>Story Library</strong>: browse pre-made stories</li>
-          <li><strong>Story Viewer</strong>: open any story, swipe pages, play audio</li>
-          <li><strong>"Install on home screen"</strong> prompt on phones</li>
-          <li><strong>Account page</strong> with child profiles + sign out</li>
-        </ul>
-        <p class="text-xs text-kp-purple500 mt-3"><strong>What's still missing in Tier 1:</strong> story creation, image upload, sharing. Those land in Tier 2 (+20 hrs).</p>
-      </div>
+    <!-- THE GAP -->
+    <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl">
+      <div class="text-xs uppercase tracking-widest font-black text-amber-800 mb-1">⚠️ Engineering note — the desktop sign-up gap</div>
+      <p class="text-sm text-gray-800 leading-relaxed">
+        Right now on livekeenly.com, when a user signs up, they land back on the homepage with "Hi, [Name]" in the nav — and that's it. <strong>There's no dashboard, story library, or anything to do after login yet.</strong> The auth works, but the post-login experience hasn't been built. That gap closes in Tier 1 PWA (~22 hrs): Dashboard + Story Library + Story Viewer + Account.
+      </p>
     </div>
 
-    <p class="text-sm text-gray-600 italic">In short: <strong>Phase A built the door. Phase B (PWA) builds the rooms behind it.</strong></p>
   </div>
 </section>
 
