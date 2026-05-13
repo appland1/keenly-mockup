@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>KEENLY — Mobile PWA Mockup</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        kp: {
+          // Purples
+          purple900: "#212134",
+          purple800: "#32324A",
+          purple500: "#40405D",
+          purple400: "#606079",
+          purple300: "#73738E",
+          purple200: "#9292AC",
+          // Lime / greens
+          lime500: "#B1F83E",
+          lime400: "#AFEB7B",
+          lime300: "#79C636",
+          // Blues
+          blue500: "#6E84FF",
+          blue400: "#7F94FD",
+          cyan: "#1DC9E0",
+          // Pinks
+          pink600: "#FF3B81",
+          pink500: "#F948A8",
+          magenta: "#D76EFF",
+          // Reds / oranges
+          red: "#FF7272",
+          alert: "#FF3D00",
+          orange: "#FF8E00",
+          // Yellow
+          yellow: "#F6CF3C",
+          // Neutrals
+          border: "#D9D9E6",
+          surface: "#F1F1F6",
+        },
+      },
+      fontFamily: { display: ['"Nunito"', 'system-ui', 'sans-serif'] },
+    }
+  }
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Nunito', system-ui, sans-serif; background: #f4f5f9; margin: 0; }
+  .phone {
+    width: 360px;
+    height: 760px;
+    border-radius: 36px;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,.3), 0 0 0 12px #111 inset, 0 0 0 14px #222 inset;
+    overflow: hidden;
+    background: white;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .notch {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 28px;
+    background: #111;
+    border-radius: 0 0 18px 18px;
+    z-index: 100;
+  }
+  .screen-label {
+    font-size: 11px; color: #888; text-transform: uppercase;
+    letter-spacing: .12em; margin-bottom: 10px; font-weight: 800;
+  }
+  .scroll-x { overflow-x: auto; padding-bottom: 16px; }
+  .scroll-x::-webkit-scrollbar { height: 8px; }
+  .grain { background: radial-gradient(circle at 30% 20%, #5a5a85, #40405D 70%); }
+  .checker { background-image: linear-gradient(45deg, #f8f9fa 25%, transparent 25%, transparent 75%, #f8f9fa 75%), linear-gradient(45deg, #f8f9fa 25%, transparent 25%, transparent 75%, #f8f9fa 75%); background-size: 16px 16px; background-position: 0 0, 8px 8px; }
+  .pulse { animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.55} }
+</style>
+</head>
+<body class="p-8">
+
+<header class="max-w-7xl mx-auto mb-10">
+  <div class="flex items-center gap-4 mb-4">
+    <div class="text-3xl font-black text-kp-purple500">KEENLY</div>
+    <span class="text-xs uppercase tracking-widest bg-kp-purple500 text-kp-lime400 px-3 py-1 rounded-full font-bold">Mobile PWA Mockup</span>
+  </div>
+  <p class="text-gray-600">Visual blueprint of the Progressive Web App. Same brand palette + design language as Hennie's Figma file — extracted directly. Each screen below is what a parent / educator / therapist would see after installing KEENLY to their home screen.</p>
+  <p class="text-xs text-gray-500 mt-2">Colors live from <code class="bg-gray-100 px-1 rounded">brand-tokens-extracted.md</code> · 22 swatches · Nunito as placeholder for Avenir Next LT Pro</p>
+</header>
+
+<!-- ============ ROW 1: ONBOARDING ============ -->
+<section class="max-w-7xl mx-auto mb-14">
+  <h2 class="text-lg font-black text-kp-purple500 mb-2">🚪 Onboarding</h2>
+  <p class="text-sm text-gray-500 mb-6">Welcome screen + Sign Up + Sign In + Forgot Password</p>
+
+  <div class="flex gap-6 scroll-x">
+
+    <!-- WELCOME -->
+    <div>
+      <div class="screen-label">1. Welcome</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="grain text-white flex flex-col items-center justify-between h-full pt-16 pb-10 px-8 text-center">
+          <div></div>
+          <div>
+            <div class="text-7xl mb-6">🌟</div>
+            <div class="text-[11px] uppercase tracking-widest text-kp-lime400 font-bold mb-3">For parents · educators · therapists</div>
+            <h1 class="text-4xl font-black leading-tight mb-4">Empowering<br>Special Needs</h1>
+            <p class="text-white/75 text-sm leading-relaxed">Custom social stories built with your own photos and your own voice.</p>
+          </div>
+          <div class="w-full space-y-3">
+            <button class="w-full bg-kp-lime400 text-kp-purple500 font-black py-4 rounded-full shadow-lg">Start free</button>
+            <button class="w-full border border-white/30 text-white font-bold py-4 rounded-full">I already have an account</button>
+            <div class="flex justify-center gap-4 text-[11px] text-white/55 pt-1">
+              <span>✓ No credit card</span>
+              <span>✓ 3 free stories</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIGN UP -->
+    <div>
+      <div class="screen-label">2. Sign Up</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="bg-white h-full flex flex-col">
+          <div class="bg-kp-purple500 text-white pt-16 pb-6 px-6 flex-shrink-0">
+            <button class="text-white/70 text-sm mb-3">← Back</button>
+            <h2 class="text-2xl font-black">Create account</h2>
+            <p class="text-white/65 text-xs mt-1">Start free. No card required.</p>
+          </div>
+          <div class="px-6 py-5 flex-1">
+            <label class="text-[10px] text-gray-500 uppercase tracking-wider font-bold">Full name</label>
+            <input class="w-full border-b border-kp-border py-2.5 text-sm outline-none focus:border-kp-lime400 mb-4" placeholder="Maria S." />
+
+            <label class="text-[10px] text-gray-500 uppercase tracking-wider font-bold">Email</label>
+            <input class="w-full border-b border-kp-border py-2.5 text-sm outline-none focus:border-kp-lime400 mb-4" placeholder="you@example.com" />
+
+            <label class="text-[10px] text-gray-500 uppercase tracking-wider font-bold">Password</label>
+            <input type="password" class="w-full border-b border-kp-border py-2.5 text-sm outline-none focus:border-kp-lime400 mb-3" value="Keenly123" />
+
+            <div class="text-[10px] space-y-1 mb-5">
+              <div class="text-kp-lime300 flex items-center"><span class="w-4">✓</span><span>At least 8 characters</span></div>
+              <div class="text-kp-lime300 flex items-center"><span class="w-4">✓</span><span>One uppercase letter</span></div>
+              <div class="text-kp-lime300 flex items-center"><span class="w-4">✓</span><span>One number</span></div>
+            </div>
+
+            <div class="text-[10px] text-gray-500 uppercase tracking-wider font-bold mb-2">I'm a…</div>
+            <div class="grid grid-cols-2 gap-2 mb-6">
+              <button class="border-2 border-kp-lime400 bg-kp-lime400/15 rounded-xl py-2.5 text-xs font-bold text-kp-purple500">Parent</button>
+              <button class="border border-kp-border rounded-xl py-2.5 text-xs text-gray-600">Educator</button>
+              <button class="border border-kp-border rounded-xl py-2.5 text-xs text-gray-600">Therapist</button>
+              <button class="border border-kp-border rounded-xl py-2.5 text-xs text-gray-600">Other</button>
+            </div>
+
+            <button class="w-full bg-kp-purple500 text-white font-black py-4 rounded-full">Create account</button>
+            <div class="text-center text-xs text-gray-400 my-3">or</div>
+            <button class="w-full border border-kp-border rounded-full py-3 text-sm font-bold flex items-center justify-center gap-2">
+              <span>G</span> Continue with Google
+            </button>
+            <div class="text-center text-xs text-gray-400 mt-4">Have an account? <span class="text-kp-purple500 font-black">Sign in</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIGN IN -->
+    <div>
+      <div class="screen-label">3. Sign In</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="bg-white h-full flex flex-col">
+          <div class="bg-kp-purple500 text-white pt-16 pb-6 px-6 flex-shrink-0">
+            <button class="text-white/70 text-sm mb-3">← Back</button>
+            <h2 class="text-2xl font-black">Welcome back</h2>
+            <p class="text-white/65 text-xs mt-1">Sign in to your account</p>
+          </div>
+          <div class="px-6 py-5 flex-1">
+            <label class="text-[10px] text-gray-500 uppercase tracking-wider font-bold">Email</label>
+            <input class="w-full border-b border-kp-border py-2.5 text-sm outline-none mb-4" value="maria@example.com" />
+
+            <label class="text-[10px] text-gray-500 uppercase tracking-wider font-bold">Password</label>
+            <input type="password" class="w-full border-b border-kp-border py-2.5 text-sm outline-none mb-2" value="••••••••" />
+
+            <div class="text-right text-xs text-kp-purple500 font-bold mb-6 cursor-pointer">Forgot?</div>
+
+            <button class="w-full bg-kp-lime400 text-kp-purple500 font-black py-4 rounded-full shadow">Sign in</button>
+            <div class="text-center text-xs text-gray-400 my-3">or</div>
+            <button class="w-full border border-kp-border rounded-full py-3 text-sm font-bold flex items-center justify-center gap-2">
+              <span>G</span> Sign in with Google
+            </button>
+            <div class="text-center text-xs text-gray-400 mt-auto pt-8">No account? <span class="text-kp-purple500 font-black">Sign up free</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORGOT PASSWORD -->
+    <div>
+      <div class="screen-label">4. Forgot Password</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="bg-white h-full flex flex-col">
+          <div class="bg-kp-purple500 text-white pt-16 pb-6 px-6 flex-shrink-0">
+            <button class="text-white/70 text-sm mb-3">← Back</button>
+            <h2 class="text-2xl font-black">Reset password</h2>
+            <p class="text-white/65 text-xs mt-1">We'll email you a reset link</p>
+          </div>
+          <div class="px-6 py-5 flex-1">
+            <p class="text-sm text-gray-600 mb-5">Enter the email address on your account. We'll send a one-time link to set a new password.</p>
+            <label class="text-[10px] text-gray-500 uppercase tracking-wider font-bold">Email</label>
+            <input class="w-full border-b border-kp-border py-2.5 text-sm outline-none mb-8" placeholder="you@example.com" />
+            <button class="w-full bg-kp-purple500 text-white font-black py-4 rounded-full">Send reset link</button>
+            <div class="text-center text-xs text-gray-400 mt-4">Remembered it? <span class="text-kp-purple500 font-black">Sign in</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ ROW 2: CORE PRODUCT ============ -->
+<section class="max-w-7xl mx-auto mb-14">
+  <h2 class="text-lg font-black text-kp-purple500 mb-2">📚 Core product</h2>
+  <p class="text-sm text-gray-500 mb-6">Home/Dashboard + Story Viewer + Story Editor</p>
+
+  <div class="flex gap-6 scroll-x">
+
+    <!-- HOME / DASHBOARD -->
+    <div>
+      <div class="screen-label">5. Home / Dashboard</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="bg-kp-surface h-full flex flex-col">
+          <!-- Header -->
+          <div class="bg-white px-6 pt-16 pb-4 flex justify-between items-center border-b border-kp-border flex-shrink-0">
+            <div>
+              <div class="text-[10px] text-gray-400 uppercase tracking-wider">Hi,</div>
+              <div class="font-black text-kp-purple500 text-lg">Maria 👋</div>
+            </div>
+            <span class="bg-gray-100 text-gray-600 text-[10px] px-2.5 py-1.5 rounded-full font-bold uppercase">Free · 2 of 3 left</span>
+          </div>
+
+          <!-- Scrollable area -->
+          <div class="px-5 py-4 flex-1 overflow-y-auto">
+            <!-- CTA -->
+            <button class="w-full bg-kp-lime400 text-kp-purple500 font-black py-4 rounded-2xl mb-5 flex items-center justify-center gap-2 shadow">
+              <span class="text-xl">＋</span> Create new story
+            </button>
+
+            <!-- Tabs -->
+            <div class="flex gap-2 mb-3 text-xs">
+              <span class="px-3 py-1.5 rounded-full bg-kp-purple500 text-white font-bold">My Stories</span>
+              <span class="px-3 py-1.5 rounded-full bg-white text-gray-500">Shared</span>
+              <span class="px-3 py-1.5 rounded-full bg-white text-gray-500">Featured</span>
+            </div>
+
+            <!-- Story grid -->
+            <div class="grid grid-cols-2 gap-3 mb-5">
+              <div class="bg-white border border-kp-border rounded-xl p-2.5">
+                <div class="aspect-square bg-kp-yellow rounded-lg mb-2 flex items-center justify-center text-3xl">😬</div>
+                <div class="text-xs font-bold">Haircut day</div>
+                <div class="text-[10px] text-gray-500">5 pages</div>
+              </div>
+              <div class="bg-white border border-kp-border rounded-xl p-2.5">
+                <div class="aspect-square bg-kp-pink500 rounded-lg mb-2 flex items-center justify-center text-3xl">🦷</div>
+                <div class="text-xs font-bold">Dentist visit</div>
+                <div class="text-[10px] text-gray-500">6 pages</div>
+              </div>
+              <div class="border-2 border-dashed border-kp-lime400 rounded-xl p-2.5 flex flex-col items-center justify-center text-kp-purple500 bg-kp-lime400/10 col-span-2 py-6">
+                <div class="text-2xl mb-1">✨</div>
+                <div class="text-[10px] font-bold">1 free slot left — Create story</div>
+              </div>
+            </div>
+
+            <!-- Upgrade nudge -->
+            <div class="bg-kp-purple500 rounded-xl p-4 text-white">
+              <div class="font-black text-sm mb-1">Go unlimited 🚀</div>
+              <div class="text-[11px] text-white/70 mb-3">Pro: unlimited stories, no watermark, audio narration</div>
+              <button class="bg-kp-lime400 text-kp-purple500 text-xs font-black px-4 py-2 rounded-full">Upgrade to Pro · $9.99/mo</button>
+            </div>
+          </div>
+
+          <!-- Bottom tabs -->
+          <div class="bg-white border-t border-kp-border px-2 py-2 flex justify-around flex-shrink-0">
+            <div class="text-center text-kp-purple500"><div class="text-xl">🏠</div><div class="text-[9px] font-bold">Home</div></div>
+            <div class="text-center text-gray-400"><div class="text-xl">📚</div><div class="text-[9px]">Library</div></div>
+            <div class="text-center text-gray-400"><div class="text-xl">✚</div><div class="text-[9px]">Create</div></div>
+            <div class="text-center text-gray-400"><div class="text-xl">👤</div><div class="text-[9px]">Account</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STORY VIEWER -->
+    <div>
+      <div class="screen-label">6. Story Viewer</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="h-full flex flex-col">
+          <!-- Header -->
+          <div class="bg-kp-purple500 text-white px-5 pt-16 pb-3 flex justify-between items-center flex-shrink-0">
+            <button class="text-xl">←</button>
+            <div class="font-black text-sm">Haircut day</div>
+            <button class="text-xl">⋯</button>
+          </div>
+
+          <!-- Story page -->
+          <div class="bg-kp-yellow flex-1 flex flex-col items-center justify-center px-6 relative">
+            <div class="text-9xl mb-8">✂️</div>
+            <div class="bg-white rounded-2xl px-5 py-4 shadow text-center max-w-[260px]">
+              <div class="font-black text-kp-purple500 text-lg">The barber uses scissors.</div>
+              <div class="text-xs text-gray-500 mt-1">It might tickle. That's okay.</div>
+            </div>
+            <button class="mt-6 bg-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg text-2xl">▶</button>
+          </div>
+
+          <!-- Page nav -->
+          <div class="bg-white px-6 py-3 flex items-center justify-between border-t border-kp-border flex-shrink-0">
+            <button class="text-kp-purple500 text-2xl">◀</button>
+            <div class="flex gap-1.5">
+              <div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+              <div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+              <div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+              <div class="w-1.5 h-1.5 rounded-full bg-kp-purple500"></div>
+              <div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+            </div>
+            <button class="text-kp-purple500 text-2xl">▶</button>
+          </div>
+          <div class="bg-white px-6 py-2 border-t border-kp-border text-[10px] text-gray-400 text-center flex-shrink-0">
+            Made with KEENLY · livekeenly.com
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STORY EDITOR -->
+    <div>
+      <div class="screen-label">7. Story Editor</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="bg-white h-full flex flex-col">
+          <!-- Header -->
+          <div class="bg-white pt-16 pb-3 px-5 flex justify-between items-center border-b border-kp-border flex-shrink-0">
+            <button class="text-kp-purple500 text-xl">✕</button>
+            <div class="text-[10px] font-bold text-gray-500 uppercase tracking-wider">PAGE 2 OF 5</div>
+            <button class="text-kp-purple500 font-black text-sm">Save</button>
+          </div>
+
+          <!-- Editor -->
+          <div class="px-5 py-4 flex-1 overflow-y-auto">
+            <input class="text-2xl font-black text-kp-purple500 w-full mb-1 outline-none" value="Haircut day" />
+            <div class="text-xs text-gray-400 mb-4">Tap to rename</div>
+
+            <!-- Page preview -->
+            <div class="aspect-square bg-kp-yellow rounded-2xl mb-4 flex items-center justify-center text-7xl relative checker">
+              😬
+              <button class="absolute top-3 right-3 bg-white/95 rounded-full w-10 h-10 flex items-center justify-center shadow text-lg">📷</button>
+            </div>
+
+            <!-- Page tools -->
+            <div class="grid grid-cols-2 gap-2 mb-4 text-xs">
+              <button class="border border-kp-border rounded-full py-2.5 font-bold">📷 Replace photo</button>
+              <button class="border border-kp-border rounded-full py-2.5 font-bold">🎙️ Record audio</button>
+            </div>
+
+            <textarea class="w-full border border-kp-border rounded-xl p-3 text-sm h-20 resize-none">First, mom drives me to the haircut place. I bring my favorite toy.</textarea>
+
+            <!-- Page strip -->
+            <div class="text-[10px] text-gray-500 uppercase tracking-wider font-bold mt-5 mb-2">Pages</div>
+            <div class="flex gap-2 overflow-x-auto pb-2">
+              <div class="flex-shrink-0 w-12 h-12 bg-kp-pink500 rounded-lg flex items-center justify-center text-xl">🚗</div>
+              <div class="flex-shrink-0 w-12 h-12 bg-kp-yellow rounded-lg flex items-center justify-center text-xl border-2 border-kp-purple500">😬</div>
+              <div class="flex-shrink-0 w-12 h-12 bg-kp-cyan rounded-lg flex items-center justify-center text-xl">💺</div>
+              <div class="flex-shrink-0 w-12 h-12 bg-kp-lime400 rounded-lg flex items-center justify-center text-xl">✂️</div>
+              <div class="flex-shrink-0 w-12 h-12 bg-kp-pink500 rounded-lg flex items-center justify-center text-xl">🎉</div>
+              <div class="flex-shrink-0 w-12 h-12 border-2 border-dashed border-kp-border rounded-lg flex items-center justify-center text-2xl text-gray-400">＋</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ ROW 3: SOCIAL + ACCOUNT ============ -->
+<section class="max-w-7xl mx-auto mb-14">
+  <h2 class="text-lg font-black text-kp-purple500 mb-2">🤝 Social + Account</h2>
+  <p class="text-sm text-gray-500 mb-6">Share + Account + Library + PWA install prompt</p>
+
+  <div class="flex gap-6 scroll-x">
+
+    <!-- SHARE DIALOG -->
+    <div>
+      <div class="screen-label">8. Share Dialog</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="h-full flex flex-col">
+          <div class="bg-kp-purple500/50 flex-1"></div>
+          <div class="bg-white rounded-t-3xl px-6 py-6 flex-shrink-0">
+            <div class="w-10 h-1 bg-gray-300 rounded-full mx-auto mb-5"></div>
+            <h3 class="font-black text-kp-purple500 text-lg mb-1">Share "Haircut day"</h3>
+            <p class="text-xs text-gray-500 mb-4">Anyone with this link can view your story.</p>
+
+            <div class="border border-kp-border rounded-xl px-3 py-2.5 flex items-center justify-between mb-4 bg-kp-surface">
+              <code class="text-xs text-kp-purple500 truncate">livekeenly.com/s/x9k2-mq</code>
+              <button class="bg-kp-lime400 text-kp-purple500 text-xs font-black px-3 py-1.5 rounded-full">Copy</button>
+            </div>
+
+            <div class="grid grid-cols-4 gap-3 mb-5 text-center text-[10px]">
+              <div><div class="w-12 h-12 bg-kp-blue500 rounded-full mx-auto mb-1 flex items-center justify-center text-xl text-white">✉️</div>Email</div>
+              <div><div class="w-12 h-12 bg-kp-pink500 rounded-full mx-auto mb-1 flex items-center justify-center text-xl text-white">💬</div>SMS</div>
+              <div><div class="w-12 h-12 bg-kp-yellow rounded-full mx-auto mb-1 flex items-center justify-center text-xl">📄</div>PDF</div>
+              <div><div class="w-12 h-12 bg-kp-lime400 rounded-full mx-auto mb-1 flex items-center justify-center text-xl text-kp-purple500">🖨️</div>Print</div>
+            </div>
+
+            <div class="bg-kp-purple500/5 border border-kp-purple500/20 rounded-xl p-3 mb-4">
+              <div class="text-[10px] uppercase tracking-wider text-kp-purple500 font-black">Free tier</div>
+              <div class="text-xs text-gray-600 mt-1">Exports include "Made with KEENLY" footer. <span class="text-kp-purple500 font-black">Upgrade to Pro</span> to remove.</div>
+            </div>
+
+            <button class="w-full text-center text-xs text-gray-500 py-2">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCOUNT -->
+    <div>
+      <div class="screen-label">9. Account</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="bg-kp-surface h-full flex flex-col">
+          <div class="bg-white pt-16 pb-3 px-5 border-b border-kp-border flex-shrink-0">
+            <h2 class="font-black text-kp-purple500 text-lg">Account</h2>
+          </div>
+          <div class="px-5 py-5 flex-1 overflow-y-auto">
+            <!-- Profile -->
+            <div class="bg-white rounded-2xl p-4 mb-4 flex items-center gap-3">
+              <div class="w-14 h-14 rounded-full bg-kp-lime400 flex items-center justify-center text-xl font-black text-kp-purple500">M</div>
+              <div class="flex-1">
+                <div class="font-black text-kp-purple500">Maria S.</div>
+                <div class="text-xs text-gray-500">maria@example.com</div>
+              </div>
+              <button class="text-kp-purple500 text-sm font-bold">Edit</button>
+            </div>
+
+            <!-- Subscription -->
+            <div class="bg-kp-purple500 rounded-2xl p-4 mb-4 text-white">
+              <div class="text-[10px] uppercase tracking-wider font-black text-kp-lime400 mb-1">Current plan</div>
+              <div class="text-xl font-black">Free</div>
+              <div class="text-[11px] text-white/70 mt-1 mb-3">3 stories / month · with watermark</div>
+              <button class="bg-kp-lime400 text-kp-purple500 text-xs font-black px-4 py-2 rounded-full w-full">Upgrade to Pro · $9.99/mo</button>
+            </div>
+
+            <!-- Child profiles -->
+            <div class="text-[10px] text-gray-500 uppercase tracking-wider font-black mb-2">Child profiles</div>
+            <div class="bg-white rounded-xl p-3 mb-2 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-kp-pink500 flex items-center justify-center text-lg">🧒</div>
+              <div class="flex-1">
+                <div class="font-bold text-sm">Sofia · 6 yrs</div>
+                <div class="text-[10px] text-gray-500">3 stories</div>
+              </div>
+            </div>
+            <div class="border-2 border-dashed border-kp-border rounded-xl py-3 flex items-center justify-center gap-2 text-xs text-gray-500 mb-5">
+              ＋ Add child profile (Family plan)
+            </div>
+
+            <!-- Settings -->
+            <div class="text-[10px] text-gray-500 uppercase tracking-wider font-black mb-2">Settings</div>
+            <div class="bg-white rounded-xl divide-y divide-kp-border">
+              <div class="flex justify-between py-3 px-4 text-sm"><span>Email notifications</span><span class="text-gray-400">On</span></div>
+              <div class="flex justify-between py-3 px-4 text-sm"><span>Privacy policy</span><span class="text-gray-400">›</span></div>
+              <div class="flex justify-between py-3 px-4 text-sm"><span>Terms</span><span class="text-gray-400">›</span></div>
+              <div class="flex justify-between py-3 px-4 text-sm text-kp-alert"><span>Sign out</span><span>›</span></div>
+            </div>
+          </div>
+
+          <!-- Bottom tabs -->
+          <div class="bg-white border-t border-kp-border px-2 py-2 flex justify-around flex-shrink-0">
+            <div class="text-center text-gray-400"><div class="text-xl">🏠</div><div class="text-[9px]">Home</div></div>
+            <div class="text-center text-gray-400"><div class="text-xl">📚</div><div class="text-[9px]">Library</div></div>
+            <div class="text-center text-gray-400"><div class="text-xl">✚</div><div class="text-[9px]">Create</div></div>
+            <div class="text-center text-kp-purple500"><div class="text-xl">👤</div><div class="text-[9px] font-bold">Account</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIBRARY -->
+    <div>
+      <div class="screen-label">10. Story Library</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="bg-kp-surface h-full flex flex-col">
+          <div class="bg-white pt-16 pb-3 px-5 border-b border-kp-border flex-shrink-0">
+            <h2 class="font-black text-kp-purple500 text-lg">Library</h2>
+          </div>
+          <div class="px-5 py-5 flex-1 overflow-y-auto">
+            <input class="w-full bg-white border border-kp-border rounded-full px-4 py-2.5 text-sm mb-4" placeholder="🔍 Search stories…" />
+
+            <div class="flex gap-2 mb-4 text-xs overflow-x-auto pb-1">
+              <span class="px-3 py-1.5 rounded-full bg-kp-purple500 text-white font-bold flex-shrink-0">All</span>
+              <span class="px-3 py-1.5 rounded-full bg-white text-gray-500 flex-shrink-0">Anxiety</span>
+              <span class="px-3 py-1.5 rounded-full bg-white text-gray-500 flex-shrink-0">Emotions</span>
+              <span class="px-3 py-1.5 rounded-full bg-white text-gray-500 flex-shrink-0">Routines</span>
+              <span class="px-3 py-1.5 rounded-full bg-white text-gray-500 flex-shrink-0">Travel</span>
+            </div>
+
+            <div class="space-y-3">
+              <div class="bg-white border border-kp-border rounded-xl p-3 flex gap-3 items-center">
+                <div class="w-14 h-14 bg-kp-yellow rounded-lg flex items-center justify-center text-2xl">😬</div>
+                <div class="flex-1">
+                  <div class="font-bold text-sm text-kp-purple500">When I get a haircut</div>
+                  <div class="text-[10px] text-gray-500">5 pages · 2 days ago</div>
+                </div>
+                <span class="text-xs text-gray-400">›</span>
+              </div>
+              <div class="bg-white border border-kp-border rounded-xl p-3 flex gap-3 items-center">
+                <div class="w-14 h-14 bg-kp-pink500 rounded-lg flex items-center justify-center text-2xl">🦷</div>
+                <div class="flex-1">
+                  <div class="font-bold text-sm text-kp-purple500">When I visit the dentist</div>
+                  <div class="text-[10px] text-gray-500">6 pages · 1 week ago</div>
+                </div>
+                <span class="text-xs text-gray-400">›</span>
+              </div>
+              <div class="bg-white border border-kp-border rounded-xl p-3 flex gap-3 items-center">
+                <div class="w-14 h-14 bg-kp-cyan rounded-lg flex items-center justify-center text-2xl">🌙</div>
+                <div class="flex-1">
+                  <div class="font-bold text-sm text-kp-purple500">Nighttime routine</div>
+                  <div class="text-[10px] text-gray-500">4 pages · sample</div>
+                </div>
+                <span class="text-xs text-gray-400">›</span>
+              </div>
+              <div class="bg-white border border-kp-border rounded-xl p-3 flex gap-3 items-center">
+                <div class="w-14 h-14 bg-kp-magenta rounded-lg flex items-center justify-center text-2xl">😡</div>
+                <div class="flex-1">
+                  <div class="font-bold text-sm text-kp-purple500">When I feel angry</div>
+                  <div class="text-[10px] text-gray-500">8 pages · sample</div>
+                </div>
+                <span class="text-xs text-gray-400">›</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white border-t border-kp-border px-2 py-2 flex justify-around flex-shrink-0">
+            <div class="text-center text-gray-400"><div class="text-xl">🏠</div><div class="text-[9px]">Home</div></div>
+            <div class="text-center text-kp-purple500"><div class="text-xl">📚</div><div class="text-[9px] font-bold">Library</div></div>
+            <div class="text-center text-gray-400"><div class="text-xl">✚</div><div class="text-[9px]">Create</div></div>
+            <div class="text-center text-gray-400"><div class="text-xl">👤</div><div class="text-[9px]">Account</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PWA INSTALL PROMPT -->
+    <div>
+      <div class="screen-label">11. PWA Install Prompt</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="bg-kp-purple500 h-full flex flex-col">
+          <div class="pt-16 px-6 pb-6 text-white flex-shrink-0">
+            <div class="text-xs font-bold text-kp-lime400 uppercase tracking-widest">livekeenly.com</div>
+          </div>
+
+          <div class="flex-1 flex flex-col items-center justify-center px-6 text-white text-center">
+            <div class="w-24 h-24 bg-kp-lime400 rounded-3xl flex items-center justify-center mb-6 shadow-2xl">
+              <div class="text-5xl font-black text-kp-purple500">K</div>
+            </div>
+            <h3 class="text-2xl font-black mb-3">Install KEENLY</h3>
+            <p class="text-white/80 text-sm leading-relaxed mb-8">Get the full app experience. Works offline, sends notifications, and lives on your home screen. No App Store needed.</p>
+
+            <div class="bg-white/10 rounded-2xl px-5 py-4 mb-6 w-full">
+              <div class="text-xs text-white/70 mb-2">To install:</div>
+              <div class="text-sm font-bold">1. Tap the <span class="text-kp-lime400">Share</span> button below ⤴</div>
+              <div class="text-sm font-bold">2. Choose <span class="text-kp-lime400">"Add to Home Screen"</span></div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 backdrop-blur px-6 py-4 flex gap-3 flex-shrink-0">
+            <button class="flex-1 border border-white/30 text-white font-bold py-3 rounded-full text-sm">Maybe later</button>
+            <button class="flex-1 bg-kp-lime400 text-kp-purple500 font-black py-3 rounded-full text-sm">Got it</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ DESIGN TOKENS ============ -->
+<section class="max-w-7xl mx-auto mb-10 bg-white rounded-2xl p-6 shadow">
+  <h2 class="text-lg font-black text-kp-purple500 mb-2">🎨 Brand palette in use</h2>
+  <p class="text-sm text-gray-500 mb-5">All hex codes pulled directly from her Figma file's "colors" group. The PWA inherits these as Tailwind tokens.</p>
+  <div class="grid grid-cols-4 md:grid-cols-8 gap-4">
+    <div><div class="aspect-square bg-kp-purple500 rounded-lg shadow"></div><div class="text-[10px] mt-1 font-bold">Purple</div><div class="text-[9px] text-gray-400">#40405D</div></div>
+    <div><div class="aspect-square bg-kp-lime400 rounded-lg shadow"></div><div class="text-[10px] mt-1 font-bold">Lime</div><div class="text-[9px] text-gray-400">#AFEB7B</div></div>
+    <div><div class="aspect-square bg-kp-red rounded-lg shadow"></div><div class="text-[10px] mt-1 font-bold">Red</div><div class="text-[9px] text-gray-400">#FF7272</div></div>
+    <div><div class="aspect-square bg-kp-pink600 rounded-lg shadow"></div><div class="text-[10px] mt-1 font-bold">Pink</div><div class="text-[9px] text-gray-400">#FF3B81</div></div>
+    <div><div class="aspect-square bg-kp-magenta rounded-lg shadow"></div><div class="text-[10px] mt-1 font-bold">Magenta</div><div class="text-[9px] text-gray-400">#D76EFF</div></div>
+    <div><div class="aspect-square bg-kp-yellow rounded-lg shadow"></div><div class="text-[10px] mt-1 font-bold">Yellow</div><div class="text-[9px] text-gray-400">#F6CF3C</div></div>
+    <div><div class="aspect-square bg-kp-blue500 rounded-lg shadow"></div><div class="text-[10px] mt-1 font-bold">Blue</div><div class="text-[9px] text-gray-400">#6E84FF</div></div>
+    <div><div class="aspect-square bg-kp-orange rounded-lg shadow"></div><div class="text-[10px] mt-1 font-bold">Orange</div><div class="text-[9px] text-gray-400">#FF8E00</div></div>
+  </div>
+</section>
+
+<footer class="max-w-7xl mx-auto pt-6 border-t border-gray-200 text-xs text-gray-500">
+  Mockup uses Hennie's brand palette extracted from her Figma file's "colors" group on 2026-05-12. 11 screens covering onboarding, core product, social, account, and PWA install flow. Drawn from her existing 8 mobile-app screens + new screens for Library, Share Dialog, and PWA install prompt. Sample stories (haircut / dentist / nighttime / anger) match the 9 PDFs already in her Hostinger assets folder.
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>KEENLY Mobile App — Reconstructed Mockup</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #1a1a1d;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    padding: 40px 20px;
+    min-height: 100vh;
+  }
+  .header {
+    max-width: 1400px;
+    margin: 0 auto 40px;
+    text-align: center;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+  }
+  .subtitle {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .note {
+    color: #555;
+    font-size: 12px;
+    font-style: italic;
+  }
+  .grid {
+    max-width: 1500px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-items: center;
+  }
+  .phone-wrap {
+    text-align: center;
+  }
+  .phone-label {
+    font-size: 13px;
+    color: #888;
+    margin-top: 14px;
+    font-weight: 600;
+  }
+  .phone-label .file {
+    color: #555;
+    font-weight: 400;
+    font-size: 11px;
+    display: block;
+    margin-top: 4px;
+    font-family: 'SF Mono', Menlo, monospace;
+  }
+  /* iPhone-ish frame */
+  .phone {
+    width: 280px;
+    height: 580px;
+    border-radius: 36px;
+    background: #000;
+    padding: 8px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    position: relative;
+  }
+  .screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 28px;
+    background: #40405D;
+    overflow: hidden;
+    position: relative;
+    font-family: 'AvenirNext', -apple-system, sans-serif;
+    color: #fff;
+  }
+  /* Notch */
+  .phone::before {
+    content: '';
+    position: absolute;
+    top: 14px; left: 50%;
+    transform: translateX(-50%);
+    width: 70px; height: 22px;
+    background: #000;
+    border-radius: 0 0 12px 12px;
+    z-index: 10;
+  }
+  /* Status bar */
+  .status {
+    position: absolute;
+    top: 8px; left: 0; right: 0;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 22px;
+    font-size: 11px;
+    color: #fff;
+    z-index: 5;
+    font-weight: 600;
+  }
+  .status .right { display: flex; gap: 4px; align-items: center; }
+
+  /* ========= WELCOME SCREEN ========= */
+  .welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    height: 100%;
+  }
+  .welcome-img {
+    width: 160px; height: 218px;
+    background: linear-gradient(135deg, #B1F83E, #6AB832);
+    border-radius: 20px;
+    margin-bottom: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    box-shadow: 0 4px 20px rgba(177,248,62,.3);
+  }
+  .welcome-text {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.4;
+    color: #fff;
+  }
+  .welcome-btn {
+    width: 200px; height: 32px;
+    background: #AFEB7B;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #121322;
+    font-weight: 700;
+    font-size: 13px;
+    margin-top: 36px;
+    cursor: pointer;
+  }
+
+  /* ========= SIGN IN / SIGN UP ========= */
+  .auth {
+    padding: 60px 20px 20px;
+    height: 100%;
+  }
+  .auth-tabs {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-left: 10px;
+  }
+  .tab-selected {
+    color: #B1F83E;
+    font-size: 13px;
+    font-weight: 800;
+  }
+  .tab-unselected {
+    color: #fff;
+    font-size: 13px;
+    opacity: 0.8;
+  }
+  .tab-sep {
+    width: 1px; height: 16px;
+    background: #D9D9E6;
+    margin: 0 12px;
+  }
+  .form-card {
+    background: #5C5C7A;
+    border-radius: 20px;
+    padding: 24px 18px;
+    margin-bottom: 16px;
+  }
+  .form-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,.6);
+    margin-bottom: 12px;
+  }
+  .form-row:last-child { margin-bottom: 0; border-bottom: 1px solid rgba(255,255,255,.6); }
+  .form-icon {
+    width: 18px; height: 18px;
+    background: #fff;
+    border-radius: 2px;
+    opacity: 0.95;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #5C5C7A;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .form-input {
+    flex: 1;
+    color: rgba(255,255,255,.55);
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .forgot {
+    text-align: right;
+    font-size: 12px;
+    color: #fff;
+    margin-top: 4px;
+    opacity: 0.95;
+  }
+  .submit-btn {
+    height: 36px;
+    background: #AFEB7B;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2F3149;
+    font-weight: 800;
+    font-size: 13px;
+  }
+
+  /* ========= HOME ========= */
+  .home {
+    padding: 50px 14px 20px;
+    height: 100%;
+  }
+  .home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+  .home-logo {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+  }
+  .burger {
+    width: 26px; height: 18px;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+  }
+  .burger span { display:block; height: 2px; background: #fff; border-radius: 1px; }
+  .home-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .home-tab {
+    display: flex; align-items: center; gap: 6px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    background: rgba(255,255,255,.08);
+    color: #fff;
+  }
+  .home-tab.active {
+    background: #B1F83E;
+    color: #2F3149;
+    font-weight: 800;
+  }
+  .home-tab .ico {
+    width: 12px; height: 12px;
+    display: inline-block;
+    background: currentColor;
+    -webkit-mask-image: radial-gradient(circle, currentColor 50%, transparent 50%);
+            mask-image: radial-gradient(circle, currentColor 50%, transparent 50%);
+  }
+  .grid-stories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .story-tile {
+    aspect-ratio: 1 / 1.4;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #5C5C7A;
+  }
+  .story-tile.create {
+    background: rgba(255,255,255,.12);
+    border: 2px dashed rgba(255,255,255,.4);
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 4px;
+  }
+  .story-tile.create .plus {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: #AFEB7B;
+    color: #2F3149;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    font-weight: 800;
+  }
+  .story-tile .thumb {
+    flex: 1;
+    background: linear-gradient(135deg, #6CBC9E, #4889B8);
+  }
+  .story-tile .thumb.v2 { background: linear-gradient(135deg, #C48BD9, #7A4FAA); }
+  .story-tile .thumb.v3 { background: linear-gradient(135deg, #E89055, #C45F2A); }
+  .story-tile .thumb.v4 { background: linear-gradient(135deg, #F8D456, #C09826); }
+  .story-tile .thumb.v5 { background: linear-gradient(135deg, #6BA6E8, #4577B8); }
+  .story-tile .thumb.v6 { background: linear-gradient(135deg, #E866A2, #B83D7A); }
+  .story-tile .title {
+    font-size: 8px;
+    text-align: center;
+    padding: 4px 2px;
+    background: rgba(255,255,255,.08);
+    color: #fff;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+  .home-tab .tab-emoji { font-size: 12px; }
+
+  /* ========= STORY DETAIL ========= */
+  .story-detail {
+    padding: 50px 20px 20px;
+    height: 100%;
+  }
+  .story-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,.3);
+    height: 460px;
+    display: flex;
+    flex-direction: column;
+  }
+  .story-card .img {
+    flex: 1;
+    background: linear-gradient(135deg, #6CBC9E, #4889B8);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 64px;
+  }
+  .story-card .caption {
+    padding: 20px;
+    color: #2F3149;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.4;
+    background: #f5f5f0;
+  }
+  .story-card .audio {
+    background: #fff;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-top: 1px solid #eee;
+  }
+  .play-btn {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: #AFEB7B;
+    display: flex; align-items: center; justify-content: center;
+    color: #2F3149;
+    font-size: 14px;
+  }
+  .arrow-left, .arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 24px;
+    opacity: 0.7;
+  }
+  .arrow-left { left: 8px; }
+  .arrow-right { right: 8px; }
+  .page-dots {
+    position: absolute;
+    bottom: 14px;
+    left: 0; right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+  }
+  .page-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.4);
+  }
+  .page-dot.active { background: #AFEB7B; }
+
+  /* ========= ARRANGE ========= */
+  .arrange {
+    padding: 50px 16px 20px;
+    height: 100%;
+  }
+  .arrange-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .arrange-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .arrange-item {
+    background: #5C5C7A;
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .arrange-num {
+    width: 24px; height: 24px;
+    background: #AFEB7B;
+    color: #2F3149;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+  }
+  .arrange-thumb {
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #6CBC9E, #4889B8);
+  }
+  .arrange-thumb.v2 { background: linear-gradient(135deg, #C48BD9, #7A4FAA); }
+  .arrange-thumb.v3 { background: linear-gradient(135deg, #E89055, #C45F2A); }
+  .arrange-thumb.v4 { background: linear-gradient(135deg, #F8D456, #C09826); }
+  .arrange-thumb.v5 { background: linear-gradient(135deg, #6BA6E8, #4577B8); }
+  .arrange-text {
+    flex: 1;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .grip {
+    color: rgba(255,255,255,.4);
+    font-size: 16px;
+  }
+
+  /* ========= HELPS ========= */
+  .helps {
+    padding: 50px 18px 20px;
+    height: 100%;
+  }
+  .helps-title {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .help-card {
+    background: #5C5C7A;
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 10px;
+  }
+  .help-q {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #B1F83E;
+  }
+  .help-a {
+    font-size: 11px;
+    line-height: 1.4;
+    opacity: 0.85;
+  }
+
+  /* ========= TECH STACK BANNER ========= */
+  .stack-banner {
+    max-width: 1500px;
+    margin: 50px auto 0;
+    padding: 24px;
+    background: linear-gradient(135deg, #2c2c30, #1a1a1d);
+    border: 1px solid #3e3e46;
+    border-radius: 16px;
+  }
+  .stack-banner h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #B1F83E;
+  }
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  .stack-item {
+    padding: 12px 14px;
+    background: rgba(255,255,255,.04);
+    border-radius: 8px;
+    border-left: 3px solid #B1F83E;
+  }
+  .stack-item .name { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .stack-item .desc { font-size: 11px; color: #888; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>KEENLY — Reconstructed Mobile App Mockup</h1>
+  <div class="subtitle">Faithful render of the 13 screens in the source code</div>
+  <div class="note">Background #40405D · Primary CTA #AFEB7B · Selected accent #B1F83E · Form bg #5C5C7A · Avenir Next font family</div>
+</div>
+
+<div class="grid">
+
+  <!-- WELCOME -->
+  <div class="phone-wrap">
+    <div class="phone">
+      <div class="screen">
+        <div class="status">
+          <span>9:41</span>
+          <span class="right">📶 5G 🔋</span>
+        </div>
+        <div class="welcome">
+          <div class="welcome-img">🧸</div>
+          <div class="welcome-text">Create social stories,</div>
+          <div class="welcome-text">teach sequencing, and</div>
+          <div class="welcome-text">Step by Step guides</div>
+          <div class="welcome-btn">Let's Get Started</div>
+        </div>
+      </div>
+    </div>
+    <div class="phone-label">Welcome / Onboarding<span class="file">app/welcome.tsx · 33 lines</span></div>
+  </div>
+
+  <!-- SIGN IN -->
+  <div class="phone-wrap">
+    <div class="phone">
+      <div class="screen">
+        <div class="status"><span>9:41</span><span class="right">📶 5G 🔋</span></div>
+        <div class="auth">
+          <div class="auth-tabs">
+            <div class="tab-selected">Sign In</div>
+            <div class="tab-sep"></div>
+            <div class="tab-unselected">Sign Up</div>
+          </div>
+          <div class="form-card">
+            <div class="form-row">
+              <div class="form-icon">✉</div>
+              <div class="form-input">Enter Email</div>
+            </div>
+            <div class="form-row">
+              <div class="form-icon">🔒</div>
+              <div class="form-input">Enter Password</div>
+            </div>
+            <div class="forgot">Forgot?</div>
+          </div>
+          <div class="submit-btn">Sign In</div>
+        </div>
+      </div>
+    </div>
+    <div class="phone-label">Sign In<span class="file">app/(auth)/sign-in.tsx · 136 lines</span></div>
+  </div>
+
+  <!-- SIGN UP -->
+  <div class="phone-wrap">
+    <div class="phone">
+      <div class="screen">
+        <div class="status"><span>9:41</span><span class="right">📶 5G 🔋</span></div>
+        <div class="auth">
+          <div class="auth-tabs">
+            <div class="tab-unselected">Sign In</div>
+            <div class="tab-sep"></div>
+            <div class="tab-selected">Sign Up</div>
+          </div>
+          <div class="form-card" style="height: auto">
+            <div class="form-row">
+              <div class="form-icon">✉</div>
+              <div class="form-input">Enter Email</div>
+            </div>
+            <div class="form-row">
+              <div class="form-icon">🔒</div>
+              <div class="form-input">Enter Password</div>
+            </div>
+            <div class="form-row">
+              <div class="form-icon">🔒</div>
+              <div class="form-input">Re-Enter Password</div>
+            </div>
+          </div>
+          <div class="submit-btn">Sign Up</div>
+        </div>
+      </div>
+    </div>
+    <div class="phone-label">Sign Up<span class="file">app/(auth)/sign-up.tsx · 216 lines</span></div>
+  </div>
+
+  <!-- HOME -->
+  <div class="phone-wrap">
+    <div class="phone">
+      <div class="screen">
+        <div class="status"><span>9:41</span><span class="right">📶 5G 🔋</span></div>
+        <div class="home">
+          <div class="home-header">
+            <div class="home-logo">KEENLY</div>
+            <div class="burger"><span></span><span></span><span></span></div>
+          </div>
+          <div class="home-tabs">
+            <div class="home-tab active">
+              <span class="tab-emoji">❤</span> My Stories
+            </div>
+            <div class="home-tab">
+              <span class="tab-emoji">🔁</span> Shared with me
+            </div>
+          </div>
+          <div class="grid-stories">
+            <div class="story-tile create">
+              <div class="plus">+</div>
+              <div style="font-size: 8px; opacity: 0.8">Create New</div>
+            </div>
+            <div class="story-tile"><div class="thumb"></div><div class="title">When I feel Angry</div></div>
+            <div class="story-tile"><div class="thumb v2"></div><div class="title">Visiting Dentist</div></div>
+            <div class="story-tile"><div class="thumb v3"></div><div class="title">My Morning Routine</div></div>
+            <div class="story-tile"><div class="thumb v4"></div><div class="title">Travel by Plane</div></div>
+            <div class="story-tile"><div class="thumb v5"></div><div class="title">Getting a Haircut</div></div>
+            <div class="story-tile"><div class="thumb v6"></div><div class="title">Bedtime Routine</div></div>
+            <div class="story-tile"><div class="thumb"></div><div class="title">Feelings & Emotions</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="phone-label">Home (Story Library)<span class="file">app/home.tsx · 265 lines</span></div>
+  </div>
+
+  <!-- STORY DETAIL -->
+  <div class="phone-wrap">
+    <div class="phone">
+      <div class="screen">
+        <div class="status"><span>9:41</span><span class="right">📶 5G 🔋</span></div>
+        <div class="story-detail">
+          <div class="story-card">
+            <div class="img">🦷</div>
+            <div class="caption">"When I visit the dentist, I sit in the big chair and open my mouth wide..."</div>
+            <div class="audio">
+              <div class="play-btn">▶</div>
+              <div style="color: #2F3149; font-size: 11px; font-weight: 600">Tap to play narration</div>
+            </div>
+          </div>
+        </div>
+        <div class="arrow-left">‹</div>
+        <div class="arrow-right">›</div>
+        <div class="page-dots">
+          <div class="page-dot"></div>
+          <div class="page-dot active"></div>
+          <div class="page-dot"></div>
+          <div class="page-dot"></div>
+          <div class="page-dot"></div>
+          <div class="page-dot"></div>
+        </div>
+      </div>
+    </div>
+    <div class="phone-label">Story Detail<span class="file">app/story/[id].tsx · 72 lines</span></div>
+  </div>
+
+  <!-- ARRANGE -->
+  <div class="phone-wrap">
+    <div class="phone">
+      <div class="screen">
+        <div class="status"><span>9:41</span><span class="right">📶 5G 🔋</span></div>
+        <div class="arrange">
+          <div class="arrange-title">Arrange Story Pages</div>
+          <div class="arrange-list">
+            <div class="arrange-item">
+              <div class="arrange-num">1</div>
+              <div class="arrange-thumb"></div>
+              <div class="arrange-text">Walking to the office</div>
+              <div class="grip">≡</div>
+            </div>
+            <div class="arrange-item">
+              <div class="arrange-num">2</div>
+              <div class="arrange-thumb v2"></div>
+              <div class="arrange-text">Meeting the dentist</div>
+              <div class="grip">≡</div>
+            </div>
+            <div class="arrange-item">
+              <div class="arrange-num">3</div>
+              <div class="arrange-thumb v3"></div>
+              <div class="arrange-text">Sitting in the chair</div>
+              <div class="grip">≡</div>
+            </div>
+            <div class="arrange-item">
+              <div class="arrange-num">4</div>
+              <div class="arrange-thumb v4"></div>
+              <div class="arrange-text">Opening my mouth</div>
+              <div class="grip">≡</div>
+            </div>
+            <div class="arrange-item">
+              <div class="arrange-num">5</div>
+              <div class="arrange-thumb v5"></div>
+              <div class="arrange-text">All done — sticker time!</div>
+              <div class="grip">≡</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="phone-label">Arrange Pages (drag to reorder)<span class="file">app/story/arrange.tsx · 48 lines</span></div>
+  </div>
+
+  <!-- HELPS -->
+  <div class="phone-wrap">
+    <div class="phone">
+      <div class="screen">
+        <div class="status"><span>9:41</span><span class="right">📶 5G 🔋</span></div>
+        <div class="helps">
+          <div class="helps-title">Help & Tips</div>
+          <div class="help-card">
+            <div class="help-q">What is a social story?</div>
+            <div class="help-a">Short descriptive stories that help children understand social situations, expectations, and emotions.</div>
+          </div>
+          <div class="help-card">
+            <div class="help-q">How do I create one?</div>
+            <div class="help-a">Tap the + tile on the home screen. Add photos from your library, type captions, and record audio if you want narration.</div>
+          </div>
+          <div class="help-card">
+            <div class="help-q">Can I share stories?</div>
+            <div class="help-a">Yes — long-press any story tile and pick "Share Story" from the menu.</div>
+          </div>
+          <div class="help-card">
+            <div class="help-q">How do I rearrange pages?</div>
+            <div class="help-a">Open a story, tap the menu icon, choose "Arrange." Drag pages with the grip handle.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="phone-label">Help / Tutorials<span class="file">app/helps.tsx · 237 lines</span></div>
+  </div>
+
+  <!-- FORGOT -->
+  <div class="phone-wrap">
+    <div class="phone">
+      <div class="screen">
+        <div class="status"><span>9:41</span><span class="right">📶 5G 🔋</span></div>
+        <div class="auth">
+          <div class="auth-tabs">
+            <div class="tab-selected">Reset Password</div>
+          </div>
+          <div class="form-card" style="height: auto">
+            <div style="font-size: 11px; color: #fff; opacity: 0.8; margin-bottom: 16px; line-height: 1.4">
+              Enter your email and we'll send you a reset link.
+            </div>
+            <div class="form-row">
+              <div class="form-icon">✉</div>
+              <div class="form-input">Enter Email</div>
+            </div>
+          </div>
+          <div class="submit-btn">Send Reset Link</div>
+        </div>
+      </div>
+    </div>
+    <div class="phone-label">Forgot Password<span class="file">app/(auth)/forgot-password.tsx · 59 lines</span></div>
+  </div>
+
+</div>
+
+<!-- TECH STACK BANNER -->
+<div class="stack-banner">
+  <h2>🔧 Detected stack from source code</h2>
+  <div class="stack-grid">
+    <div class="stack-item">
+      <div class="name">React Native 0.74.1</div>
+      <div class="desc">Cross-platform mobile framework</div>
+    </div>
+    <div class="stack-item">
+      <div class="name">Expo SDK 51</div>
+      <div class="desc">Managed workflow — no iOS/Android folders</div>
+    </div>
+    <div class="stack-item">
+      <div class="name">Expo Router 3.5</div>
+      <div class="desc">File-based routing (like Next.js for mobile)</div>
+    </div>
+    <div class="stack-item">
+      <div class="name">Zustand</div>
+      <div class="desc">5 stores: auth, token, story, shared-stories, first-time</div>
+    </div>
+    <div class="stack-item">
+      <div class="name">TanStack Query v4</div>
+      <div class="desc">Server state caching + retries</div>
+    </div>
+    <div class="stack-item">
+      <div class="name">OpenAPI auto-generated clients</div>
+      <div class="desc">apis/creator + apis/usermanager (TypeScript)</div>
+    </div>
+    <div class="stack-item">
+      <div class="name">expo-image-picker</div>
+      <div class="desc">User uploads photos for story pages</div>
+    </div>
+    <div class="stack-item">
+      <div class="name">expo-av</div>
+      <div class="desc">Audio recording + playback (story narration)</div>
+    </div>
+    <div class="stack-item">
+      <div class="name">react-native-deck-swiper</div>
+      <div class="desc">Tinder-style swipe between story pages</div>
+    </div>
+    <div class="stack-item">
+      <div class="name">react-native-drag-sort</div>
+      <div class="desc">Drag-to-reorder on Arrange screen</div>
+    </div>
+    <div class="stack-item">
+      <div class="name">react-native-popup-menu</div>
+      <div class="desc">Long-press menus (Delete / Share)</div>
+    </div>
+    <div class="stack-item">
+      <div class="name">expo-secure-store</div>
+      <div class="desc">JWT token encrypted storage</div>
+    </div>
+    <div class="stack-item">
+      <div class="name">Avenir Next font family</div>
+      <div class="desc">6 weights bundled (UltLt → Heavy)</div>
+    </div>
+    <div class="stack-item">
+      <div class="name">EAS Build</div>
+      <div class="desc">Expo's cloud build service (iOS + Android)</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

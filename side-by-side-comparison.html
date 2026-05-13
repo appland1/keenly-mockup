@@ -1,0 +1,912 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>KEENLY — Before · Now · What's missing</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: { colors: {
+    kp: {
+      purple500: "#40405D", purple900: "#212134",
+      lime400: "#AFEB7B", lime300: "#79C636",
+      pink600: "#FF3B81", pink500: "#F948A8",
+      magenta: "#D76EFF", cyan: "#1DC9E0",
+      yellow: "#F6CF3C", orange: "#FF8E00",
+      red: "#FF7272", blue500: "#6E84FF",
+      border: "#D9D9E6", surface: "#F1F1F6",
+    }
+  }, fontFamily: { display: ['"Nunito"','system-ui','sans-serif'] }}}
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Nunito', system-ui, sans-serif; background: #f4f5f9; margin: 0; }
+  .phone {
+    width: 280px; height: 580px;
+    border-radius: 28px;
+    box-shadow: 0 18px 40px -16px rgba(0,0,0,.25), 0 0 0 8px #111 inset, 0 0 0 9px #222 inset;
+    overflow: hidden; background: white; position: relative; flex-shrink: 0;
+  }
+  .notch { position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
+           width: 80px; height: 20px; background: #111;
+           border-radius: 0 0 12px 12px; z-index: 100; }
+  .grain { background: radial-gradient(circle at 30% 20%, #5a5a85, #40405D 70%); }
+  .badge { display: inline-block; font-size: 10px; font-weight: 800;
+           padding: 3px 9px; border-radius: 999px;
+           text-transform: uppercase; letter-spacing: .04em; }
+  .b-before{ background: #E5E7EB; color: #6B7280; }
+  .b-now   { background: #DCFCE7; color: #166534; }
+  .b-missing{ background: #FED7AA; color: #9A3412; }
+  .b-soon  { background: #FEF3C7; color: #92400E; }
+  .b-skip  { background: #E0E7FF; color: #3730A3; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e5e7eb; vertical-align: top; }
+  th { background: #F1F1F6; font-size: 11px; text-transform: uppercase;
+       letter-spacing: .1em; color: #6B7280; font-weight: 800; }
+  tr:hover td { background: #fafbff; }
+  .col-h {
+    padding: 14px 18px; border-radius: 12px 12px 0 0;
+    font-weight: 900; font-size: 13px; letter-spacing: .04em;
+    text-transform: uppercase; color: white;
+  }
+  .h-before  { background: #6B7280; }
+  .h-now  { background: #AFEB7B; color: #40405D; }
+  .h-missing { background: #FF8E00; }
+  .stamp {
+    position: absolute; top: 14px; right: 14px;
+    transform: rotate(-8deg); border: 3px solid currentColor;
+    padding: 2px 8px; border-radius: 4px;
+    font-weight: 900; font-size: 10px; letter-spacing: .1em;
+    text-transform: uppercase; opacity: .85; z-index: 50;
+  }
+</style>
+</head>
+<body class="p-8">
+
+<header class="max-w-7xl mx-auto mb-10">
+  <div class="flex items-center gap-4 mb-3">
+    <div class="text-3xl font-black text-kp-purple500">KEENLY</div>
+    <span class="badge b-before">Before</span>
+    <span class="text-gray-400">→</span>
+    <span class="badge b-now">Now (live)</span>
+    <span class="text-gray-400">→</span>
+    <span class="badge b-missing">What's missing</span>
+  </div>
+  <h1 class="text-3xl font-black text-kp-purple500 mb-2">Where we started · where we are · what's left to build.</h1>
+  <p class="text-gray-600 max-w-3xl">A complete inventory of every screen, feature, and system. <strong>Before</strong> = the state of the project when we picked it up. <strong>Now</strong> = what's live on livekeenly.com today. <strong>What's missing</strong> = the punch list to finish KEENLY as a real SaaS product.</p>
+</header>
+
+<!-- ====================== SUMMARY TABLE ====================== -->
+<section class="max-w-7xl mx-auto mb-14 bg-white rounded-2xl shadow overflow-hidden">
+  <div class="px-6 py-4 bg-kp-purple500 text-white">
+    <h2 class="text-lg font-black">📋 Feature inventory</h2>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 28%;">Feature / Screen</th>
+        <th style="width: 24%;">Before</th>
+        <th style="width: 24%;">Now (live)</th>
+        <th style="width: 24%;">What's missing</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="font-black">Landing page <code class="text-[11px] bg-gray-100 px-1 rounded">/</code></td>
+        <td><span class="badge b-before">Static page</span><br><span class="text-xs text-gray-500 mt-1 block">Visual design good. No interactivity.</span></td>
+        <td><span class="badge b-now">Live</span><br><span class="text-xs text-gray-500 mt-1 block">Same design. Now actually navigable + functional.</span></td>
+        <td><span class="badge b-missing">PWA install prompt</span></td>
+      </tr>
+      <tr>
+        <td class="font-black">Our Mission <code class="text-[11px] bg-gray-100 px-1 rounded">/our-mission</code></td>
+        <td><span class="badge b-before">Built</span></td>
+        <td><span class="badge b-now">Live</span></td>
+        <td><span class="badge b-skip">No change needed</span></td>
+      </tr>
+      <tr>
+        <td class="font-black">Our Story <code class="text-[11px] bg-gray-100 px-1 rounded">/our-story</code></td>
+        <td><span class="badge b-before">Built</span></td>
+        <td><span class="badge b-now">Live</span></td>
+        <td><span class="badge b-skip">No change needed</span></td>
+      </tr>
+      <tr>
+        <td class="font-black">Sign In (modal)</td>
+        <td><span class="badge b-before">UI present, didn't work</span><br><span class="text-xs text-gray-500 mt-1 block">Form submitted to an endpoint that no longer exists.</span></td>
+        <td><span class="badge b-now">Live + working</span><br><span class="text-xs text-gray-500 mt-1 block">Firebase Auth. Modal auto-closes after success.</span></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="font-black">Sign Up (modal)</td>
+        <td><span class="badge b-before">Form existed, didn't save</span></td>
+        <td><span class="badge b-now">Live + working</span><br><span class="text-xs text-gray-500 mt-1 block">Firebase Auth + Firestore profile. Full Name + live password rules + email verification + bot trap.</span></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="font-black">Forgot Password</td>
+        <td><span class="badge b-before">Button only</span></td>
+        <td><span class="badge b-now">Live + working</span><br><span class="text-xs text-gray-500 mt-1 block">Firebase sends reset link to email.</span></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="font-black">Google Sign-in</td>
+        <td><span class="badge b-before">Button only</span></td>
+        <td><span class="badge b-now">Live + working</span></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="font-black">Header (logged-in state)</td>
+        <td><span class="badge b-before">N/A</span></td>
+        <td><span class="badge b-now">"Hi, [Name]" + Sign Out</span><br><span class="text-xs text-gray-500 mt-1 block">Live Firestore listener for displayName.</span></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="font-black">Bot protection</td>
+        <td><span class="badge b-before">None</span></td>
+        <td><span class="badge b-now">Tier 1 shipped</span><br><span class="text-xs text-gray-500 mt-1 block">Honeypot field + email verification.</span></td>
+        <td><span class="badge b-missing">reCAPTCHA v3 (optional, when scale demands)</span></td>
+      </tr>
+      <tr>
+        <td class="font-black">Auth audit log</td>
+        <td><span class="badge b-before">None</span></td>
+        <td><span class="badge b-soon">Code shipped, awaiting deploy</span><br><span class="text-xs text-gray-500 mt-1 block">Firestore <code>auth_logs</code> collection records every sign-in/up/out.</span></td>
+        <td><span class="badge b-missing">CMS read view + deploy</span></td>
+      </tr>
+      <tr>
+        <td class="font-black">Footer copyright year</td>
+        <td><span class="badge b-before">Hardcoded</span></td>
+        <td><span class="badge b-now">Auto-updating</span></td>
+        <td>—</td>
+      </tr>
+      <tr class="bg-yellow-50">
+        <td class="font-black">Dashboard / Home <code class="text-[11px] bg-gray-100 px-1 rounded">/dashboard</code></td>
+        <td><span class="badge b-before">Designed in Figma</span></td>
+        <td><span class="badge b-missing">Not built yet</span></td>
+        <td><span class="badge b-missing">Tier 1 PWA — 3 hrs</span></td>
+      </tr>
+      <tr class="bg-yellow-50">
+        <td class="font-black">Story Library</td>
+        <td><span class="badge b-before">Designed</span></td>
+        <td><span class="badge b-missing">Not built yet</span></td>
+        <td><span class="badge b-missing">Tier 1 PWA — 1.5 hrs</span></td>
+      </tr>
+      <tr class="bg-yellow-50">
+        <td class="font-black">Story Viewer (read sample stories)</td>
+        <td><span class="badge b-before">Designed</span></td>
+        <td><span class="badge b-missing">Not built yet</span></td>
+        <td><span class="badge b-missing">Tier 1 PWA — 2.5 hrs</span></td>
+      </tr>
+      <tr class="bg-orange-50">
+        <td class="font-black">Story Editor / Creator</td>
+        <td><span class="badge b-before">UI mockup only, no save</span></td>
+        <td><span class="badge b-missing">Not built yet</span></td>
+        <td><span class="badge b-missing">Tier 2 — 5 hrs</span></td>
+      </tr>
+      <tr class="bg-orange-50">
+        <td class="font-black">Image upload (camera/gallery)</td>
+        <td><span class="badge b-before">Mobile-only design</span></td>
+        <td><span class="badge b-missing">Not on web yet</span></td>
+        <td><span class="badge b-missing">Tier 2 — 3 hrs<br>+ enable Firebase Storage</span></td>
+      </tr>
+      <tr class="bg-orange-50">
+        <td class="font-black">Audio recording</td>
+        <td><span class="badge b-before">Mobile-only design</span></td>
+        <td><span class="badge b-missing">Not on web</span></td>
+        <td><span class="badge b-missing">Tier 2 — 3 hrs</span></td>
+      </tr>
+      <tr class="bg-orange-50">
+        <td class="font-black">Story sharing (public links)</td>
+        <td><span class="badge b-before">Designed</span></td>
+        <td><span class="badge b-missing">Not built yet</span></td>
+        <td><span class="badge b-missing">Tier 2 — 3 hrs</span></td>
+      </tr>
+      <tr class="bg-orange-50">
+        <td class="font-black">Account / Profile page</td>
+        <td><span class="badge b-before">Designed</span></td>
+        <td><span class="badge b-missing">Not built yet</span></td>
+        <td><span class="badge b-missing">Tier 2 — 3 hrs</span></td>
+      </tr>
+      <tr class="bg-orange-50">
+        <td class="font-black">Child profiles</td>
+        <td><span class="badge b-before">Designed</span></td>
+        <td><span class="badge b-missing">Not built yet</span></td>
+        <td><span class="badge b-missing">Tier 2 — 2 hrs</span></td>
+      </tr>
+      <tr class="bg-orange-50">
+        <td class="font-black">Help / Onboarding</td>
+        <td><span class="badge b-before">Designed</span></td>
+        <td><span class="badge b-missing">Not built yet</span></td>
+        <td><span class="badge b-missing">Tier 2 — 2 hrs</span></td>
+      </tr>
+      <tr class="bg-orange-50">
+        <td class="font-black">PDF export</td>
+        <td><span class="badge b-before">Mobile only</span></td>
+        <td><span class="badge b-missing">Not built yet</span></td>
+        <td><span class="badge b-missing">Tier 2 — 2 hrs</span></td>
+      </tr>
+      <tr class="bg-red-50">
+        <td class="font-black">PWA shell (manifest + service worker)</td>
+        <td><span class="badge b-before">None</span></td>
+        <td><span class="badge b-missing">Not built yet</span></td>
+        <td><span class="badge b-missing">Tier 1 — 3 hrs</span></td>
+      </tr>
+      <tr class="bg-red-50">
+        <td class="font-black">"Add to Home Screen" prompt</td>
+        <td><span class="badge b-before">N/A</span></td>
+        <td><span class="badge b-missing">Not built yet</span></td>
+        <td><span class="badge b-missing">Tier 1 — 0.5 hr</span></td>
+      </tr>
+      <tr class="bg-red-50">
+        <td class="font-black">Push notifications</td>
+        <td><span class="badge b-before">None</span></td>
+        <td><span class="badge b-missing">Not built yet</span></td>
+        <td><span class="badge b-missing">Tier 2 optional — 2 hrs</span></td>
+      </tr>
+      <tr class="bg-purple-50">
+        <td class="font-black">Pricing page <code class="text-[11px] bg-gray-100 px-1 rounded">/pricing</code></td>
+        <td><span class="badge b-before">None</span></td>
+        <td><span class="badge b-missing">Not built yet</span></td>
+        <td><span class="badge b-missing">2 hrs</span></td>
+      </tr>
+      <tr class="bg-purple-50">
+        <td class="font-black">Stripe billing + Customer Portal</td>
+        <td><span class="badge b-before">None</span></td>
+        <td><span class="badge b-missing">Not built yet</span></td>
+        <td><span class="badge b-missing">8-10 hrs<br>(after Hennie opens Stripe)</span></td>
+      </tr>
+      <tr class="bg-purple-50">
+        <td class="font-black">Tier enforcement (free / pro / family)</td>
+        <td><span class="badge b-before">None</span></td>
+        <td><span class="badge b-missing">Not built yet</span></td>
+        <td><span class="badge b-missing">3 hrs</span></td>
+      </tr>
+      <tr class="bg-purple-50">
+        <td class="font-black">Watermark on free-tier exports</td>
+        <td><span class="badge b-before">None</span></td>
+        <td><span class="badge b-missing">Not built yet</span></td>
+        <td><span class="badge b-missing">1 hr</span></td>
+      </tr>
+      <tr class="bg-blue-50">
+        <td class="font-black">CMS admin <code class="text-[11px] bg-gray-100 px-1 rounded">admin.livekeenly.com</code></td>
+        <td><span class="badge b-before">None</span></td>
+        <td><span class="badge b-missing">Not built yet</span></td>
+        <td><span class="badge b-missing">Lean: 15-18 hrs<br>Full: 25 hrs</span></td>
+      </tr>
+      <tr class="bg-blue-50">
+        <td class="font-black">CMS PWA (admin from phone)</td>
+        <td><span class="badge b-before">None</span></td>
+        <td><span class="badge b-missing">Not built yet</span></td>
+        <td><span class="badge b-missing">+4-6 hrs on top of CMS</span></td>
+      </tr>
+      <tr class="bg-gray-50">
+        <td class="font-black">Privacy Policy</td>
+        <td><span class="badge b-before">Generic Iubenda template</span></td>
+        <td><span class="badge b-now">Footer link works</span></td>
+        <td><span class="badge b-missing">Lawyer review<br>$300-800 one-time</span></td>
+      </tr>
+      <tr class="bg-gray-50">
+        <td class="font-black">Terms of Service</td>
+        <td><span class="badge b-before">Not present</span></td>
+        <td><span class="badge b-missing">Not present</span></td>
+        <td><span class="badge b-missing">Lawyer-drafted</span></td>
+      </tr>
+      <tr class="bg-gray-50">
+        <td class="font-black">Cookie consent</td>
+        <td><span class="badge b-before">Iubenda code in HTML</span></td>
+        <td><span class="badge b-now">Working</span></td>
+        <td><span class="badge b-missing">Verify in production</span></td>
+      </tr>
+      <tr class="bg-gray-50">
+        <td class="font-black">COPPA compliance (kids' data)</td>
+        <td><span class="badge b-before">Not addressed</span></td>
+        <td><span class="badge b-missing">Not addressed yet</span></td>
+        <td><span class="badge b-missing">Age gate + parental consent<br>+ legal review</span></td>
+      </tr>
+      <tr class="bg-gray-50">
+        <td class="font-black">Custom-domain sender email</td>
+        <td><span class="badge b-before">None</span></td>
+        <td><span class="badge b-missing">Sends from <code>noreply@keenly-6eb97…</code></span></td>
+        <td><span class="badge b-missing"><code>hello@livekeenly.com</code> via Titan SMTP<br>~15 min once Hennie creates mailbox</span></td>
+      </tr>
+      <tr class="bg-gray-50">
+        <td class="font-black">Branded email templates</td>
+        <td><span class="badge b-before">None</span></td>
+        <td><span class="badge b-missing">Default Firebase HTML</span></td>
+        <td><span class="badge b-missing">2 hrs</span></td>
+      </tr>
+      <tr class="bg-gray-50">
+        <td class="font-black">SEO + speed optimization (setup)</td>
+        <td><span class="badge b-before">None</span><br><span class="text-xs text-gray-500 mt-1 block">No sitemap, no robots, no meta tags, no Open Graph cards. Site is invisible to Google.</span></td>
+        <td><span class="badge b-missing">Not added</span><br><span class="text-xs text-gray-500 mt-1 block">Default Vite output — basic meta only.</span></td>
+        <td><span class="badge b-missing">~8 hrs one-time setup</span><br><span class="text-xs text-gray-500 mt-1 block">Sitemap.xml · robots.txt · per-page meta descriptions · Open Graph cards (FB/LinkedIn previews) · Twitter Cards · Schema.org JSON-LD (Organization + SoftwareApplication) · canonical URLs · alt text on all images · image compression + WebP · lazy-loading below the fold · Lighthouse audit passing 90+ · Google Search Console submission · Bing Webmaster Tools submission</span></td>
+      </tr>
+      <tr class="bg-gray-50">
+        <td class="font-black">SEO + speed monthly check</td>
+        <td><span class="badge b-before">N/A</span></td>
+        <td><span class="badge b-skip">Ongoing — not a one-time task</span></td>
+        <td><span class="badge b-missing">~1-2 hrs / month recurring</span><br><span class="text-xs text-gray-500 mt-1 block">Google Search Console scan (broken indexing, errors, ranking shifts) · Lighthouse re-run (catch performance regressions after deploys) · sitemap re-submission if pages added · Core Web Vitals check · meta tag audit after content changes · monitoring competitor keyword movement · respond to any indexing issues Google flags.</span></td>
+      </tr>
+      <tr class="bg-gray-50">
+        <td class="font-black">Error tracking (Sentry)</td>
+        <td><span class="badge b-before">None</span></td>
+        <td><span class="badge b-missing">Not wired</span></td>
+        <td><span class="badge b-missing">1 hr</span></td>
+      </tr>
+      <tr class="bg-gray-50">
+        <td class="font-black">Uptime monitoring (UptimeRobot)</td>
+        <td><span class="badge b-before">None</span></td>
+        <td><span class="badge b-missing">Not wired</span></td>
+        <td><span class="badge b-missing">15 min</span></td>
+      </tr>
+      <tr class="bg-gray-50">
+        <td class="font-black">Heatmaps + session replay</td>
+        <td><span class="badge b-before">None</span></td>
+        <td><span class="badge b-missing">Not wired</span></td>
+        <td><span class="badge b-missing">Microsoft Clarity (free) — 30 min</span></td>
+      </tr>
+      <tr class="bg-gray-50">
+        <td class="font-black">404 page</td>
+        <td><span class="badge b-before">Default blank</span></td>
+        <td><span class="badge b-missing">Default blank</span></td>
+        <td><span class="badge b-missing">1 hr branded</span></td>
+      </tr>
+      <tr class="bg-pink-50">
+        <td class="font-black">Native iOS app (Apple App Store)</td>
+        <td><span class="badge b-before">Expo SDK 51, never published</span><br><span class="text-xs text-gray-500 mt-1 block">Codebase exists but no Apple Developer account, no submission, no published listing.</span></td>
+        <td><span class="badge b-skip">Optional — PWA covers most use cases</span></td>
+        <td><span class="badge b-missing">~16-20 hrs if she wants it</span><br><span class="text-xs text-gray-500 mt-1 block">EAS Build setup · Apple Developer Program ($99/yr) · code signing certificates · refactor Expo app to use Firebase (replacing dead .NET) · TestFlight build · App Store screenshots (already in Figma) · App Store description (already drafted) · privacy nutrition labels · review submission (3-7 day Apple review). Plus Apple takes 30% of every subscription (15% after year 1).</span></td>
+      </tr>
+      <tr class="bg-pink-50">
+        <td class="font-black">Native Android app (Google Play)</td>
+        <td><span class="badge b-before">Expo SDK 51, never published</span><br><span class="text-xs text-gray-500 mt-1 block">Codebase exists but no Play Console account, no APK submitted.</span></td>
+        <td><span class="badge b-skip">Optional — PWA covers most use cases</span></td>
+        <td><span class="badge b-missing">~12-16 hrs if she wants it</span><br><span class="text-xs text-gray-500 mt-1 block">EAS Build setup · Google Play Console one-time fee ($25) · refactor Expo app to use Firebase · internal testing track · Play Store screenshots (already in Figma) · Play Store description · data safety form · review submission (1-3 day Google review). Plus Google takes 30% of every subscription (15% after year 1).</span></td>
+      </tr>
+      <tr class="bg-pink-50">
+        <td class="font-black">Native macOS app</td>
+        <td><span class="badge b-before">Never planned</span></td>
+        <td><span class="badge b-skip">Optional — PWA installable on Mac too</span></td>
+        <td><span class="badge b-missing">~20-30 hrs if she wants it</span><br><span class="text-xs text-gray-500 mt-1 block">Two routes:<br>(1) Mac Catalyst — port iOS app to Mac (~8-12 hrs on top of iOS build)<br>(2) Electron wrapper around the PWA (~6-10 hrs, easier)<br><br>Apple Developer Program ($99/yr) · Mac App Store listing · separate review process · code signing + notarization.<br><br>Note: PWA already installs on macOS as a standalone app via Safari/Chrome. Most users won't need a separate native Mac app.</span></td>
+      </tr>
+      <tr class="bg-pink-50">
+        <td class="font-black"><strong>Total if she wants ALL native apps</strong></td>
+        <td><span class="badge b-before">N/A</span></td>
+        <td><span class="badge b-skip">PWA = $0 alternative</span></td>
+        <td><span class="badge b-missing">~50-66 hrs + ongoing fees</span><br><span class="text-xs text-gray-500 mt-1 block">iOS (16-20) + Android (12-16) + macOS (20-30) = engineering<br>+ $99/yr Apple + $25 one-time Google<br>+ 30% of every subscription dollar to Apple/Google<br>+ slower update cycle (review delays)<br><br><strong>vs PWA</strong> (~22 hrs Tier 1): no fees, no review, no 30% cut, instant updates, works on iOS + Android + macOS + Windows + Chromebooks.</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ====================== ROLLUP ====================== -->
+<section class="max-w-7xl mx-auto mb-14 grid grid-cols-3 gap-6">
+  <div class="bg-white rounded-2xl p-6 shadow border-t-4 border-gray-400">
+    <div class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">Before</div>
+    <div class="text-xl font-black text-kp-purple500 mb-2">Marketing site only</div>
+    <div class="text-sm text-gray-600">Beautiful, branded, static storefront. Landing + Our Mission + Our Story. No real product underneath yet.</div>
+  </div>
+  <div class="bg-white rounded-2xl p-6 shadow border-t-4 border-kp-lime400">
+    <div class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">Now (live)</div>
+    <div class="text-xl font-black text-kp-purple500 mb-2">Real auth working</div>
+    <div class="text-sm text-gray-600">Sign up + sign in + password reset + Google + name display + bot protection + email verification. Firebase backend ($0/mo at this scale).</div>
+  </div>
+  <div class="bg-white rounded-2xl p-6 shadow border-t-4 border-kp-orange">
+    <div class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">Left to ship</div>
+    <div class="text-xl font-black text-kp-purple500 mb-2">~50–65 hours</div>
+    <div class="text-sm text-gray-600">PWA shell, Dashboard, Story creator + viewer + library, Sharing, Account, Pricing, Stripe billing, CMS, branded emails. Tiered into 3 phases.</div>
+  </div>
+</section>
+
+<!-- ====================== SIDE BY SIDE SCREENS ====================== -->
+<section class="max-w-7xl mx-auto mb-12">
+  <h2 class="text-2xl font-black text-kp-purple500 mb-2">📱 Screen by screen</h2>
+  <p class="text-gray-600 mb-8">For each key screen: where it was, where it is, where it's going.</p>
+
+  <!-- ============ LANDING ============ -->
+  <div class="bg-white rounded-2xl p-6 shadow mb-8">
+    <h3 class="font-black text-kp-purple500 text-lg mb-4">Landing page</h3>
+    <div class="grid grid-cols-3 gap-6">
+      <div>
+        <div class="col-h h-before">Before</div>
+        <div class="phone mt-0 relative">
+          <div class="stamp text-gray-500">Static</div>
+          <div class="notch"></div>
+          <div class="bg-orange-400 text-black h-full flex flex-col items-center justify-center px-5 text-center pt-10">
+            <div class="text-6xl mb-4">🌟</div>
+            <h1 class="text-2xl font-black mb-2">Welcome to<br>KEENLY!</h1>
+            <p class="text-sm mb-3">Making life better for special needs.</p>
+            <p class="text-xs mb-4">Create your own social stories</p>
+            <div class="flex gap-2">
+              <div class="bg-black text-white px-3 py-1.5 rounded text-[10px]">App Store</div>
+              <div class="bg-black text-white px-3 py-1.5 rounded text-[10px]">Google Play</div>
+            </div>
+          </div>
+        </div>
+        <div class="text-xs text-gray-500 mt-2">Hero design + carousel. App store buttons pointed nowhere because apps aren't published yet.</div>
+      </div>
+      <div>
+        <div class="col-h h-now">Now</div>
+        <div class="phone mt-0 relative">
+          <div class="stamp text-kp-lime300">Live</div>
+          <div class="notch"></div>
+          <div class="bg-orange-400 text-black h-full flex flex-col items-center justify-center px-5 text-center pt-10">
+            <div class="text-6xl mb-4">🌟</div>
+            <h1 class="text-2xl font-black mb-2">Welcome to<br>KEENLY!</h1>
+            <p class="text-sm mb-3">Making life better for special needs.</p>
+            <p class="text-xs mb-4">Create your own social stories</p>
+            <div class="flex gap-2">
+              <div class="bg-black text-white px-3 py-1.5 rounded text-[10px]">App Store</div>
+              <div class="bg-black text-white px-3 py-1.5 rounded text-[10px]">Google Play</div>
+            </div>
+          </div>
+        </div>
+        <div class="text-xs text-gray-500 mt-2">Same design preserved, plus <strong>working Sign In + Sign Up flows.</strong> "Hi, [Name]" appears after login.</div>
+      </div>
+      <div>
+        <div class="col-h h-missing">What's next</div>
+        <div class="phone mt-0 relative">
+          <div class="stamp text-kp-orange">PWA</div>
+          <div class="notch"></div>
+          <div class="bg-orange-400 text-black h-full flex flex-col items-center justify-center px-5 text-center pt-10">
+            <div class="text-6xl mb-4">🌟</div>
+            <h1 class="text-2xl font-black mb-2">Welcome to<br>KEENLY!</h1>
+            <p class="text-sm mb-3">Making life better for special needs.</p>
+            <div class="bg-kp-purple500 text-white px-4 py-2 rounded-full text-xs font-bold mb-2">＋ Install on iPhone</div>
+            <div class="text-[10px]">Tap Share → Add to Home Screen</div>
+          </div>
+        </div>
+        <div class="text-xs text-gray-500 mt-2">+ PWA install prompt. App icon on home screen. Works offline. No App Store required.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SIGN UP ============ -->
+  <div class="bg-white rounded-2xl p-6 shadow mb-8">
+    <h3 class="font-black text-kp-purple500 text-lg mb-4">Sign Up</h3>
+    <div class="grid grid-cols-3 gap-6">
+      <div>
+        <div class="col-h h-before">Before</div>
+        <div class="phone mt-0 relative">
+          <div class="stamp text-gray-500">Inactive</div>
+          <div class="notch"></div>
+          <div class="bg-kp-purple500 h-full text-white pt-12 px-5">
+            <div class="text-sm mb-4 flex justify-center"><span class="text-gray-400">Sign In</span> | <span class="text-kp-lime400 ml-2 font-black">Sign Up</span></div>
+            <div class="bg-kp-purple400 rounded-2xl p-4 space-y-4">
+              <div class="text-xs">📧 Enter Email</div>
+              <hr class="border-white/30">
+              <div class="text-xs">🔒 Enter Password</div>
+              <hr class="border-white/30">
+              <div class="text-xs">🔒 Re-enter Password</div>
+            </div>
+            <button class="w-full bg-kp-lime400 text-kp-purple500 font-black py-2.5 rounded-full mt-4 text-sm">Sign Up</button>
+            <div class="text-[10px] text-white/60 mt-3 text-center">UI existed. Form didn't submit anywhere reachable.</div>
+          </div>
+        </div>
+        <div class="text-xs text-gray-500 mt-2">Email + password only. No Full Name field. No password rules. No verification.</div>
+      </div>
+      <div>
+        <div class="col-h h-now">Now</div>
+        <div class="phone mt-0 relative">
+          <div class="stamp text-kp-lime300">Works</div>
+          <div class="notch"></div>
+          <div class="bg-kp-purple500 h-full text-white pt-12 px-5">
+            <div class="text-sm mb-4 flex justify-center"><span class="text-gray-400">Sign In</span> | <span class="text-kp-lime400 ml-2 font-black">Sign Up</span></div>
+            <div class="bg-kp-purple400 rounded-2xl p-3 space-y-3">
+              <div class="text-xs">👤 Full Name</div>
+              <hr class="border-white/30">
+              <div class="text-xs">📧 Enter Email</div>
+              <hr class="border-white/30">
+              <div class="text-xs">🔒 Enter Password</div>
+              <hr class="border-white/30">
+              <div class="text-xs">🔒 Re-enter Password</div>
+            </div>
+            <div class="text-[10px] text-kp-lime400 mt-2 px-2 space-y-0.5">
+              <div>✓ At least 8 characters</div>
+              <div>✓ One uppercase letter</div>
+              <div>✓ One number</div>
+            </div>
+            <button class="w-full bg-kp-lime400 text-kp-purple500 font-black py-2.5 rounded-full mt-3 text-sm">Sign Up</button>
+            <div class="text-[10px] text-kp-lime300 mt-2 text-center">Modal closes → "Hi, [Name]" in nav</div>
+          </div>
+        </div>
+        <div class="text-xs text-gray-500 mt-2">Full Name field, live password rule checklist, email verification auto-sent, hidden honeypot bot trap.</div>
+      </div>
+      <div>
+        <div class="col-h h-missing">What's next</div>
+        <div class="phone mt-0 relative">
+          <div class="stamp text-kp-orange">+ UX</div>
+          <div class="notch"></div>
+          <div class="bg-kp-purple500 h-full text-white pt-12 px-5">
+            <div class="text-sm mb-4 flex justify-center"><span class="text-gray-400">Sign In</span> | <span class="text-kp-lime400 ml-2 font-black">Sign Up</span></div>
+            <div class="bg-kp-purple400 rounded-2xl p-3 space-y-3">
+              <div class="text-xs">👤 Full Name</div>
+              <hr class="border-white/30">
+              <div class="text-xs">📧 Email</div>
+              <hr class="border-white/30">
+              <div class="text-xs">🔒 Password</div>
+            </div>
+            <div class="text-[10px] my-2 px-2">I'm a…</div>
+            <div class="grid grid-cols-2 gap-1 px-2 mb-2">
+              <div class="border border-kp-lime400 rounded-lg py-1 text-[10px] text-center bg-kp-lime400/20">Parent</div>
+              <div class="border border-white/30 rounded-lg py-1 text-[10px] text-center">Educator</div>
+              <div class="border border-white/30 rounded-lg py-1 text-[10px] text-center">Therapist</div>
+              <div class="border border-white/30 rounded-lg py-1 text-[10px] text-center">Other</div>
+            </div>
+            <button class="w-full bg-kp-lime400 text-kp-purple500 font-black py-2.5 rounded-full text-sm">Create account</button>
+          </div>
+        </div>
+        <div class="text-xs text-gray-500 mt-2">+ Role picker (Parent / Educator / Therapist / Other) for CMS segmentation.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ DASHBOARD ============ -->
+  <div class="bg-white rounded-2xl p-6 shadow mb-8">
+    <h3 class="font-black text-kp-purple500 text-lg mb-4">Dashboard / Home (after login)</h3>
+    <div class="grid grid-cols-3 gap-6">
+      <div>
+        <div class="col-h h-before">Before</div>
+        <div class="phone mt-0 relative">
+          <div class="stamp text-gray-500">N/A</div>
+          <div class="notch"></div>
+          <div class="bg-kp-surface h-full flex items-center justify-center px-6 text-center">
+            <div>
+              <div class="text-5xl mb-4 opacity-30">📚</div>
+              <div class="text-gray-400 text-sm">No dashboard page existed. There was no logged-in view at all.</div>
+            </div>
+          </div>
+        </div>
+        <div class="text-xs text-gray-500 mt-2">Site had no place to land after sign-in. Users just stayed on the homepage.</div>
+      </div>
+      <div>
+        <div class="col-h h-now">Now</div>
+        <div class="phone mt-0 relative">
+          <div class="stamp text-yellow-500">Partial</div>
+          <div class="notch"></div>
+          <div class="bg-kp-surface h-full flex flex-col">
+            <div class="bg-white pt-12 pb-3 px-4 border-b border-kp-border">
+              <div class="text-[9px] text-gray-400 uppercase">Hi,</div>
+              <div class="font-black text-kp-purple500">Maria 👋</div>
+            </div>
+            <div class="px-4 py-4 flex-1 flex items-center justify-center text-center">
+              <div class="text-gray-500 text-xs">
+                <div class="text-3xl mb-2">⚙️</div>
+                "Hi [Name]" shows in nav. Full dashboard not built yet.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-xs text-gray-500 mt-2">Logged-in greeting works. Dashboard page itself is the next thing to build.</div>
+      </div>
+      <div>
+        <div class="col-h h-missing">What's next</div>
+        <div class="phone mt-0 relative">
+          <div class="stamp text-kp-orange">Tier 1</div>
+          <div class="notch"></div>
+          <div class="bg-kp-surface h-full flex flex-col">
+            <div class="bg-white pt-12 pb-3 px-4 border-b border-kp-border flex justify-between items-end">
+              <div>
+                <div class="text-[9px] text-gray-400 uppercase">Hi,</div>
+                <div class="font-black text-kp-purple500">Maria 👋</div>
+              </div>
+              <div class="text-[9px] bg-gray-100 px-2 py-0.5 rounded-full">Free · 2 of 3</div>
+            </div>
+            <div class="px-3 py-3 flex-1">
+              <div class="bg-kp-lime400 text-kp-purple500 font-black py-2.5 rounded-xl text-xs text-center mb-3">＋ Create new story</div>
+              <div class="grid grid-cols-2 gap-2">
+                <div class="border border-kp-border rounded-lg p-2 bg-white"><div class="aspect-square bg-kp-yellow rounded mb-1 flex items-center justify-center text-xl">😬</div><div class="text-[10px] font-bold">Haircut</div></div>
+                <div class="border border-kp-border rounded-lg p-2 bg-white"><div class="aspect-square bg-kp-pink500 rounded mb-1 flex items-center justify-center text-xl">🦷</div><div class="text-[10px] font-bold">Dentist</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-xs text-gray-500 mt-2">My Stories grid + Create CTA + tier badge. Free users see "X of 3 left". Pro users see "Unlimited".</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ STORY VIEWER ============ -->
+  <div class="bg-white rounded-2xl p-6 shadow mb-8">
+    <h3 class="font-black text-kp-purple500 text-lg mb-4">Story Viewer</h3>
+    <div class="grid grid-cols-3 gap-6">
+      <div>
+        <div class="col-h h-before">Before</div>
+        <div class="phone mt-0 relative">
+          <div class="stamp text-gray-500">Figma only</div>
+          <div class="notch"></div>
+          <div class="bg-kp-surface h-full flex items-center justify-center px-6 text-center">
+            <div class="text-xs text-gray-500">Designed in Figma for the unpublished mobile app. No web viewer existed.</div>
+          </div>
+        </div>
+        <div class="text-xs text-gray-500 mt-2">Design existed for mobile. Web viewer never built.</div>
+      </div>
+      <div>
+        <div class="col-h h-now">Now</div>
+        <div class="phone mt-0 relative">
+          <div class="stamp text-gray-500">None</div>
+          <div class="notch"></div>
+          <div class="bg-kp-surface h-full flex items-center justify-center px-6 text-center">
+            <div class="text-xs text-gray-500">Not built yet. Sample story PDFs already live in the assets folder.</div>
+          </div>
+        </div>
+        <div class="text-xs text-gray-500 mt-2">9 sample story PDFs sit in <code>/assets/</code>. Viewer UI to be built.</div>
+      </div>
+      <div>
+        <div class="col-h h-missing">What's next</div>
+        <div class="phone mt-0 relative">
+          <div class="stamp text-kp-orange">Tier 1</div>
+          <div class="notch"></div>
+          <div class="bg-kp-yellow h-full flex flex-col">
+            <div class="bg-kp-purple500 text-white pt-10 pb-2 px-4 flex justify-between text-xs"><span>←</span><span class="font-bold">Haircut day</span><span>⋯</span></div>
+            <div class="flex-1 flex flex-col items-center justify-center px-4">
+              <div class="text-7xl mb-4">✂️</div>
+              <div class="bg-white rounded-xl p-3 text-center shadow">
+                <div class="font-black text-kp-purple500 text-sm">The barber uses scissors.</div>
+              </div>
+              <div class="mt-4 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow">▶</div>
+            </div>
+            <div class="bg-white py-2 flex justify-center gap-1.5">
+              <div class="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
+              <div class="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
+              <div class="w-1.5 h-1.5 bg-kp-purple500 rounded-full"></div>
+              <div class="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
+              <div class="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
+            </div>
+          </div>
+        </div>
+        <div class="text-xs text-gray-500 mt-2">Full-screen page-by-page swipe. Audio play button (Pro+). Page dots. Watermark for Free tier.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ STORY EDITOR ============ -->
+  <div class="bg-white rounded-2xl p-6 shadow mb-8">
+    <h3 class="font-black text-kp-purple500 text-lg mb-4">Story Editor / Creator</h3>
+    <div class="grid grid-cols-3 gap-6">
+      <div>
+        <div class="col-h h-before">Before</div>
+        <div class="phone mt-0 relative">
+          <div class="stamp text-gray-500">Not wired</div>
+          <div class="notch"></div>
+          <div class="bg-kp-surface h-full flex items-center justify-center px-6 text-center">
+            <div class="text-xs text-gray-500">Mobile UI existed in Figma. Story save action wasn't connected to a working backend.</div>
+          </div>
+        </div>
+        <div class="text-xs text-gray-500 mt-2">Designed for mobile. Save action wasn't persisting to storage.</div>
+      </div>
+      <div>
+        <div class="col-h h-now">Now</div>
+        <div class="phone mt-0 relative">
+          <div class="stamp text-gray-500">None</div>
+          <div class="notch"></div>
+          <div class="bg-kp-surface h-full flex items-center justify-center px-6 text-center">
+            <div class="text-xs text-gray-500">Not built yet. Firestore rules are in place — writes will land safely once UI exists.</div>
+          </div>
+        </div>
+        <div class="text-xs text-gray-500 mt-2">Foundation is ready. Firestore allows owner-scoped writes via locked rules.</div>
+      </div>
+      <div>
+        <div class="col-h h-missing">What's next</div>
+        <div class="phone mt-0 relative">
+          <div class="stamp text-kp-orange">Tier 2</div>
+          <div class="notch"></div>
+          <div class="bg-white h-full flex flex-col">
+            <div class="pt-10 pb-2 px-4 flex justify-between border-b border-kp-border">
+              <button class="text-xl">✕</button>
+              <div class="text-[10px] uppercase font-bold text-gray-500">Page 2 of 5</div>
+              <button class="text-kp-purple500 font-black text-xs">Save</button>
+            </div>
+            <div class="px-4 py-3 flex-1">
+              <div class="font-black text-kp-purple500 text-lg">Haircut day</div>
+              <div class="aspect-square bg-kp-yellow rounded-xl my-3 flex items-center justify-center text-5xl relative">😬<button class="absolute top-2 right-2 bg-white rounded-full w-7 h-7 text-xs">📷</button></div>
+              <div class="grid grid-cols-2 gap-2 text-[10px]">
+                <button class="border border-kp-border rounded-full py-2">📷 Photo</button>
+                <button class="border border-kp-border rounded-full py-2">🎙️ Record</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-xs text-gray-500 mt-2">Page-by-page editor. Image upload + audio record + caption text. Saves to Firestore. Real product.</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ====================== HOURS ROLLUP ====================== -->
+<section class="max-w-7xl mx-auto mb-12 bg-white rounded-2xl shadow p-6">
+  <h2 class="text-2xl font-black text-kp-purple500 mb-2">⏱ Hours rollup</h2>
+  <p class="text-gray-600 mb-6">By phase, with what each unlocks.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Phase</th>
+        <th>Hours</th>
+        <th>Cumulative</th>
+        <th>What it unlocks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-green-50">
+        <td><span class="badge b-now">DONE</span> Phase A — Auth + foundation</td>
+        <td>~10 hrs</td>
+        <td>10 hrs</td>
+        <td>Login works. Sign-up works. Forgot pw works. "Hi, [Name]" in nav. Production deployed.</td>
+      </tr>
+      <tr>
+        <td><span class="badge b-missing">NEXT</span> Tier 1 PWA — install + browse</td>
+        <td>~22 hrs</td>
+        <td>32 hrs</td>
+        <td>Phone-installable app. Dashboard. Sample story viewer. Read-only browsing.</td>
+      </tr>
+      <tr>
+        <td><span class="badge b-missing">+</span> Tier 2 PWA — full app</td>
+        <td>+ 20 hrs</td>
+        <td>52 hrs</td>
+        <td>Story creator + editor + image upload + audio + sharing + account + child profiles.</td>
+      </tr>
+      <tr>
+        <td><span class="badge b-missing">+</span> Lean CMS for Hennie</td>
+        <td>+ 15-18 hrs</td>
+        <td>~67-70 hrs</td>
+        <td>admin.livekeenly.com with users, moderation, featured stories, settings.</td>
+      </tr>
+      <tr>
+        <td><span class="badge b-missing">+</span> CMS PWA (phone admin)</td>
+        <td>+ 5 hrs</td>
+        <td>~72-75 hrs</td>
+        <td>Hennie runs admin from her phone home screen.</td>
+      </tr>
+      <tr>
+        <td><span class="badge b-missing">+</span> Stripe billing</td>
+        <td>+ 10 hrs</td>
+        <td>~82-85 hrs</td>
+        <td>Pro / Family paid tiers. Subscription management. Failed payment handling. <em>Requires Hennie's Stripe account.</em></td>
+      </tr>
+      <tr>
+        <td><span class="badge b-missing">+</span> Branded email + 404 + error tracking + uptime</td>
+        <td>+ 5 hrs</td>
+        <td>~87-90 hrs</td>
+        <td>hello@livekeenly.com sender via Titan SMTP, branded templates, custom 404, Sentry, UptimeRobot.</td>
+      </tr>
+      <tr>
+        <td><span class="badge b-missing">+</span> SEO + speed setup (one-time)</td>
+        <td>+ 8 hrs</td>
+        <td>~95-98 hrs</td>
+        <td>Sitemap · robots · meta tags · Open Graph + Twitter Cards · Schema.org · alt text · image compression + WebP · lazy-loading · Lighthouse 90+ · Search Console + Bing Webmaster submission.</td>
+      </tr>
+      <tr>
+        <td><span class="badge b-missing">+</span> Legal (lawyer) + Hennie tasks</td>
+        <td>Hennie-side</td>
+        <td>~95-98 hrs eng</td>
+        <td>Privacy + Terms + COPPA review. Business address fix. EIN + Stripe paperwork.</td>
+      </tr>
+      <tr class="bg-pink-50">
+        <td><span class="badge b-skip">OPTIONAL</span> Native iOS app (App Store)</td>
+        <td>+ 16-20 hrs</td>
+        <td>~111-118 hrs</td>
+        <td>Refactor Expo app for Firebase + EAS Build + App Store submission. <strong>+ $99/yr Apple Dev fee + 30% Apple cut on subscriptions.</strong></td>
+      </tr>
+      <tr class="bg-pink-50">
+        <td><span class="badge b-skip">OPTIONAL</span> Native Android app (Play)</td>
+        <td>+ 12-16 hrs</td>
+        <td>~123-134 hrs</td>
+        <td>Same Expo refactor + EAS Build + Play Console. <strong>+ $25 one-time + 30% Google cut on subscriptions.</strong></td>
+      </tr>
+      <tr class="bg-pink-50">
+        <td><span class="badge b-skip">OPTIONAL</span> Native macOS app</td>
+        <td>+ 20-30 hrs</td>
+        <td>~143-164 hrs</td>
+        <td>Either Mac Catalyst (port iOS) or Electron wrapper. <strong>Only needed if PWA doesn't satisfy desktop users.</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="mt-6 p-4 bg-kp-purple500/5 border border-kp-purple500/20 rounded-xl text-sm text-gray-700 mb-4">
+    <strong class="text-kp-purple500">Bottom line — three launch paths:</strong>
+    <ul class="mt-2 space-y-1 list-disc list-inside">
+      <li><strong>Lean launch (PWA only):</strong> ~50 hrs (Tier 1 PWA + Stripe + branded email)</li>
+      <li><strong>Full launch (PWA + CMS + SEO + polish):</strong> ~95 hrs</li>
+      <li><strong>Full launch + native iOS + Android + macOS apps:</strong> ~143-164 hrs (and $99/yr ongoing + 30% to Apple/Google)</li>
+    </ul>
+    <p class="mt-3">We're <strong>~10% of the way there</strong> with Phase A done. <strong>PWA is the smart launch path</strong> — same user experience, 1/3 the build cost, zero ongoing fees, no platform tax.</p>
+  </div>
+
+  <div class="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-xl text-sm">
+    <strong class="text-amber-900">Why PWA wins for KEENLY's launch:</strong>
+    <table class="mt-3 w-full text-xs">
+      <tr><th class="text-left p-2 bg-amber-100">&nbsp;</th><th class="text-left p-2 bg-amber-100">PWA</th><th class="text-left p-2 bg-amber-100">Native iOS+Android+macOS</th></tr>
+      <tr><td class="p-2 font-bold">Engineering hours</td><td class="p-2">~22 hrs (Tier 1)</td><td class="p-2">~48-66 hrs additional</td></tr>
+      <tr><td class="p-2 font-bold">Ongoing fees</td><td class="p-2">$0/yr</td><td class="p-2">$99/yr Apple + $25 one-time Google</td></tr>
+      <tr><td class="p-2 font-bold">Platform commission on subscriptions</td><td class="p-2">0%</td><td class="p-2">30% (15% after year 1)</td></tr>
+      <tr><td class="p-2 font-bold">Time to update</td><td class="p-2">Instant on next deploy</td><td class="p-2">1-7 days per app store review</td></tr>
+      <tr><td class="p-2 font-bold">Installs on iPhone</td><td class="p-2">"Add to Home Screen" via Safari</td><td class="p-2">App Store search + install</td></tr>
+      <tr><td class="p-2 font-bold">Installs on Android</td><td class="p-2">Auto-prompt + Chrome install</td><td class="p-2">Play Store search + install</td></tr>
+      <tr><td class="p-2 font-bold">Installs on macOS / Windows</td><td class="p-2">"Install app" via browser</td><td class="p-2">N/A (would need separate builds)</td></tr>
+      <tr><td class="p-2 font-bold">Single codebase</td><td class="p-2">✓ Yes — one code = all platforms</td><td class="p-2">✗ Separate iOS + Android + macOS</td></tr>
+      <tr><td class="p-2 font-bold">App store visibility / discoverability</td><td class="p-2">Browser search only</td><td class="p-2">App Store + Play Store search</td></tr>
+    </table>
+    <p class="mt-3 text-xs text-amber-900"><strong>Verdict:</strong> Start with PWA. Add native apps only if/when app store discoverability becomes a real growth lever (typically when paid users exist + word-of-mouth needs to scale).</p>
+  </div>
+</section>
+
+<!-- ====================== ONGOING MAINTENANCE ====================== -->
+<section class="max-w-7xl mx-auto mb-12 bg-white rounded-2xl shadow p-6">
+  <h2 class="text-2xl font-black text-kp-purple500 mb-2">🔁 Ongoing maintenance (after launch)</h2>
+  <p class="text-gray-600 mb-6">Building it is the easy part. Keeping it healthy is the long game. Here's the realistic monthly engineering cadence after launch.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Frequency</th>
+        <th>Hours / month</th>
+        <th>What it covers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="font-black">SEO + speed audit</td>
+        <td>Monthly</td>
+        <td>~1-2 hrs</td>
+        <td>Google Search Console scan · Lighthouse re-run · sitemap re-submission if new pages · Core Web Vitals · indexing issues · keyword ranking shifts.</td>
+      </tr>
+      <tr>
+        <td class="font-black">Firebase / dependency security patches</td>
+        <td>Monthly</td>
+        <td>~1 hr</td>
+        <td>npm audit · Firebase SDK updates · Vite + React minor versions · any critical CVE patches.</td>
+      </tr>
+      <tr>
+        <td class="font-black">Error log review (Sentry)</td>
+        <td>Weekly</td>
+        <td>~30 min/wk = ~2 hrs/mo</td>
+        <td>Review new errors users hit · triage + fix or backlog · alert escalation for critical bugs.</td>
+      </tr>
+      <tr>
+        <td class="font-black">Uptime + cost monitoring</td>
+        <td>Weekly</td>
+        <td>~15 min/wk = ~1 hr/mo</td>
+        <td>UptimeRobot dashboard · Firebase Blaze billing check · Hostinger usage check · alert if cost spike.</td>
+      </tr>
+      <tr>
+        <td class="font-black">Content moderation (via CMS)</td>
+        <td>Weekly or as flagged</td>
+        <td>Hennie's job — ~1-2 hrs/mo</td>
+        <td>Once stories go public, Hennie reviews flagged content via CMS. Not engineering — but real time.</td>
+      </tr>
+      <tr>
+        <td class="font-black">Backup verification</td>
+        <td>Monthly</td>
+        <td>~30 min</td>
+        <td>Test that Firestore export + Firebase backups are working. Verify we can restore.</td>
+      </tr>
+      <tr>
+        <td class="font-black">User support tickets</td>
+        <td>As they arrive</td>
+        <td>Varies (0-10+ hrs/mo)</td>
+        <td>Reset passwords, refund requests, account merges, lost data, "how do I..." questions. Scales with user count.</td>
+      </tr>
+      <tr class="font-black bg-kp-purple500/5">
+        <td>Total monthly engineering minimum</td>
+        <td>—</td>
+        <td><strong>~5-8 hrs/month</strong></td>
+        <td>Plus reactive support + new feature requests on top.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-xl text-sm text-blue-900">
+    <strong>Why this matters:</strong> SaaS apps aren't "build once, walk away." Firebase pushes SDK updates monthly. Google changes how it indexes pages. Browsers update. Users find edge cases. Without ongoing maintenance, the site degrades quietly — slower load times, missing search results, expired SSL certs, broken integrations. <strong>~5-8 engineering hours/month keeps it healthy.</strong> Compare that to the cost of a full rebuild every 18 months when neglect catches up.
+  </div>
+</section>
+
+<footer class="max-w-7xl mx-auto py-6 border-t border-gray-200 text-center text-xs text-gray-500">
+  Built 2026-05-13 · KEENLY engineering by Max · AL's team<br>
+  Color palette extracted from Hennie's Figma · 22 brand colors · workspace at <code>~/claude/business/keenly/</code>
+</footer>
+
+</body>
+</html>

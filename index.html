@@ -13,40 +13,75 @@ tailwind.config = { theme: { extend: { colors: { keenlyPurple: "#40405D", keenly
 </head>
 <body class="bg-gradient-to-br from-keenlyPurple to-[#2d2d44] min-h-screen text-white">
 
-<div class="max-w-4xl mx-auto px-6 py-16">
+<div class="max-w-5xl mx-auto px-6 py-16">
   <div class="mb-12 text-center">
     <div class="font-black text-5xl tracking-tight mb-2">KEENLY</div>
     <div class="text-keenlyLime font-bold tracking-widest text-sm">M O C K U P S</div>
-    <p class="text-white/70 mt-4 max-w-xl mx-auto">Visual blueprints for the lean monetized SaaS launch. Built from sister's existing brand assets (purple #40405D + lime #AFEB7B + sample story content). Not the final product — sketches for review.</p>
+    <p class="text-white/70 mt-4 max-w-2xl mx-auto">Visual blueprints + status reports for the KEENLY launch. Brand palette pulled directly from Hennie's Figma file. Built by Max on AL's team.</p>
   </div>
 
-  <div class="grid md:grid-cols-3 gap-5">
+  <!-- FEATURED: side-by-side -->
+  <a href="side-by-side-comparison.html" class="block bg-keenlyLime text-keenlyPurple rounded-2xl p-8 hover:scale-[1.01] transition shadow-2xl mb-6">
+    <div class="flex items-center gap-3 mb-3">
+      <span class="text-xs uppercase tracking-widest font-black bg-keenlyPurple text-keenlyLime px-3 py-1 rounded-full">Featured</span>
+      <span class="text-xs uppercase tracking-widest font-bold opacity-60">📊 Status report</span>
+    </div>
+    <div class="text-3xl mb-2">⏱</div>
+    <div class="font-black text-2xl mb-2">Before · Now · What's missing</div>
+    <div class="text-sm opacity-80 mb-3">Complete inventory of every screen and feature. Where each piece was, where it is now after Phase A, and the hours left to ship a real SaaS. Plus ongoing maintenance cadence and native-app comparison.</div>
+    <div class="text-xs font-black">Open status report →</div>
+  </a>
 
-    <a href="cms-dashboard.html" class="block bg-white text-keenlyPurple rounded-2xl p-6 hover:scale-[1.02] transition shadow-xl">
-      <div class="text-4xl mb-3">📊</div>
-      <div class="font-black text-xl mb-1">CMS Dashboard</div>
-      <div class="text-sm text-gray-600 mb-4">Sister's admin home. Live stats, action queue, recent signups, MRR, tier mix, top stories.</div>
-      <div class="text-xs text-keenlyPurple font-black">Open →</div>
+  <div class="grid md:grid-cols-3 gap-5 mb-6">
+
+    <a href="mobile-pwa-mockup.html" class="block bg-white text-keenlyPurple rounded-2xl p-6 hover:scale-[1.02] transition shadow-xl">
+      <div class="text-xs uppercase tracking-widest text-keenlyPurple/60 font-bold mb-2">Build target</div>
+      <div class="text-4xl mb-3">📱</div>
+      <div class="font-black text-xl mb-1">PWA Mobile App</div>
+      <div class="text-sm text-gray-600 mb-4">11 mobile screens for the Progressive Web App: onboarding, dashboard, story viewer/editor, share, account. Hennie's actual brand palette.</div>
+      <div class="text-xs text-keenlyPurple font-black">Open mockup →</div>
     </a>
 
     <a href="cms-all-screens.html" class="block bg-white text-keenlyPurple rounded-2xl p-6 hover:scale-[1.02] transition shadow-xl">
+      <div class="text-xs uppercase tracking-widest text-keenlyPurple/60 font-bold mb-2">Build target</div>
       <div class="text-4xl mb-3">⚙️</div>
-      <div class="font-black text-xl mb-1">CMS — all screens</div>
-      <div class="text-sm text-gray-600 mb-4">Full admin flow: dashboard, user list, user detail with comp-tier override, moderation queue, featured + settings.</div>
-      <div class="text-xs text-keenlyPurple font-black">Open →</div>
+      <div class="font-black text-xl mb-1">CMS Admin</div>
+      <div class="text-sm text-gray-600 mb-4">admin.livekeenly.com — dashboard, user management, story moderation, featured stories, settings. For Hennie to run KEENLY day-to-day.</div>
+      <div class="text-xs text-keenlyPurple font-black">Open mockup →</div>
     </a>
 
-    <a href="web-app.html" class="block bg-keenlyLime text-keenlyPurple rounded-2xl p-6 hover:scale-[1.02] transition shadow-xl">
-      <div class="text-4xl mb-3">📱</div>
-      <div class="font-black text-xl mb-1">Web app (responsive)</div>
-      <div class="text-sm text-keenlyPurple/80 mb-4">8 mobile screens + desktop landing. Sign-up, dashboard, story editor, viewer, share, pricing, account.</div>
-      <div class="text-xs font-black">Open →</div>
+    <a href="cms-dashboard.html" class="block bg-white text-keenlyPurple rounded-2xl p-6 hover:scale-[1.02] transition shadow-xl">
+      <div class="text-xs uppercase tracking-widest text-keenlyPurple/60 font-bold mb-2">Build target</div>
+      <div class="text-4xl mb-3">📊</div>
+      <div class="font-black text-xl mb-1">CMS Dashboard</div>
+      <div class="text-sm text-gray-600 mb-4">Detailed view of the admin home page — live stats, action queue, recent signups, MRR, tier mix, top stories.</div>
+      <div class="text-xs text-keenlyPurple font-black">Open mockup →</div>
+    </a>
+
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-5">
+
+    <a href="web-app.html" class="block bg-white/10 text-white rounded-2xl p-6 hover:bg-white/15 transition border border-white/15">
+      <div class="text-xs uppercase tracking-widest text-keenlyLime font-bold mb-2">Reference</div>
+      <div class="text-3xl mb-3">🖥</div>
+      <div class="font-black text-lg mb-1">Web App Mockup</div>
+      <div class="text-sm text-white/70 mb-3">Early version of the responsive web app — 8 mobile screens + desktop landing. Predates the full brand palette extraction.</div>
+      <div class="text-xs text-keenlyLime font-black">Open →</div>
+    </a>
+
+    <a href="old-team-mobile-app-mockups.html" class="block bg-white/10 text-white rounded-2xl p-6 hover:bg-white/15 transition border border-white/15">
+      <div class="text-xs uppercase tracking-widest text-keenlyLime font-bold mb-2">Reference</div>
+      <div class="text-3xl mb-3">📂</div>
+      <div class="font-black text-lg mb-1">Original mobile reconstruction</div>
+      <div class="text-sm text-white/70 mb-3">Reconstruction of the 8 mobile app screens from the original source code. Visual reference for what existed before.</div>
+      <div class="text-xs text-keenlyLime font-black">Open →</div>
     </a>
 
   </div>
 
   <div class="mt-12 text-center text-white/50 text-xs">
-    livekeenly.com · admin.livekeenly.com · Updated 2026-05-11
+    livekeenly.com · admin.livekeenly.com · Updated 2026-05-13
   </div>
 </div>
 
