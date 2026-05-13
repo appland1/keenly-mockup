@@ -38,6 +38,7 @@ tailwind.config = {
            text-transform: uppercase; letter-spacing: .04em; }
   .b-before{ background: #E5E7EB; color: #6B7280; }
   .b-now   { background: #DCFCE7; color: #166534; }
+  .b-initial{ background: #CCFBF1; color: #115E59; }
   .b-missing{ background: #FED7AA; color: #9A3412; }
   .b-soon  { background: #FEF3C7; color: #92400E; }
   .b-skip  { background: #E0E7FF; color: #3730A3; }
@@ -78,10 +79,94 @@ tailwind.config = {
   <p class="text-gray-600 max-w-3xl">A complete inventory of every screen, feature, and system. <strong>Before</strong> = the state of the project when we picked it up. <strong>Now</strong> = what's live on livekeenly.com today. <strong>What's missing</strong> = the punch list to finish KEENLY as a real SaaS product.</p>
 </header>
 
+<!-- ====================== ALREADY DONE (INITIAL WORK) ====================== -->
+<section class="max-w-7xl mx-auto mb-14 bg-white rounded-2xl shadow overflow-hidden">
+  <div class="px-6 py-4 bg-teal-700 text-white flex items-center justify-between">
+    <h2 class="text-lg font-black">✅ Already done — initial work (before Phase A)</h2>
+    <span class="text-xs uppercase tracking-widest font-bold bg-teal-600 px-3 py-1 rounded-full">Hennie + initial dev</span>
+  </div>
+  <div class="p-6">
+    <p class="text-sm text-gray-600 mb-5">Significant work was completed before this engagement started. Most of it is design + content + infrastructure that we're carrying forward as-is. Crediting that upfront so the full picture is clear.</p>
+
+    <div class="grid md:grid-cols-2 gap-x-8 gap-y-3">
+      <!-- Left column -->
+      <div>
+        <h3 class="text-xs uppercase tracking-widest text-teal-700 font-black mb-2">🎨 Brand identity</h3>
+        <ul class="text-sm space-y-1 mb-5">
+          <li>✅ KEENLY logo (3 variants: lime, dark, white)</li>
+          <li>✅ Tagline: "Empowering Special Needs"</li>
+          <li>✅ Full 22-color brand palette (purple, lime, accents)</li>
+          <li>✅ Custom font: Avenir Next LT Pro (Bold + Regular)</li>
+          <li>✅ Color hex codes + usage rules (in Figma)</li>
+        </ul>
+
+        <h3 class="text-xs uppercase tracking-widest text-teal-700 font-black mb-2">📱 Social media kit</h3>
+        <ul class="text-sm space-y-1 mb-5">
+          <li>✅ Facebook covers (branded)</li>
+          <li>✅ Facebook profile picture (square)</li>
+          <li>✅ Instagram banners (multiple variants)</li>
+          <li>✅ YouTube banner</li>
+          <li>✅ LinkedIn banner</li>
+          <li>✅ 30+ Instagram post templates (multi-color)</li>
+          <li>✅ "Buyer Pop" style ad mockups with real kid photos</li>
+          <li>✅ Campaign copy (Patience / Resilience / Compassion / Understanding / Acceptance themes)</li>
+        </ul>
+
+        <h3 class="text-xs uppercase tracking-widest text-teal-700 font-black mb-2">📚 Story content</h3>
+        <ul class="text-sm space-y-1 mb-5">
+          <li>✅ <strong>9 sample social story PDFs:</strong></li>
+          <li class="ml-4 text-xs text-gray-600">When I get a haircut · When I visit the dentist · When I travel · My morning routine · My nighttime routine · When I feel angry · Feelings and emotions (×3)</li>
+        </ul>
+      </div>
+
+      <!-- Right column -->
+      <div>
+        <h3 class="text-xs uppercase tracking-widest text-teal-700 font-black mb-2">📲 App store assets</h3>
+        <ul class="text-sm space-y-1 mb-5">
+          <li>✅ 6 iPad screenshots (2048×2732)</li>
+          <li>✅ 7 iPhone screenshots (1242×2208 + 1290×2796)</li>
+          <li>✅ Google Play assets adapted</li>
+          <li>✅ <strong>App Store description copy</strong> — ready to paste into App Store Connect</li>
+          <li>✅ Feature highlight bullets</li>
+          <li>✅ Story examples ("When I feel angry", "Well Done!" badge, etc.)</li>
+        </ul>
+
+        <h3 class="text-xs uppercase tracking-widest text-teal-700 font-black mb-2">🖥 Website design</h3>
+        <ul class="text-sm space-y-1 mb-5">
+          <li>✅ Landing page design + build (React + Vite + Tailwind)</li>
+          <li>✅ Our Mission page</li>
+          <li>✅ Our Story page</li>
+          <li>✅ Hero carousel with 5 rotating images</li>
+          <li>✅ Custom React component library (Header, Footer, Modal, Button, etc.)</li>
+          <li>✅ Mobile-responsive Tailwind layout</li>
+        </ul>
+
+        <h3 class="text-xs uppercase tracking-widest text-teal-700 font-black mb-2">🏗 Infrastructure (pre-existing)</h3>
+        <ul class="text-sm space-y-1 mb-5">
+          <li>✅ Domain <code>livekeenly.com</code> registered + DNS</li>
+          <li>✅ Hostinger Business plan hosting (paid, active)</li>
+          <li>✅ SSL certificate (via Hostinger)</li>
+          <li>✅ Daily Hostinger backups enabled</li>
+          <li>✅ Firebase project provisioned (<code>keenly-6eb97</code>)</li>
+          <li>✅ Google Analytics 4 wired (<code>G-D36NTS2YYS</code>)</li>
+          <li>✅ Iubenda cookie consent integrated</li>
+          <li>✅ Titan email service (free tier, available)</li>
+          <li>✅ Custom SVG icon library</li>
+          <li>✅ Story page image assets (kid photos, illustrations)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bg-teal-50 border border-teal-200 rounded-xl p-4 text-sm text-teal-900 mt-2">
+      <strong>The honest take:</strong> The visual + design + content foundation was substantial. The brand identity, the social media campaign, the story content, the app store assets, the marketing pages — all done. What was missing was the working backend behind it. That's what Phase A fixed.
+    </div>
+  </div>
+</section>
+
 <!-- ====================== SUMMARY TABLE ====================== -->
 <section class="max-w-7xl mx-auto mb-14 bg-white rounded-2xl shadow overflow-hidden">
   <div class="px-6 py-4 bg-kp-purple500 text-white">
-    <h2 class="text-lg font-black">📋 Feature inventory</h2>
+    <h2 class="text-lg font-black">📋 Feature inventory — engineering view</h2>
   </div>
   <table>
     <thead>
@@ -380,21 +465,26 @@ tailwind.config = {
 </section>
 
 <!-- ====================== ROLLUP ====================== -->
-<section class="max-w-7xl mx-auto mb-14 grid grid-cols-3 gap-6">
+<section class="max-w-7xl mx-auto mb-14 grid grid-cols-4 gap-4">
+  <div class="bg-white rounded-2xl p-6 shadow border-t-4 border-teal-500">
+    <div class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">Initial work (done)</div>
+    <div class="text-xl font-black text-kp-purple500 mb-2">Full brand + content</div>
+    <div class="text-sm text-gray-600">Logo, palette, fonts, 9 sample stories, social media kit, App Store assets, website design + build, hosting + domain.</div>
+  </div>
   <div class="bg-white rounded-2xl p-6 shadow border-t-4 border-gray-400">
-    <div class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">Before</div>
-    <div class="text-xl font-black text-kp-purple500 mb-2">Marketing site only</div>
-    <div class="text-sm text-gray-600">Beautiful, branded, static storefront. Landing + Our Mission + Our Story. No real product underneath yet.</div>
+    <div class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">Before (state when we joined)</div>
+    <div class="text-xl font-black text-kp-purple500 mb-2">Marketing site, no working app</div>
+    <div class="text-sm text-gray-600">Landing + Our Mission + Our Story rendered. Sign-in / sign-up forms existed but couldn't reach a working backend.</div>
   </div>
   <div class="bg-white rounded-2xl p-6 shadow border-t-4 border-kp-lime400">
     <div class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">Now (live)</div>
     <div class="text-xl font-black text-kp-purple500 mb-2">Real auth working</div>
-    <div class="text-sm text-gray-600">Sign up + sign in + password reset + Google + name display + bot protection + email verification. Firebase backend ($0/mo at this scale).</div>
+    <div class="text-sm text-gray-600">Sign up + sign in + password reset + Google + name display + bot protection + email verification. Firebase backend, $0/mo.</div>
   </div>
   <div class="bg-white rounded-2xl p-6 shadow border-t-4 border-kp-orange">
     <div class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">Left to ship</div>
-    <div class="text-xl font-black text-kp-purple500 mb-2">~50–65 hours</div>
-    <div class="text-sm text-gray-600">PWA shell, Dashboard, Story creator + viewer + library, Sharing, Account, Pricing, Stripe billing, CMS, branded emails. Tiered into 3 phases.</div>
+    <div class="text-xl font-black text-kp-purple500 mb-2">~50–65 hrs (PWA + Stripe)</div>
+    <div class="text-sm text-gray-600">PWA shell, Dashboard, Story creator + viewer + library, Sharing, Account, Pricing, Stripe billing, CMS, branded emails.</div>
   </div>
 </section>
 
@@ -729,6 +819,12 @@ tailwind.config = {
       </tr>
     </thead>
     <tbody>
+      <tr class="bg-teal-50">
+        <td><span class="badge b-initial">INITIAL</span> Brand + design + content + marketing site</td>
+        <td>Pre-engagement</td>
+        <td>—</td>
+        <td>Logo + 22-color palette + Avenir fonts + 9 sample story PDFs + social media kit + App Store screenshots + Google Play assets + landing page React build + Our Mission + Our Story + Hostinger + domain + Firebase project + GA4 + Iubenda cookie consent. Carried forward as-is.</td>
+      </tr>
       <tr class="bg-green-50">
         <td><span class="badge b-now">DONE</span> Phase A — Auth + foundation</td>
         <td>~10 hrs</td>
