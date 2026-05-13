@@ -123,14 +123,163 @@ tailwind.config = {
 
     <!-- WHAT'S ACTUALLY BUILT -->
     <h3 class="text-base font-black text-kp-purple500 mb-3">What's actually built on livekeenly.com today</h3>
-    <div class="bg-amber-50 border border-amber-300 rounded-xl p-5">
-      <p class="text-sm text-gray-800 leading-relaxed mb-3">
+    <div class="bg-amber-50 border border-amber-300 rounded-xl p-5 mb-6">
+      <p class="text-sm text-gray-800 leading-relaxed">
         <strong>None of the flow above is implemented on the desktop website yet.</strong> The only steps that work today are <strong>Sign In</strong> and <strong>Sign Up</strong>. After login, the user lands back on the homepage with "Hi, [Name]" in the nav — there is no dashboard, no story library, no story creator, no share, no anything. You literally <strong>can't post anything or do anything</strong> on the site beyond authenticating.
       </p>
-      <p class="text-sm text-gray-800 leading-relaxed">
-        Everything else from the diagram — pre-made stories, story creation, sharing, my-stories list, all of it — has to be built. That's the entire remaining work scope. Tier 1 PWA delivers Dashboard + Library + Viewer (~22 hrs). Tier 2 delivers Story Creator + Image Upload + Audio + Sharing (~20 hrs more).
-      </p>
     </div>
+
+    <!-- HOURS PER FLOW ITEM -->
+    <h3 class="text-base font-black text-kp-purple500 mb-3">Hours to build each piece of the flow</h3>
+    <table class="mb-6">
+      <thead>
+        <tr>
+          <th style="width: 28%;">Flow piece (from Figma)</th>
+          <th style="width: 12%;">Status</th>
+          <th style="width: 12%;">Hours</th>
+          <th>What it covers</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-green-50">
+          <td class="font-black">Sign In</td>
+          <td><span class="badge b-now">Done</span></td>
+          <td>—</td>
+          <td>Firebase Auth · Google sign-in · forgot password.</td>
+        </tr>
+        <tr class="bg-green-50">
+          <td class="font-black">Sign Up</td>
+          <td><span class="badge b-now">Done</span></td>
+          <td>—</td>
+          <td>Full Name + email + password rules + honeypot + email verification.</td>
+        </tr>
+        <tr>
+          <td class="font-black">Welcome / Get Started landing</td>
+          <td><span class="badge b-missing">To build</span></td>
+          <td>1 hr</td>
+          <td>The "first-time" entry screen — distinct from the marketing landing.</td>
+        </tr>
+        <tr>
+          <td class="font-black">My Stories (dashboard)</td>
+          <td><span class="badge b-missing">To build</span></td>
+          <td>3 hrs</td>
+          <td>List of user's stories with tier badge + "Create new" CTA.</td>
+        </tr>
+        <tr>
+          <td class="font-black">Pre-made stories library</td>
+          <td><span class="badge b-missing">To build</span></td>
+          <td>1.5 hrs</td>
+          <td>Browse the 9 sample stories (haircut, dentist, etc.) + search + filter.</td>
+        </tr>
+        <tr>
+          <td class="font-black">Selected story viewer</td>
+          <td><span class="badge b-missing">To build</span></td>
+          <td>2.5 hrs</td>
+          <td>Full-screen page-by-page swipe + audio playback + page dots.</td>
+        </tr>
+        <tr>
+          <td class="font-black">PWA shell (install on phone)</td>
+          <td><span class="badge b-missing">To build</span></td>
+          <td>3.5 hrs</td>
+          <td>Manifest + service worker + icons + splash + "Add to Home Screen" prompt.</td>
+        </tr>
+        <tr>
+          <td class="font-black">Bottom tab navigation</td>
+          <td><span class="badge b-missing">To build</span></td>
+          <td>2 hrs</td>
+          <td>Home / Library / Create / Account tabs on mobile-web view.</td>
+        </tr>
+        <tr>
+          <td class="font-black">Mobile-responsive layout tweaks</td>
+          <td><span class="badge b-missing">To build</span></td>
+          <td>2.5 hrs</td>
+          <td>Refine breakpoints + test on iOS/Android.</td>
+        </tr>
+        <tr>
+          <td class="font-black">Account / Profile page</td>
+          <td><span class="badge b-missing">To build</span></td>
+          <td>3 hrs</td>
+          <td>Edit name, child profiles, current plan, sign out.</td>
+        </tr>
+        <tr>
+          <td class="font-black">Asset extraction from Figma</td>
+          <td><span class="badge b-missing">To build</span></td>
+          <td>2 hrs</td>
+          <td>Pull individual screen exports, icons, story illustrations.</td>
+        </tr>
+        <tr class="font-black bg-kp-lime400/20">
+          <td colspan="2">Tier 1 PWA subtotal</td>
+          <td>~21 hrs</td>
+          <td>Users can install, browse pre-made stories, read them, manage account. Read-only product.</td>
+        </tr>
+        <tr>
+          <td class="font-black">Story Editor / Creator</td>
+          <td><span class="badge b-missing">To build</span></td>
+          <td>5 hrs</td>
+          <td>Page-by-page editor: title, captions, page ordering, save to Firestore.</td>
+        </tr>
+        <tr>
+          <td class="font-black">Image upload (camera / gallery)</td>
+          <td><span class="badge b-missing">To build</span></td>
+          <td>3 hrs</td>
+          <td>Photo picker, upload to Firebase Storage, thumbnail generation. <em>Requires Blaze plan + credit card.</em></td>
+        </tr>
+        <tr>
+          <td class="font-black">Audio recording</td>
+          <td><span class="badge b-missing">To build</span></td>
+          <td>3 hrs</td>
+          <td>Record narration in-browser, upload to Storage, attach to page.</td>
+        </tr>
+        <tr>
+          <td class="font-black">Story → Share modal</td>
+          <td><span class="badge b-missing">To build</span></td>
+          <td>2 hrs</td>
+          <td>Modal with copy-link / email / SMS / PDF / print buttons.</td>
+        </tr>
+        <tr>
+          <td class="font-black">Story → Copy link (public link)</td>
+          <td><span class="badge b-missing">To build</span></td>
+          <td>1.5 hrs</td>
+          <td>Generate unique share token, public viewer route, ACL check.</td>
+        </tr>
+        <tr>
+          <td class="font-black">Story → Delete + Confirmation</td>
+          <td><span class="badge b-missing">To build</span></td>
+          <td>1 hr</td>
+          <td>Confirmation modal, Firestore + Storage cleanup, success toast.</td>
+        </tr>
+        <tr>
+          <td class="font-black">Invite user / notification</td>
+          <td><span class="badge b-missing">To build</span></td>
+          <td>2 hrs</td>
+          <td>Per-user share with email invite + in-app notification on accept.</td>
+        </tr>
+        <tr>
+          <td class="font-black">PDF export</td>
+          <td><span class="badge b-missing">To build</span></td>
+          <td>2 hrs</td>
+          <td>Cloud Function generates PDF of story pages, signed download URL.</td>
+        </tr>
+        <tr>
+          <td class="font-black">Watermark (free tier)</td>
+          <td><span class="badge b-missing">To build</span></td>
+          <td>1 hr</td>
+          <td>"Made with KEENLY" overlay on shared/exported free-tier stories.</td>
+        </tr>
+        <tr class="font-black bg-kp-orange/20">
+          <td colspan="2">Tier 2 add-on subtotal</td>
+          <td>~20.5 hrs</td>
+          <td>Story creation + sharing + delete + watermarking. Full product.</td>
+        </tr>
+        <tr class="font-black bg-kp-purple500/10">
+          <td colspan="2">Total — full Figma flow built</td>
+          <td>~41-42 hrs</td>
+          <td>Everything in Hennie's "User Flow" diagram, working end-to-end on web + PWA.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="text-xs text-gray-500 italic">Estimates assume Firebase Storage is enabled (Blaze plan) before Tier 2 starts. PWA tier 1 doesn't need Storage — works on Spark free plan.</p>
 
   </div>
 </section>
